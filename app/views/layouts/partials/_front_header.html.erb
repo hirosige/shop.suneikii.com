@@ -1,0 +1,120 @@
+<header>
+  <div class="list-header">
+    <div class="list-header--left">
+      <div class="logo"><i class="fa fa-building site__logo"></i><%= Settings.site[:name] %></div>
+      <div class="description"><a href="<%= root_path %>"><%= t('front.header.title') %> <%= Settings.site[:name] %></a></div>
+    </div>
+
+    <div class="list-header--right">
+      <div class="list-header__lang-text"><%= t('front.header.lang.caption') %></div>
+      <div class="btn-group list-header__lang-btn" role="group" aria-label="...">
+        <% I18n.available_locales.reject{|l| l == I18n.locale}.each do |locale| %>
+            <button type="button" class="btn btn-info" onclick='location.href="<%= i18n_url_for(params.merge(locale: locale)) %>"'>
+              <%= locale %>
+            </button>
+        <% end %>
+      </div>
+
+      <%= cell("front/pc/sessions/sign_in", current_user).(:sign_in_btn) %>
+    </div>
+  </div>
+
+  <div class="control-box">
+
+    <div class="control-box--left">
+      <%= image_tag("snk_logo.jpg", :style => 'width: 100px;', :alt => 'logo') %>
+      <button class="control-box__btn <%= 'control-box__btn--active' if params[:controller].split('/')[1] == 'apartments' %>" onclick="location.href='<%= apartment_province_list_path %>'">
+        <i class="fa fa-building"></i>
+        <%= t('front.apartments.title') %>
+      </button>
+      <button class="control-box__btn" disabled>
+        <i class="fa fa-plus-square-o"></i>
+        <%= t('front.lands.title') %>
+      </button>
+      <button class="control-box__btn" disabled>
+        <i class="fa fa-building-o"></i>
+        <%= t('front.condominiums.title') %>
+      </button>
+
+    </div>
+
+    <a href="<%= user_visited_path %>" class="control-box__login-info">
+      <p><i class="fa fa-search control-box__icon"></i></p>
+      <p class="control-box__counter">
+        <% if session[:apartments_session_list].nil? %>
+            <%= 0 %>
+        <% else %>
+            <%= session[:apartments_session_list].size unless session[:apartments_session_list].nil? %>
+        <% end %>
+
+      </p>
+      <p ><%= t('front.header.session.recent') %></p>
+    </a>
+
+    <% if user_signed_in? %>
+    <a href="<%= favorites_path %>" class="control-box__login-info">
+      <p><i class="fa fa-save control-box__icon"></i></p>
+      <p id="favorite_counter" class="control-box__counter">
+        <% if current_user.favorites.nil? %>
+            <%= 0 %>
+        <% else %>
+            <%= current_user.favorites.size %>
+        <% end %>
+      </p>
+      <p><%= t('front.header.session.favorites') %></p>
+    </a>
+    <% end %>
+
+  </div>
+
+</header>
+
+<%= render "layouts/partials/awesome_debugger" %>
+
+<% module_name = params[:controller].split('/')[0] %>
+<% unless params[:action] == 'render_404' or module_name == 'admin' %>
+  <div class="header-info">
+    <div class="container">
+      <% no_info_controllers = Array.new %>
+      <% no_info_controllers.push(
+             'registrations',
+             'sessions',
+             'confirmations',
+             'passwords',
+             'omniauth_callbacks',
+             'favorites',
+             'users'
+         )
+      %>
+      <% unless no_info_controllers.include?(controller.controller_name) %>
+        <% if params[:province].nil? %>
+              <%= t('front.header.category.caption', :name => params[:controller].split('/')[1].capitalize) %>
+        <% else %>
+              <%= t('front.header.category.breadcrumb',
+                    :category => params[:controller].split('/')[1].capitalize,
+                    :province => @params_service.visualize(params[:province])
+                  )
+              %>
+        <% end %>
+
+        <%= t('front.header.sub_description') %>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+
+<div class="breadcrumb">
+  <div class="container">
+    <%= render_breadcrumbs separator: ' ▶ ' %>
+  </div>
+</div>
+
+<div id="notification" class="general__notification">
+
+</div>
+
+<div id="page-top">
+  <button class="move-top-btn">
+    <i class="fa fa-chevron-up"></i>
+  </button>
+</div>

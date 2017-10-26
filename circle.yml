@@ -1,0 +1,44 @@
+machine:
+  timezone:
+    Asia/Tokyo
+  ruby:
+    version:
+      2.3.4
+  environment:
+    REDIS_URL: redis://localhost:6379
+    TEST_IMG_PATH: /home/ubuntu/property.suneikii.com/spec/results
+dependencies:
+  pre:
+    - sudo apt-get install apt -y
+    - sudo add-apt-repository ppa:beineri/opt-qt542-trusty -y
+    - sudo apt-get update -y; true
+    - sudo apt-get install -y qt54webkit libwebkit-dev libgstreamer0.10-dev
+    - echo "/opt/qt54/bin/qt54-env.sh" >> ~/.circlerc
+    - sudo apt-get install fonts-migmix
+  override:
+    - QMAKE=/opt/qt54/bin/qmake bundle install:
+        timeout: 180
+    - npm install
+database:
+  pre:
+    - mv config/database.yml.ci config/database.yml
+  override:
+    - bundle exec rake db:create db:schema:load RAILS_ENV=test
+    - bundle exec rake db:migrate RAILS_ENV=test
+test:
+  pre:
+    - sudo service redis-server start
+    - rails s -b 0.0.0.0 -e test -d
+  override:
+    - bundle exec rspec spec/units
+
+general:
+  artifacts:
+    - "/home/ubuntu/property.suneikii.com/spec/results"
+    - "log"
+
+deployment:
+  staging:
+    branch: master
+    heroku:
+      appname: snk-property

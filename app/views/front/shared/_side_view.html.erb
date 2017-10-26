@@ -1,0 +1,65 @@
+<div class="explanation-search">
+  <%= t('front.side_view.search.title') %>
+</div>
+
+<div class="sideplane__base">
+  <div class="sideplane-title">
+    <div class="sideplane-title__caption">
+      <i class="fa fa-search"></i> <%= t('front.side_view.area_plane.title') %>
+    </div>
+  </div>
+  <div class="sideplane__body">
+    <div class="sideplane__body-item">
+      <%= t('front.side_view.area_plane.province') %>
+      <div class="sideplane__body-data">
+        <% if @province.nil? %>
+            <%= t('front.side_view.area_plane.no_select') %>
+        <% else %>
+            <%= @province.name_ja %>
+        <% end %>
+      </div>
+    </div>
+    <div class="sideplane__body-item">
+      <%= t('front.side_view.area_plane.district') %>
+      <div class="sideplane__body-data">
+        <% if @district.nil? %>
+            <%= t('front.side_view.area_plane.no_select') %>
+        <% else %>
+            <%= @district.name_ja %>
+        <% end %>
+      </div>
+    </div>
+    <div class="sideplane__body-item">
+      <%= t('front.side_view.area_plane.sub_district') %>
+      <div class="sideplane__body-data">
+        <% if @sub_district.nil? %>
+            <%= t('front.side_view.area_plane.no_select') %>
+        <% else %>
+            <%= @sub_district.name_ja %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--<div class="sideplane__base">-->
+  <!--<div class="sideplane-title">-->
+    <!--<div class="sideplane-title__caption">-->
+      <!--物件種別-->
+    <!--</div>-->
+  <!--</div>-->
+  <!--<div class="description-body">-->
+    <!--<div class="comming_soon">Comming Soon</div>-->
+  <!--</div>-->
+<!--</div>-->
+
+<!--<div class="sideplane__base">-->
+  <!--<div class="sideplane-title">-->
+    <!--<div class="sideplane-title__caption">-->
+      <!--物件の条件-->
+    <!--</div>-->
+  <!--</div>-->
+  <!--<div class="description-body">-->
+    <!--<div class="comming_soon">Comming Soon</div>-->
+  <!--</div>-->
+<!--</div>-->

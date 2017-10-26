@@ -1,0 +1,20 @@
+en:
+  front:
+    header:
+      title: 'Real Estate Site'
+      sub_description: 'Property list page. select the area where you look for a property'
+      category:
+        caption: 'Search for %{name}.'
+        breadcrumb: 'Search %{category} in %{province}.'
+      lang:
+        caption: 'Select Lang'
+        button: ''
+      session:
+        btn_sign_in: 'Sign In'
+        recent: 'Recent Check'
+        favorites: 'Favorites'
+        mypage: 'My Page'
+        edit_profile: 'Edit Profile'
+        sign_out: 'Sign Out'
+        to_admin: '%{site_name} Admin'
+        clear_session: 'Clear Session'

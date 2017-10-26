@@ -1,3 +1,14 @@
-.idea
+.bundle
 .vagrant
-provisioning/site.retry
+tmp
+log
+!log/.keep
+.idea
+ruby
+config/database.yml
+.env
+public/uploads
+# Ignore application configuration
+/config/application.yml
+node_modules
+spec/results

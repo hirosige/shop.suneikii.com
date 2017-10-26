@@ -1,0 +1,113 @@
+<header>
+  <div class="list-header">
+    <div class="list-header--left">
+      <div class="logo" style="display: flex">
+        <i class="fa fa-building site__logo" style="width: 50px"></i>
+        <%= Settings.site[:name].split(' ')[0] %><br>
+        <%= Settings.site[:name].split(' ')[1] %>
+      </div>
+    </div><br>
+
+    <div class="list-header--right">
+      <% I18n.available_locales.reject{|l| l == I18n.locale}.each do |locale| %>
+          <%= link_to(locale, i18n_url_for(params.merge(locale: locale)), :class => 'btn btn-sm btn-info list-header__lang-btn') %>
+      <% end %>
+      <%= cell("front/mobile/sessions/sign_in", current_user).(:sign_in_btn) %>
+    </div>
+  </div>
+
+  <div class="control-box">
+
+    <div class="control-box--left">
+      <%= image_tag("snk_logo.jpg", :style => 'width: 100px;', :alt => 'logo') %>
+      <button class="control-box__btn <%= 'control-box__btn--active' if params[:controller].split('/')[1] == 'apartments' %>" onclick="location.href='<%= apartment_province_list_path %>'">
+        <i class="fa fa-building"></i>
+        アパート
+      </button>
+      <button class="control-box__btn" disabled>
+        <i class="fa fa-plus-square-o"></i>
+        土地
+      </button>
+      <button class="control-box__btn" disabled>
+        <i class="fa fa-building-o"></i>
+        コンドミニアム - mobile
+      </button>
+
+    </div>
+
+    <a href="<%= user_visited_path %>" class="control-box__login-info">
+      <p><i class="fa fa-search control-box__icon"></i></p>
+      <p class="control-box__counter">
+        <% if session[:apartments_session_list].nil? %>
+            <%= 0 %>
+        <% else %>
+            <%= session[:apartments_session_list].size unless session[:apartments_session_list].nil? %>
+        <% end %>
+
+      </p>
+      <p >最近見た物件</p>
+    </a>
+
+    <% if user_signed_in? %>
+    <a href="<%= favorites_path %>" class="control-box__login-info">
+      <p><i class="fa fa-save control-box__icon"></i></p>
+      <p id="favorite_counter" class="control-box__counter">
+        <% if current_user.favorites.nil? %>
+            <%= 0 %>
+        <% else %>
+            <%= current_user.favorites.size %>
+        <% end %>
+      </p>
+      <p>お気に入り</p>
+    </a>
+    <% end %>
+
+  </div>
+
+</header>
+
+<%= render "layouts/partials/awesome_debugger" %>
+
+<% module_name = params[:controller].split('/')[0] %>
+<% unless params[:action] == 'render_404' or module_name == 'admin' %>
+  <div class="header-info">
+    <div class="container">
+      <% no_info_controllers = Array.new %>
+      <% no_info_controllers.push(
+             'registrations',
+             'sessions',
+             'confirmations',
+             'passwords',
+             'omniauth_callbacks',
+             'favorites',
+             'users'
+         )
+      %>
+      <% unless no_info_controllers.include?(controller.controller_name) %>
+        <% if params[:province].nil? %>
+            <%= params[:controller].split('/')[1].capitalize %> を検索
+        <% else %>
+            <%= params[:province].capitalize unless params[:province].nil? %>の<%= params[:controller].split('/')[1].capitalize %>
+        <% end %>
+
+        物件一覧ページ。面積（坪数）や価格（坪単価）で絞り込み、簡単に比較・資料請求。
+      <% end %>
+    </div>
+  </div>
+<% end %>
+
+<div class="breadcrumb">
+  <div class="container">
+    <%= render_breadcrumbs separator: ' ▶ ' %>
+  </div>
+</div>
+
+<div id="notification" class="general__notification">
+
+</div>
+
+<div id="page-top">
+  <button class="move-top-btn">
+    <i class="fa fa-chevron-up"></i>
+  </button>
+</div>
