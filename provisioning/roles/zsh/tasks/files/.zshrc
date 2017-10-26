@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:/vagrant/node_modules/.bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:/vagrant/node_modules/.bin:/usr/lib64/qt5/bin:$PATH
 
 # Path to your oh-my-zsh installation.
   export ZSH=/home/vagrant/.oh-my-zsh
