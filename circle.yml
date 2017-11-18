@@ -41,4 +41,4 @@ deployment:
   staging:
     branch: master
     heroku:
-      appname: shop.suneikii
+      appname: shop-suneikii
