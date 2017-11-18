@@ -34,11 +34,11 @@ test:
 
 general:
   artifacts:
-    - "/home/ubuntu/property.suneikii.com/spec/results"
+    - "/home/ubuntu/shop.suneikii.com/spec/results"
     - "log"
 
 deployment:
   staging:
     branch: master
     heroku:
-      appname: snk-property
+      appname: shop.suneikii
