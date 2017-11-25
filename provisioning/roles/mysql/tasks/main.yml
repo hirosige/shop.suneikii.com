@@ -14,16 +14,16 @@
   notify: restart mysql
 
 - name: Create user for aga
-  mysql_user: name=property_admin password=password priv=*.*:ALL state=present
+  mysql_user: name=shop_admin password=password priv=*.*:ALL state=present
 
 - name: Remove db for development
-  mysql_db: name=property_db state=absent
+  mysql_db: name=shop_db state=absent
 
 - name: Remove db for test
-  mysql_db: name=property_db_test state=absent
+  mysql_db: name=shop_db_test state=absent
 
 - name: Create db for development
-  mysql_db: name=property_db state=present
+  mysql_db: name=shop_db state=present
 
 - name: Create db for test
-  mysql_db: name=property_db_test state=present
+  mysql_db: name=shop_db_test state=present
