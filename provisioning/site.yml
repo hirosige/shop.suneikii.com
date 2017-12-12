@@ -14,4 +14,4 @@
 #   - { role: bundle                 }
    - { role: zsh                    }
    - { role: redis                  }
-   - { role: npm                    }
+#   - { role: npm                    } # TODO :: R.I.P. PhantomJS

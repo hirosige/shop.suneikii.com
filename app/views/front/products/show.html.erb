@@ -1,175 +1,82 @@
-<div class="right_col" role="main">
-
-  <div class="">
-    <div class="page-title">
-      <div class="title_left">
-        <h3>Product Detail</h3>
-      </div>
-
-      <div class="title_right">
-        <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search for...">
-            <span class="input-group-btn">
-                      <button class="btn btn-default" type="button">Go!</button>
-                    </span>
-          </div>
+<section class="content-products">
+  <div class="container">
+    <div class="row pt-4 pb-4">
+      <div class="col col-lg-6 col-md-6 col-12 d-flex flex-column justify-content-center align-items-center img-block">
+        <div class="img-full-block pb-3">
+          <img src="/assets/images/sample/sample-06.png" alt="" class="img-fluid">
+        </div>
+        <div class="img-thumbnail-block">
+          <img src="/assets/images/sample/sample-06.png" alt="" class="img-thumbnail">
+          <img src="/assets/images/sample/sample-05.png" alt="" class="img-thumbnail">
+          <img src="/assets/images/sample/sample-04.png" alt="" class="img-thumbnail">
         </div>
       </div>
-    </div>
-
-    <div class="clearfix"></div>
-
-    <div class="row">
-      <div class="col-md-12 col-sm-12 col-xs-12">
-        <div class="x_panel">
-          <div class="x_title">
-            <h2>Detailed Information</h2>
-            <ul class="nav navbar-right panel_toolbox">
-              <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-              </li>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                <ul class="dropdown-menu" role="menu">
-                  <li><a href="#">Settings 1</a>
-                  </li>
-                  <li><a href="#">Settings 2</a>
-                  </li>
-                </ul>
-              </li>
-              <li><a class="close-link"><i class="fa fa-close"></i></a>
-              </li>
-            </ul>
-            <div class="clearfix"></div>
+      <div class="col col-lg-6 col-md-6 col-12 mt-md-0 mt-lg-0 mt-3">
+        <h4 class="text-uppercase font-weight-bold">Neutrogena Oil-Free Moisturizer</h4>
+        <div class="pb-3">
+          <div class="small">
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span>
           </div>
-          <div class="x_content">
+          <span class="small">41 reviews</span>
+        </div>
+        <p class="">It's a lightweight, non-smelly, no-fuss moisturizer at a good price point, and it's totally
+          effective, so honestly I'm a little smug about my using it.</p>
 
-            <div class="col-md-7 col-sm-7 col-xs-12">
-              <div class="product-image">
-                <img src="/images/prod1.jpg" alt="..." />
-              </div>
-              <div class="product_gallery">
-                <a>
-                  <img src="/images/prod2.jpg" alt="..." />
-                </a>
-                <a>
-                  <img src="/images/prod3.jpg" alt="..." />
-                </a>
-                <a>
-                  <img src="/images/prod4.jpg" alt="..." />
-                </a>
-                <a>
-                  <img src="/images/prod5.jpg" alt="..." />
-                </a>
-              </div>
-            </div>
+        <h6 class="text-uppercase font-weight-bold">current price: <span style="font-size: 1.6em">฿1800</span> /
+          piece</h6>
+        <p class=""><strong>91%</strong> of buyers enjoyed this product! <strong>(87 votes)</strong></p>
 
-            <div class="col-md-5 col-sm-5 col-xs-12" style="border:0px solid #e5e5e5;">
+        <h6 class="text-uppercase font-weight-bold">sizes:</h6>
+        <div class="btn-group" data-toggle="buttons">
+          <label class="btn btn-sm btn-primary-custom has-cursor-pointer active">
+            <input type="radio" name="color" autocomplete="off" checked> S
+          </label>
+          <label class="btn btn-sm btn-primary-custom has-cursor-pointer">
+            <input type="radio" name="color" autocomplete="off"> M
+          </label>
+          <label class="btn btn-sm btn-primary-custom has-cursor-pointer">
+            <input type="radio" name="color" autocomplete="off"> L
+          </label>
+        </div>
 
-              <h3 class="prod_title"><%= @product.name %></h3>
+        <h6 class="text-uppercase font-weight-bold">colors:</h6>
+        <div class="btn-group" data-toggle="buttons">
+          <label class="btn btn-sm btn-primary-custom has-cursor-pointer active">
+            <input type="radio" name="size" autocomplete="off" checked> Red
+          </label>
+          <label class="btn btn-sm btn-primary-custom has-cursor-pointer">
+            <input type="radio" name="size" autocomplete="off"> Green
+          </label>
+          <label class="btn btn-sm btn-primary-custom">
+            <input type="radio" name="size" autocomplete="off"> Blue
+          </label>
+        </div>
 
-              <p><%= @product.description %></p>
-              <br />
+        <h6 class="text-uppercase font-weight-bold">Quantity:</h6>
+        <div class="input-group number-spinner">
+                    <span class="input-group-btn">
+                        <button class="btn btn-sm btn-primary-custom has-cursor-pointer" data-dir="dwn">
+                            <span class="">-</span>
+                        </button>
+                    </span>
+          <input type="text" class= "form-control form-control-sm text-center outline-primary-custom" value="1">
+          <span class="input-group-btn">
+                        <button class="btn btn-sm btn-primary-custom has-cursor-pointer" data-dir="up">
+                            <span class="">+</span>
+                        </button>
+                    </span>
+        </div>
 
-              <div class="">
-                <h2>Available Colors</h2>
-                <ul class="list-inline prod_color">
-                  <li>
-                    <p>Green</p>
-                    <div class="color bg-green"></div>
-                  </li>
-                  <li>
-                    <p>Blue</p>
-                    <div class="color bg-blue"></div>
-                  </li>
-                  <li>
-                    <p>Red</p>
-                    <div class="color bg-red"></div>
-                  </li>
-                  <li>
-                    <p>Orange</p>
-                    <div class="color bg-orange"></div>
-                  </li>
-
-                </ul>
-              </div>
-              <br />
-
-              <div class="">
-                <h2>Size <small>Please select one</small></h2>
-                <ul class="list-inline prod_size">
-                  <li>
-                    <button type="button" class="btn btn-default btn-xs">Small</button>
-                  </li>
-                  <li>
-                    <button type="button" class="btn btn-default btn-xs">Medium</button>
-                  </li>
-                  <li>
-                    <button type="button" class="btn btn-default btn-xs">Large</button>
-                  </li>
-                  <li>
-                    <button type="button" class="btn btn-default btn-xs">Xtra-Large</button>
-                  </li>
-                </ul>
-              </div>
-              <br />
-
-              <div class="">
-                <div class="product_price">
-                  <h1 class="price"><%= "$#{@product.price}" %></h1>
-                  <span class="price-tax">Ex Tax: <label class="label label-danger">Under Construction</label></span>
-                  <br>
-                </div>
-              </div>
-
-              <div class="">
-                <button type="button" class="btn btn-default btn-lg" onclick="location.href='<%= add_cart_front_product_path(@product.id) %>'">Add to Cart</button>
-                <button type="button" class="btn btn-default btn-lg">Add to Wishlist</button>
-              </div>
-
-              <div class="product_social">
-                <ul class="list-inline">
-                  <li><a href="#"><i class="fa fa-facebook-square"></i></a>
-                  </li>
-                  <li><a href="#"><i class="fa fa-twitter-square"></i></a>
-                  </li>
-                  <li><a href="#"><i class="fa fa-envelope-square"></i></a>
-                  </li>
-                  <li><a href="#"><i class="fa fa-rss-square"></i></a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="col-md-12">
-              <div class="" role="tabpanel" data-example-id="togglable-tabs">
-                <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
-                  <li role="presentation" class="active"><a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Home</a>
-                  </li>
-                  <li role="presentation" class=""><a href="#tab_content2" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">Profile</a>
-                  </li>
-                  <li role="presentation" class=""><a href="#tab_content3" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">Review</a>
-                  </li>
-                </ul>
-                <div id="myTabContent" class="tab-content">
-                  <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
-                    <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher
-                      synth. Cosby sweater eu banh mi, qui irure terr.</p>
-                  </div>
-                  <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab">
-                    <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo
-                      booth letterpress, commodo enim craft beer mlkshk aliquip</p>
-                  </div>
-                  <div role="tabpanel" class="tab-pane fade" id="tab_content3" aria-labelledby="profile-tab">
-                    <p>xxFood truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui
-                      photo booth letterpress, commodo enim craft beer mlkshk </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div class="pt-4">
+          <button class="btn btn-primary-custom has-cursor-pointer" type="button">Add to Cart</button>
+          <button class="btn btn-outline-primary-custom has-cursor-pointer" type="button"><span
+          class="fa fa-heart"></span></button>
         </div>
       </div>
     </div>
   </div>
-</div>
+</section>

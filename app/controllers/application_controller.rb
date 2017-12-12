@@ -35,13 +35,13 @@ class ApplicationController < ActionController::Base
   def render_401
     add_breadcrumb "#{t('front.errors.error_401.title')} | #{Settings.site[:name]}"
 
-    render template: 'errors/error_401', status: 401, layout: 'error', content_type: 'text/html'
+    render template: '/errors/error_401', status: 401, layout: 'error', content_type: 'text/html'
   end
 
   def render_404
     add_breadcrumb "#{t('front.errors.error_404.title')} | #{Settings.site[:name]}"
 
-    render template: 'errors/error_404', status: 404, layout: 'error', content_type: 'text/html'
+    render template: '/errors/error_404.html.erb', status: 404, layout: 'error', content_type: 'text/html'
   end
 
   def after_sign_in_path_for(resource)

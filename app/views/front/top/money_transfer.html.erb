@@ -1,0 +1,92 @@
+<section class="content-payment">
+  <div class="container pb-3">
+    <p class="section-category">Money Transfer</p>
+    <div class="row">
+      <div class="col col-8">
+        <h5>
+          <strong>Instruction</strong>
+        </h5>
+        <div>
+          <ul style="list-style: circle">
+            <li>We will check submitted payment information 4 times per day</li>
+            <li>Please transfer the money with decimal number.</li>
+            <li>You can track your payment inform status
+              <a href="/components/users/my-order.html" title="">HERE</a>
+            </li>
+          </ul>
+        </div>
+        <hr>
+        <table class="table table-bordered">
+          <thead>
+          <tr>
+            <th>Bank</th>
+            <th>Branch</th>
+            <th>Account number</th>
+            <th>Account name</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td>KBank</td>
+            <td>Central Bangna</td>
+            <td>xxx-xxx-xxx-xxx</td>
+            <td>xxxxxx xxxxxx</td>
+          </tr>
+          <tr>
+            <td>SCB</td>
+            <td>Central Bangna</td>
+            <td>xxx-xxx-xxx-xxx</td>
+            <td>xxxxxx xxxxxx</td>
+          </tr>
+          <tr>
+            <td>KTC</td>
+            <td>Central Bangna</td>
+            <td>xxx-xxx-xxx-xxx</td>
+            <td>xxxxxx xxxxxx</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <hr>
+      <div class="col col-4">
+        <h5>
+          <strong>Payment inform</strong>
+        </h5>
+        <div class="form-group">
+          <label class="d-block">Transferred to</label>
+          <label class="d-block pl-2">
+            <input type="radio" name="bank_account" value="KBANK">
+            &nbsp;KBank
+          </label>
+
+          <label class="d-block pl-2">
+            <input type="radio" name="bank_account" value="SCB">
+            &nbsp;SCB
+          </label>
+
+          <label class="d-block pl-2">
+            <input type="radio" name="bank_account" value="KTC">
+            &nbsp;KTC
+          </label>
+        </div>
+        <div class="form-group">
+          <label for="datetimepicker">Date of Payment</label>
+          <input id="datetimepicker" name="date" type="text" class="form-control" value="2017-11-24 20:22"
+                 autocomplete="off" placeholder="Click to Choose Time">
+        </div>
+
+        <div class="form-group">
+          <label for="amount">Amount</label>
+          <input id="amount" name="amount" type="text" class="form-control" value="" autocomplete="off"
+                 placeholder="Transferred Money. For example, 2000.18">
+        </div>
+        <hr>
+        <div>
+          <button type="button" disabled class="btn btn-primary-custom" data-toggle="tooltip" data-placement="top" title="Please Login First">
+            Submit Payment
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

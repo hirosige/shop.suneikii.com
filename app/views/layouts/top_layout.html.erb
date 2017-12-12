@@ -1,17 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="UTF-8">
   <title><%= content_for?(:title) ? "#{yield(:title)} | #{Settings.site[:name]}" : Settings.site[:name] %> </title>
 
   <%= render 'layouts/partials/front_assets' %>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 </head>
 
-<body class="main">
+<body>
 
-  <%= render 'layouts/partials/front_top_header' %>
+  <%= render 'layouts/partials/front_top_bar' %>
+  <%= render 'layouts/partials/front_top_nav_bar' %>
   <%= yield %>
-  <%= render 'layouts/partials/front_top_footer' %>
+<footer class="footer">
+  <%= render 'layouts/partials/front_top_footer_top' %>
+  <%= render 'layouts/partials/front_top_footer_bottom' %>
+</footer>
 
 </body>
 </html>
