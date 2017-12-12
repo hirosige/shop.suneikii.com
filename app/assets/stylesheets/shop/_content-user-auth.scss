@@ -1,0 +1,54 @@
+/*-----------------------------------
+    User Auth
+-----------------------------------*/
+.content-user-auth {
+  
+  & .box {
+    background-color: $white;
+    padding: 3em;
+    border-radius: 2px;
+    box-shadow: 0 2px 5px rgba(0,0,0,.1);
+  }
+
+  & .login {
+    @extend .box;
+
+    & .btn-facebook {
+      background-color: #3d5a96;
+      color: $font-white ;
+
+      &:hover {
+        background-color: darken(#3d5a96, 10%);
+        color: $font-white ;
+      }
+    }
+
+    .btn-twitter {
+      background-color: #59adec;
+      color: $font-white ;
+
+      &:hover {
+        background-color: darken(#59adec, 10%);
+        color: $font-white ;
+      }
+    }
+
+    .btn-google-plus {
+      background-color: #d9453d;
+      color: $font-white ;
+
+      &:hover {
+        background-color: darken(#d9453d, 10%);
+        color: $font-white ;
+      }
+    }
+  }
+  
+  & .create-an-account {
+    @extend .box;
+  }
+
+  & .recover-password {
+    @extend .box;
+  }
+}

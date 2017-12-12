@@ -1,16 +1,275 @@
 <% provide(:title, "Home") %>
 
-<div class="top-body__base">
-  <div class="top-body__title">
-    <%= t('front.top.home.search_property') %>
+<section class="content-index">
+  <div class="container">
+    <div class="row deal">
+      <div class="col-lg-8 col-md-6 col-12 mt-4 pr-lg-3 pr-md-3">
+        <div class="deal-item" style="background-image: url('/assets/sample/sample-01.jpg');">
+          <p class="title-1">Fresh your face</p>
+          <p class="title-2">Get Hot Summer <br> Premium Collection</p>
+          <a href="#" class="btn btn-primary-custom btn-deal">Get Deal</a>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 col-12 mt-4 pr-lg-3 pr-md-3">
+        <div class="deal-item">
+          <p class="title-1">Winter collection 2017</p>
+          <p class="title-2 price-off">66% <br>OFF</p>
+          <a href="#" class="btn btn-primary-custom btn-deal">Get Deal</a>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 col-12 mt-4 pr-lg-3 pr-md-3">
+        <div class="deal-item" style="background-image: url('/assets/sample/sample-02.jpg');">
+          <p class="title-1">Save 10% on every Friday</p>
+          <p class="title-2">Hot Summer <br> Collection</p>
+          <a href="#" class="btn btn-primary-custom btn-deal">Get Deal</a>
+        </div>
+
+      </div>
+      <div class="col-lg-8 col-md-6 col-12 mt-4 pr-lg-3 pr-md-3">
+        <div class="deal-item" style="background-image: url('/assets/sample/sample-03.jpg');">
+          <p class="title-1">Winter collection</p>
+          <p class="title-2">Winter Autumn <br>Premium Collection</p>
+          <a href="#" class="btn btn-primary-custom btn-deal">Get Deal</a>
+        </div>
+      </div>
+    </div>
   </div>
 
   <div class="container">
-    <div class="top-body__buttons">
-      <%= link_to t('front.top.home.apartment'), apartment_province_list_path, :class => 'btn top-body__categories' %>
-      <%= link_to t('front.top.home.condominium'), apartment_province_list_path, :class => 'btn top-body__categories' %>
-      <%= link_to t('front.top.home.house'), apartment_province_list_path, :class => 'btn top-body__categories' %>
-      <%= link_to t('front.top.home.land'), apartment_province_list_path, :class => 'btn top-body__categories' %>
+    <p class="section-category">New Arrivals</p>
+    <div class="row product-list">
+      <div class="col col-lg-3 col-md-6 col-12 mb-3">
+        <div class="product-card">
+          <a href="/components/product/product-detail.html" class="d-block child-img-hover-zoom">
+            <div class="d-flex justify-content-end align-items-center">
+              <!--<div class="base-price"><span>฿</span><span>2,229.50</span></div>-->
+              <div class="current-price"><span>฿</span><span>1,229.50</span></div>
+            </div>
+            <%= image_tag 'sample/sample-04.png' , class: 'product-image'%>
+            <div class="product-name">
+              Vintage Set
+            </div>
+          </a>
+          <div class="product-action">
+            <i class="fa fa-heart" aria-hidden="true"></i>
+            <i class="fa fa-cart-plus" aria-hidden="true"></i>
+
+          </div>
+        </div>
+      </div>
+      <div class="col col-lg-3 col-md-6 col-12 mb-3">
+        <div class="product-card">
+          <a href="/components/product/product-detail.html" class="d-block child-img-hover-zoom">
+            <div class="d-flex justify-content-end align-items-center">
+              <!--<div class="base-price"><span>฿</span><span>2,229.50</span></div>-->
+              <div class="current-price"><span>฿</span><span>1,229.50</span></div>
+            </div>
+            <%= image_tag 'sample/sample-04.png' , class: 'product-image'%>
+            <div class="product-name">
+              White Blended Cotton
+            </div>
+          </a>
+          <div class="product-action">
+            <i class="fa fa-heart" aria-hidden="true"></i>
+            <i class="fa fa-cart-plus" aria-hidden="true"></i>
+
+          </div>
+        </div>
+      </div>
+      <div class="col col-lg-3 col-md-6 col-12 mb-3">
+        <div class="product-card">
+          <a href="/components/product/product-detail.html" class="d-block child-img-hover-zoom">
+            <div class="d-flex justify-content-end align-items-center">
+              <!--<div class="base-price"><span>฿</span><span>2,229.50</span></div>-->
+              <div class="current-price"><span>฿</span><span>1,229.50</span></div>
+            </div>
+            <%= image_tag 'sample/sample-04.png' , class: 'product-image'%>
+            <div class="product-name">
+              White Blended Cotton
+            </div>
+          </a>
+          <div class="product-action">
+            <i class="fa fa-heart" aria-hidden="true"></i>
+            <i class="fa fa-cart-plus" aria-hidden="true"></i>
+
+          </div>
+        </div>
+      </div>
+      <div class="col col-lg-3 col-md-6 col-12 mb-3">
+        <div class="product-card">
+          <a href="/components/product/product-detail.html" class="d-block child-img-hover-zoom">
+            <div class="d-flex justify-content-end align-items-center">
+              <div class="base-price"><span>฿</span><span>2,229.50</span></div>
+              <div class="current-price"><span>฿</span><span>1,229.50</span></div>
+            </div>
+            <%= image_tag 'sample/sample-04.png' , class: 'product-image'%>
+            <div class="product-name">
+              White Blended Cotton
+            </div>
+          </a>
+          <div class="product-action">
+            <i class="fa fa-heart" aria-hidden="true"></i>
+            <i class="fa fa-cart-plus" aria-hidden="true"></i>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="section-category">Best Sales</p>
+    <div class="row product-list">
+      <div class="col col-lg-3 col-md-6 col-12 mb-3">
+        <div class="product-card">
+          <a href="/components/product/product-detail.html" class="d-block child-img-hover-zoom">
+            <div class="d-flex justify-content-end align-items-center">
+              <div class="base-price"><span>฿</span><span>2,229.50</span></div>
+              <div class="current-price"><span>฿</span><span>1,229.50</span></div>
+            </div>
+            <%= image_tag 'sample/sample-05.png' , class: 'product-image'%>
+            <div class="product-name">
+              Vintage Set
+            </div>
+          </a>
+          <div class="product-action">
+            <i class="fa fa-heart" aria-hidden="true"></i>
+            <i class="fa fa-cart-plus" aria-hidden="true"></i>
+
+          </div>
+        </div>
+      </div>
+      <div class="col col-lg-3 col-md-6 col-12 mb-3">
+        <div class="product-card">
+          <a href="/components/product/product-detail.html" class="d-block child-img-hover-zoom">
+            <div class="d-flex justify-content-end align-items-center">
+              <div class="base-price"><span>฿</span><span>2,229.50</span></div>
+              <div class="current-price"><span>฿</span><span>1,229.50</span></div>
+            </div>
+            <%= image_tag 'sample/sample-05.png' , class: 'product-image'%>
+            <div class="product-name">
+              White Blended Cotton
+            </div>
+          </a>
+          <div class="product-action">
+            <i class="fa fa-heart" aria-hidden="true"></i>
+            <i class="fa fa-cart-plus" aria-hidden="true"></i>
+
+          </div>
+        </div>
+      </div>
+      <div class="col col-lg-3 col-md-6 col-12 mb-3">
+        <div class="product-card">
+          <a href="/components/product/product-detail.html" class="d-block child-img-hover-zoom">
+            <div class="d-flex justify-content-end align-items-center">
+              <div class="base-price"><span>฿</span><span>2,229.50</span></div>
+              <div class="current-price"><span>฿</span><span>1,229.50</span></div>
+            </div>
+            <%= image_tag 'sample/sample-05.png' , class: 'product-image'%>
+            <div class="product-name">
+              White Blended Cotton
+            </div>
+          </a>
+          <div class="product-action">
+            <i class="fa fa-heart" aria-hidden="true"></i>
+            <i class="fa fa-cart-plus" aria-hidden="true"></i>
+
+          </div>
+        </div>
+      </div>
+      <div class="col col-lg-3 col-md-6 col-12 mb-3">
+        <div class="product-card">
+          <a href="/components/product/product-detail.html" class="d-block child-img-hover-zoom">
+            <div class="d-flex justify-content-end align-items-center">
+              <div class="base-price"><span>฿</span><span>2,229.50</span></div>
+              <div class="current-price"><span>฿</span><span>1,229.50</span></div>
+            </div>
+            <%= image_tag 'sample/sample-05.png' , class: 'product-image'%>
+            <div class="product-name">
+              White Blended Cotton
+            </div>
+          </a>
+          <div class="product-action">
+            <i class="fa fa-heart" aria-hidden="true"></i>
+            <i class="fa fa-cart-plus" aria-hidden="true"></i>
+
+          </div>
+        </div>
+      </div>
+      <div class="col col-lg-3 col-md-6 col-12 mb-3">
+        <div class="product-card">
+          <a href="/components/product/product-detail.html" class="d-block child-img-hover-zoom">
+            <div class="d-flex justify-content-end align-items-center">
+              <div class="base-price"><span>฿</span><span>2,229.50</span></div>
+              <div class="current-price"><span>฿</span><span>1,229.50</span></div>
+            </div>
+            <%= image_tag 'sample/sample-06.png' , class: 'product-image'%>
+            <div class="product-name">
+              Vintage Set
+            </div>
+          </a>
+          <div class="product-action">
+            <i class="fa fa-heart" aria-hidden="true"></i>
+            <i class="fa fa-cart-plus" aria-hidden="true"></i>
+
+          </div>
+        </div>
+      </div>
+      <div class="col col-lg-3 col-md-6 col-12 mb-3">
+        <div class="product-card">
+          <a href="/components/product/product-detail.html" class="d-block child-img-hover-zoom">
+            <div class="d-flex justify-content-end align-items-center">
+              <div class="base-price"><span>฿</span><span>2,229.50</span></div>
+              <div class="current-price"><span>฿</span><span>1,229.50</span></div>
+            </div>
+            <%= image_tag 'sample/sample-06.png' , class: 'product-image'%>
+            <div class="product-name">
+              White Blended Cotton
+            </div>
+          </a>
+          <div class="product-action">
+            <i class="fa fa-heart" aria-hidden="true"></i>
+            <i class="fa fa-cart-plus" aria-hidden="true"></i>
+
+          </div>
+        </div>
+      </div>
+      <div class="col col-lg-3 col-md-6 col-12 mb-3">
+        <div class="product-card">
+          <a href="/components/product/product-detail.html" class="d-block child-img-hover-zoom">
+            <div class="d-flex justify-content-end align-items-center">
+              <div class="base-price"><span>฿</span><span>2,229.50</span></div>
+              <div class="current-price"><span>฿</span><span>1,229.50</span></div>
+            </div>
+            <%= image_tag 'sample/sample-06.png' , class: 'product-image'%>
+            <div class="product-name">
+              White Blended Cotton
+            </div>
+          </a>
+          <div class="product-action">
+            <i class="fa fa-heart" aria-hidden="true"></i>
+            <i class="fa fa-cart-plus" aria-hidden="true"></i>
+
+          </div>
+        </div>
+      </div>
+      <div class="col col-lg-3 col-md-6 col-12 mb-3">
+        <div class="product-card">
+          <a href="/components/product/product-detail.html" class="d-block child-img-hover-zoom">
+            <div class="d-flex justify-content-end align-items-center">
+              <div class="base-price"><span>฿</span><span>2,229.50</span></div>
+              <div class="current-price"><span>฿</span><span>1,229.50</span></div>
+            </div>
+            <%= image_tag 'sample/sample-06.png' , class: 'product-image'%>
+            <div class="product-name">
+              White Blended Cotton
+            </div>
+          </a>
+          <div class="product-action">
+            <i class="fa fa-heart" aria-hidden="true"></i>
+            <i class="fa fa-cart-plus" aria-hidden="true"></i>
+
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-</div>
+</section>

@@ -1,0 +1,156 @@
+/*-----------------------------------
+    Index
+-----------------------------------*/
+.content-index {
+  & .deal {
+    padding-bottom: 10px;
+
+    & .deal-item {
+      padding: 30px;
+      color: $font-white;
+      background-color: lighten($primary-color, 10%);
+      background-position: center;
+      background-size: cover;
+      height: 100%;
+      word-break: break-all;
+      hyphens: auto;
+      position: relative;
+      box-shadow: 0 2px 5px rgba(0,0,0,.1);
+      border-radius: 2px;
+      z-index: 1;
+      
+      & * {
+        position: relative;
+        z-index: 2;
+      }
+
+      &::after {
+        transition: all ease 0.2s;
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0);
+        top: 0;
+        left: 0;
+        z-index: 0;
+      }
+
+      &:hover {
+        
+        &::after {
+          background-color: rgba(0,0,0,.7);
+        }
+        
+        & > p.title-2 {
+          transform: scale(1.1);
+        }
+      }
+
+      & > p.title-1 {
+        text-transform: uppercase;
+        padding-bottom: .5em;
+        font-size: 1.2em;
+        font-weight: 600;
+      }
+
+      & > p.title-2 {
+        font-family: 'PT Serif', serif;
+        font-size: 2.3em;
+        line-height: 1.1em;
+        padding-bottom: 50px;
+        font-weight: 600;
+        transition: all ease 0.2s;
+        transform-origin: 0% 50%;
+
+        &.price-off {
+          font-size: 4em;
+          line-height: 1em;
+        }
+      }
+
+      .btn-deal {
+        position: absolute;
+        bottom: 30px
+      }
+    }
+  }
+
+  & .product-list {
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    & .product-card {
+      padding: 10px;
+      background-color: $white;
+      height: 380px;
+      box-shadow: 0 2px 5px rgba(0,0,0,.1);
+      border-radius: 2px;
+
+      & .base-price {
+        text-align: right;
+        min-width: 70px;
+        padding: 5px 15px;
+        text-decoration: line-through;
+        color: $grey;
+        font-size: 0.7em;
+        opacity: 0.9;
+      }
+
+      & .current-price {
+        background-color: $primary-color;
+        color: $font-white;
+        min-width: 80px;
+        padding: 8px;
+        text-align: center;
+        font-size: 0.8em;
+      }
+
+      & .product-image {
+        width: 100%;
+        height: 260px;
+        padding: 30px;
+        object-fit: contain;
+      }
+
+      & .product-name {
+        text-align: center;
+        padding: 5px 20px;
+        margin: 0 -10px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        color: $font-grey-2x;
+        font-size: .9em;
+      }
+
+      & .product-action {
+        border-top: 1px solid rgba(0, 0, 0, .1);
+        text-align: center;
+        padding: 8px 0;
+
+        & i {
+          cursor: pointer;
+          padding: 0 2px;
+          color: $font-grey-2x;
+
+          &.fa-heart {
+            font-size: 1.3em;
+
+            &:hover {
+              color: lightcoral;
+            }
+          }
+
+          &.fa-cart-plus {
+            font-size: 1.4em;
+
+            &:hover {
+              color: $primary-color;
+            }
+          }
+        }
+      }
+    }
+  }
+}

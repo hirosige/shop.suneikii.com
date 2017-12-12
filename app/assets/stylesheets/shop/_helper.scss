@@ -1,0 +1,98 @@
+.badge-primary-custom {
+    background-color: $primary-color !important;
+    color: $font-white !important;
+    font-weight: 400 !important;
+}
+
+.btn-primary-custom {
+    background-color: $primary-color !important;
+    color: $font-white !important;
+
+    &:hover,
+    &.active,
+    &:active {
+        background-color: darken($primary-color, 10%) !important;
+        color: $font-white !important;
+    }
+    
+    &.focus,
+    &:focus {
+        box-shadow: 0 0 0 0.2rem rgba($primary-color, .4);
+    }
+}
+
+.btn-outline-primary-custom {
+    background-color: transparent;
+    border-color: darken($primary-color, 20%);
+    color: darken($primary-color, 20%);
+
+    &:hover {
+        //border-color: $primary-color;
+        //color: $primary-color;
+    }
+    
+    &.focus,
+    &:focus {
+        box-shadow: 0 0 0 0.2rem rgba($primary-color, .4);
+    }
+}
+
+.child-img-hover-zoom {
+    overflow: hidden;
+
+    & > img {
+        transition: all 0.3s;
+
+    }
+
+    & > img:hover {
+        transform: scale(1.2);
+    }
+}
+
+.pagination-custom {
+    
+    & .page-item {
+        
+        & .page-link {
+            color: $primary-color;
+        }
+        
+        &.active {
+            
+            & .page-link {
+                color: $font-white;
+                border-color: darken($primary-color, 3%);
+                background-color: $primary-color;
+            }
+        }
+
+        &.disabled {
+
+            & .page-link {
+                color: $font-grey;
+            }
+        }
+    }
+       
+}
+
+.has-cursor-pointer {
+    
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.primary-color {
+    color: $primary-color;
+}
+
+.number-spinner {
+    min-width: 80px;
+    max-width: 100px;
+}
+
+.outline-primary-custom {
+    border-color: darken($primary-color, 0%);
+}

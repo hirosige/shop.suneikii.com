@@ -1,0 +1,127 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="/index.html">
+      <%= image_tag 'shop_logo.png' %>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+      <ul class="navbar-nav ml-auto">
+
+        <li class="nav-item">
+          <a class="nav-link" href="/components/product/products.html">Products</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/components/payment/money-transfer.html">Money Transfer</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/components/general/contact.html">Contact</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link search-overlay-btn d-block d-lg-none" href="#">Search</a>
+          <a class="nav-link btn search-overlay-btn d-none d-lg-block" href="#">
+            <i class="fa fa-search" aria-hidden="true"></i>
+            <span>Search</span>
+          </a>
+        </li>
+        <li class="nav-item dropdown cart-dropdown">
+          <a class="nav-link d-block d-lg-none" href="#">
+            <span>Cart</span>
+            <span class="badge badge-primary-custom">9</span>
+          </a>
+          <a class="nav-link btn d-none d-lg-block" href="#" id="navbarDropdown" role="button"
+             data-toggle="dropdown"
+             aria-haspopup="true" aria-expanded="false">
+            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+            <span>Cart</span>
+            <span class="badge badge-primary-custom">9</span>
+            <i class="fa fa-angle-down" aria-hidden="true"></i>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <div class="dropdown-header">
+              Total: <span>฿</span><span>9,229.97</span>
+            </div>
+            <div class="dropdown-divider"></div>
+            <div class="cart-item-list">
+              <div class="dropdown-item">
+                <div class="d-flex">
+                  <div class="d-flex flex-column justify-content-around">
+                    <%= image_tag 'sample/sample-04.png' , class: 'cart-item-image'%>
+                  </div>
+                  <div class="d-flex flex-column justify-content-center p-2 w-100">
+                    <div class="cart-item-name">
+                      Sony DSC-RX100M III
+                    </div>
+                    <div class="cart-item-price">
+                      <span>฿</span><span>1,229.50</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="dropdown-item">
+                <div class="d-flex">
+                  <div class="d-flex flex-column justify-content-around">
+                    <%= image_tag 'sample/sample-05.png' , class: 'cart-item-image'%>
+                  </div>
+                  <div class="d-flex flex-column justify-content-center p-2 w-100">
+                    <div class="cart-item-name">
+                      Samsung Note 8 and Small GiftBox
+                    </div>
+                    <div class="cart-item-price">
+                      <span>฿</span><span>2,229.50 x 2</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="dropdown-item">
+                <div class="d-flex">
+                  <div class="d-flex flex-column justify-content-around">
+                    <%= image_tag 'sample/sample-06.png' , class: 'cart-item-image'%>
+                  </div>
+                  <div class="d-flex flex-column justify-content-center p-2 w-100">
+                    <div class="cart-item-name">
+                      Sony A5100
+                    </div>
+                    <div class="cart-item-price">
+                      <span>฿</span><span>3,229.50 x 3</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!--<div class="dropdown-item text-center">-->
+            <!--<span>Your Shopping Cart is empty</span>-->
+            <!--</div>-->
+
+            <a class="dropdown-item btn btn-primary-custom text-center" href="/components/users/shopping-cart.html">
+              <i class="fa fa-credit-card" aria-hidden="true"></i>
+              Checkout
+            </a>
+          </div>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="search-overlay" style="display: none;">
+  <div class="search-inner d-flex justify-content-center align-items-center">
+    <div class="search-close"><i class="fa fa-times fa-2x" aria-hidden="true"></i></div>
+    <div class="container">
+      <div class="form-holder">
+        <form class="d-flex">
+          <input type="search" placeholder="What are you looking for...">
+          <button type="submit" class="search text-uppercase">Search</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
