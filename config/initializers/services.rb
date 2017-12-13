@@ -19,6 +19,4 @@ Dir.glob("app/services/**/*_service.rb") do |f|
   require_dependency Rails.root.join(f)
 end
 
-require_dependency Rails.root.join('app/controllers/front/cart.rb')
-require_dependency Rails.root.join('app/controllers/front/cart_item.rb')
 require_dependency Rails.root.join('app/services/custom_breadcrumbs_builder.rb')
