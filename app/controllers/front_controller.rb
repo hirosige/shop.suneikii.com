@@ -5,11 +5,22 @@ class FrontController < ApplicationController
   # before_filter :authenticate_user!
   # before_filter :banned_user?
   before_action :set_locale
+  before_action :set_shopping_cart
 
   include Mobylette::RespondToMobileRequests
 
   layout 'top_layout'
   add_breadcrumb "#{Settings.site[:name]} Home", :root_path
+
+  def set_shopping_cart
+    if user_signed_in?
+      if session[:cart_id] == nil
+        @cart = Cart.new(current_user).save
+      else
+        @cart = Cart.find(session[:cart_id])
+      end
+    end
+  end
 
   def track_visit_into_session
     controller_name = params[:controller].split('/')[1]
