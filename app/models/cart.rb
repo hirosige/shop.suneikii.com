@@ -15,12 +15,12 @@ class Cart < ActiveRecord::Base
 
   has_many :cart_contents
 
-  state_machine :status, :initial => :on_going do
-    state :on_going
-    state :done
+  state_machine :status, :initial => :active do
+    state :active
+    state :inactive
 
-    event :fix do
-      transition :from => :on_going, :to => :done
+    event :inactivate do
+      transition :from => :active, :to => :inactive
     end
   end
 
@@ -45,6 +45,5 @@ class Cart < ActiveRecord::Base
     self.cart_contents.map do |item|
       item.change_quantity(quantity) if item.id == cart_content_id
     end
-    p self.cart_contents
   end
 end

@@ -27,16 +27,16 @@ RSpec.describe Cart, :type => :model do
       expect(@cart).to be_valid
     end
 
-    it "initial status is on_going" do
+    it "initial status is active" do
 
-      expect(@cart.on_going?).to be true
+      expect(@cart.active?).to be true
     end
 
-    it "can be done" do
+    it "can be inactivated" do
       @cart.user_id = 1
-      @cart.fix
+      @cart.inactivate
 
-      expect(@cart.done?).to be true
+      expect(@cart.inactive?).to be true
     end
 
     it "has many cart_contents" do
