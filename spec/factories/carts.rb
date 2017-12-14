@@ -10,7 +10,7 @@
 #  updated_at   :datetime         not null
 #
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :cart do
     total_amount "9.99"
     status "MyString"

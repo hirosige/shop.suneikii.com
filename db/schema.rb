@@ -13,127 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20171213135251) do
 
-  create_table "accessories", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-  end
-
-  create_table "apartment_infos", force: :cascade do |t|
-    t.text     "remarks",              limit: 65535
-    t.string   "photo",                limit: 255
-    t.decimal  "latitude",                           precision: 16, scale: 13
-    t.decimal  "longitude",                          precision: 16, scale: 13
-    t.integer  "floors",               limit: 4
-    t.string   "made_of",              limit: 255
-    t.integer  "reconstructed_or_not", limit: 4
-    t.integer  "renovated_or_not",     limit: 4
-    t.integer  "car_park_or_not",      limit: 4
-    t.integer  "bicycle_park_or_not",  limit: 4
-    t.integer  "bike_park_or_not",     limit: 4
-    t.integer  "can_have_pet_or_not",  limit: 4
-    t.integer  "contact_span",         limit: 4
-    t.string   "conditions",           limit: 255
-    t.integer  "update_fee",           limit: 4
-    t.date     "published_on"
-    t.date     "updating_on"
-    t.string   "property_status",      limit: 255
-    t.string   "availability",         limit: 255
-    t.string   "management_id",        limit: 255
-    t.integer  "apartment_id",         limit: 4
-    t.datetime "created_at",                                                   null: false
-    t.datetime "updated_at",                                                   null: false
-    t.integer  "floor",                limit: 4
-    t.integer  "brandnew",             limit: 4
-    t.integer  "more_than_2floors",    limit: 4
-    t.integer  "light_on_south",       limit: 4
-    t.integer  "parkinglot",           limit: 4
-    t.integer  "auto_lock",            limit: 4
-    t.integer  "air_con",              limit: 4
-    t.integer  "separate_bath_toilet", limit: 4
-    t.integer  "reheating",            limit: 4
-    t.integer  "wooden_floor",         limit: 4
-    t.integer  "pet",                  limit: 4
-    t.integer  "number_of_rooms",      limit: 4
-    t.string   "house_insurance",      limit: 255
-    t.string   "deal_way",             limit: 255
-    t.text     "kitchen_bath",         limit: 65535
-    t.text     "services",             limit: 65535
-    t.text     "etc",                  limit: 65535
-    t.integer  "balcony_space",        limit: 4
-    t.string   "light_direction",      limit: 255
-  end
-
-  create_table "apartment_option_installations", force: :cascade do |t|
-    t.integer  "apartment_id",        limit: 4
-    t.integer  "apartment_option_id", limit: 4
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
-  end
-
-  create_table "apartment_options", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-  end
-
-  create_table "apartment_surroundings", force: :cascade do |t|
-    t.integer  "apartment_id",   limit: 4
-    t.integer  "surrounding_id", limit: 4
-    t.integer  "distance",       limit: 4
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
-  end
-
-  create_table "apartment_thumbnails", force: :cascade do |t|
-    t.integer  "apartment_id", limit: 4
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
-    t.string   "image",        limit: 255
-  end
-
-  add_index "apartment_thumbnails", ["apartment_id"], name: "index_apartment_thumbnails_on_apartment_id", using: :btree
-
-  create_table "apartments", force: :cascade do |t|
-    t.string   "name",              limit: 255
-    t.integer  "rent_fee",          limit: 4
-    t.integer  "security_deposit",  limit: 4
-    t.integer  "deposit",           limit: 4
-    t.text     "transportation",    limit: 65535
-    t.integer  "utility_fee",       limit: 4
-    t.integer  "key_money",         limit: 4
-    t.text     "address",           limit: 65535
-    t.date     "since_when"
-    t.integer  "room_type_id",      limit: 4
-    t.string   "space",             limit: 255
-    t.string   "photo",             limit: 255
-    t.text     "recommendations",   limit: 65535
-    t.string   "status",            limit: 255
-    t.integer  "provider_id",       limit: 4
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
-    t.integer  "country_id",        limit: 4
-    t.integer  "province_id",       limit: 4
-    t.integer  "district_id",       limit: 4
-    t.integer  "subdistrict_id",    limit: 4
-    t.integer  "surety_company_id", limit: 4
-  end
-
-  create_table "business_partners", force: :cascade do |t|
-    t.string   "first_name", limit: 255
-    t.string   "last_name",  limit: 255
-    t.date     "birthday"
-    t.boolean  "gender_id"
-    t.string   "zip_code",   limit: 255
-    t.text     "address",    limit: 65535
-    t.string   "tel1",       limit: 255
-    t.string   "tel2",       limit: 255
-    t.text     "memo",       limit: 65535
-    t.integer  "user_id",    limit: 4
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
-  end
-
   create_table "cart_contents", force: :cascade do |t|
     t.integer  "good_id",    limit: 4
     t.integer  "pts",        limit: 4
@@ -178,17 +57,6 @@ ActiveRecord::Schema.define(version: 20171213135251) do
     t.string   "address",    limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
-  end
-
-  create_table "favorites", force: :cascade do |t|
-    t.integer  "user_id",      limit: 4
-    t.integer  "apartment_id", limit: 4
-    t.integer  "land_id",      limit: 4
-    t.integer  "condo_id",     limit: 4
-    t.integer  "house_id",     limit: 4
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
-    t.string   "category",     limit: 255
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -478,10 +346,16 @@ ActiveRecord::Schema.define(version: 20171213135251) do
     t.string   "provider",               limit: 255
     t.string   "name",                   limit: 255
     t.string   "role",                   limit: 255, default: "customer", null: false
-    t.integer  "provider_id",            limit: 4
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "wash_lists", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4
+    t.integer  "good_id",    limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
 
 end

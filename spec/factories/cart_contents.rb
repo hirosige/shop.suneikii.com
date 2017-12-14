@@ -11,7 +11,7 @@
 #  updated_at :datetime         not null
 #
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :cart_content do
     good_id 1
     pts 1
