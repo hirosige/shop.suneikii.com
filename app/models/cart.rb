@@ -26,13 +26,25 @@ class Cart < ActiveRecord::Base
 
   def add_item(good_id)
     self.cart_contents.build(
-        :good_id => good_id,
-        :pts     => 1,
+        :good_id    => good_id,
+        :pts        => 1,
         :sub_amount => 0.0
     )
 
     self.cart_contents.each do |item|
       item.calc_sub_amount
     end
+  end
+
+  def remove_item(cart_content_id)
+    CartContent.find(cart_content_id).destroy
+    self.reload
+  end
+
+  def change_quantity(cart_content_id, quantity)
+    self.cart_contents.map do |item|
+      item.change_quantity(quantity) if item.id == cart_content_id
+    end
+    p self.cart_contents
   end
 end

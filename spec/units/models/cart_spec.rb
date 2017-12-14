@@ -65,5 +65,45 @@ RSpec.describe Cart, :type => :model do
 
       expect(@cart.cart_contents[0].sub_amount).to eq 100.0
     end
+
+    it "can remove" do
+      @good = Good.create(:name => 'test', :price => 100)
+      @good2 = Good.create(:name => 'test2', :price => 200)
+      @cart.user_id = 1
+      @cart.save
+
+      @cart.add_item(@good.id)
+      @cart.add_item(@good2.id)
+      @cart.cart_contents[0].change_quantity(1)
+      @cart.cart_contents[1].change_quantity(1)
+      @cart.save
+
+      expect(@cart.cart_contents.size).to be 2
+
+      @cart.remove_item(@cart.cart_contents[0].id)
+      expect(@cart.cart_contents.size).to be 1
+      expect(@cart.cart_contents[0].good_id).to eq @good2.id
+    end
+
+    it "can change child quantity" do
+      @good = Good.create(:name => 'test', :price => 100)
+      @good2 = Good.create(:name => 'test2', :price => 200)
+      @cart.user_id = 1
+      @cart.save
+
+      @cart.add_item(@good.id)
+      @cart.add_item(@good2.id)
+      @cart.save
+
+      @cart.change_quantity(@cart.cart_contents[0].id, 1)
+      @cart.change_quantity(@cart.cart_contents[1].id, 2)
+      @cart.save
+
+      expect(@cart.cart_contents.size).to be 2
+      expect(@cart.cart_contents[0].pts).to be 1
+      expect(@cart.cart_contents[0].sub_amount).to eq 100.0
+      expect(@cart.cart_contents[1].pts).to be 2
+      expect(@cart.cart_contents[1].sub_amount).to eq 400.0
+    end
   end
 end
