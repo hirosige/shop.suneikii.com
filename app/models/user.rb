@@ -23,7 +23,6 @@
 #  role_id                :integer
 #  uid                    :string(255)
 #  provider               :string(255)
-#  provider_id            :integer
 #  name                   :string(255)
 #  role                   :string(255)      default("customer"), not null
 #

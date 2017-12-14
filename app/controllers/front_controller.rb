@@ -9,7 +9,7 @@ class FrontController < ApplicationController
 
   include Mobylette::RespondToMobileRequests
 
-  layout 'properties_layout'
+  layout 'top_layout'
   add_breadcrumb "#{Settings.site[:name]} Home", :root_path
 
   def set_shopping_cart

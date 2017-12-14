@@ -144,6 +144,11 @@
 
 Rails.application.routes.draw do
 
+  root 'front/top#home'
+
+  match 'money_transfer' => 'front/top#money_transfer', :via => [:get]
+  match 'create_transaction' => 'front/top#create_transaction', :via => [:post]
+
   namespace :api do
     namespace :v1 do
       resources :apartments
@@ -373,7 +378,6 @@ Rails.application.routes.draw do
       end
 
       # Front Pages
-      root 'front/top#home'
       get  'help'            => 'static_pages#help'
       get  'retail_law'      => 'static_pages#retail_law'
       get  'privacy'         => 'static_pages#privacy'

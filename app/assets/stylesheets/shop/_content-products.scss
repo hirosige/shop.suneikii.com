@@ -1,0 +1,117 @@
+/*-----------------------------------
+    Projects
+-----------------------------------*/
+.content-products {
+
+    & .img-block {
+
+        & .img-full-block {
+            & img {
+                max-height: 360px;
+            }
+        }
+        
+        & .img-thumbnail-block {
+      
+            & img {
+                width: 40px;
+                height: 40px;
+                object-fit: cover;
+
+                &:hover {
+                    cursor: pointer;
+                }
+
+                &:hover,
+                &.active,
+                &:active {
+                    border-color: darken($primary-color, 10%) !important;
+                }
+
+                &.focus,
+                &:focus {
+                    outline: none;
+                    box-shadow: 0 0 0 0.2rem rgba($primary-color, .4);
+                }
+            }
+        }
+    }
+
+    & .product-list {
+        padding-top: 10px;
+        padding-bottom: 10px;
+
+        & .product-card {
+            padding: 10px;
+            background-color: $white;
+            height: 380px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, .1);
+            border-radius: 2px;
+
+            & .base-price {
+                text-align: right;
+                min-width: 70px;
+                padding: 5px 15px;
+                text-decoration: line-through;
+                color: $grey;
+                font-size: 0.7em;
+                opacity: 0.9;
+            }
+
+            & .current-price {
+                background-color: $primary-color;
+                color: $font-white;
+                min-width: 80px;
+                padding: 8px;
+                text-align: center;
+                font-size: 0.8em;
+            }
+
+            & .product-image {
+                width: 100%;
+                height: 260px;
+                padding: 30px;
+                object-fit: contain;
+            }
+
+            & .product-name {
+                text-align: center;
+                padding: 5px 20px;
+                margin: 0 -10px;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                white-space: nowrap;
+                color: $font-grey-2x;
+                font-size: .9em;
+            }
+
+            & .product-action {
+                border-top: 1px solid rgba(0, 0, 0, .1);
+                text-align: center;
+                padding: 8px 0;
+
+                & i {
+                    cursor: pointer;
+                    padding: 0 2px;
+                    color: $font-grey-2x;
+
+                    &.fa-heart {
+                        font-size: 1.3em;
+
+                        &:hover {
+                            color: lightcoral;
+                        }
+                    }
+
+                    &.fa-cart-plus {
+                        font-size: 1.4em;
+
+                        &:hover {
+                            color: $primary-color;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
