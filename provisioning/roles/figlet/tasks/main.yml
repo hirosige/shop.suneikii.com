@@ -1,5 +1,5 @@
 - name: name host
-  shell: hostnamectl set-hostname property-suneikii.dev
+  shell: hostnamectl set-hostname shop-suneikii.dev
 
 - name: install bc
   yum: name=bc state=latest
