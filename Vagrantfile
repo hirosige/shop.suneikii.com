@@ -16,4 +16,6 @@ Vagrant.configure(2) do |config|
       vm.cpus = 2
       vm.customize ["modifyvm", :id, "--ioapic", "on"]
     end
+
+    config.vbguest.auto_update = false
 end
