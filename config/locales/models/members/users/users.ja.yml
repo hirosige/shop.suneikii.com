@@ -15,6 +15,7 @@ ja:
         reference:   "顧客情報閲覧/入力"
         from_where:  "プロバイダー"
         control_del: "削除"
+        name: "名前"
       buttons:
         customer_before:       "顧客情報入力"
         customer_after:        "顧客情報閲覧"

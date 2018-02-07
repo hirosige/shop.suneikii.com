@@ -71,6 +71,8 @@ gem 'swiper-rails'
 gem 'gravtastic'
 gem 'faker'
 
+gem 'semantic-ui-sass', git: 'https://github.com/doabit/semantic-ui-sass.git'
+
 group :development, :test do
   gem 'byebug'
 

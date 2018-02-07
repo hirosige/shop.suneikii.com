@@ -1,0 +1,28 @@
+<script>
+  $(function() {
+    $('.ui.accordion')
+      .accordion()
+    ;
+  });
+</script>
+<div class="ui styled fluid accordion">
+  <div class="title">
+    <i class="dropdown icon"></i>
+    <div class="ui large label">
+      <i class="search icon"></i> Search
+    </div>
+  </div>
+  <div class="content">
+    <%= search_form_for [:admin, :products, q], :class => 'ui form' do |f| %>
+        <h4 class="ui dividing header">Search Conditions</h4>
+
+        <div class="field">
+          <%= f.label :name_start, "Name" %>
+          <%= f.search_field :name_start, :placeholder => 'Name' %>
+        </div>
+
+        <%= f.submit :class => 'ui button' %>
+    <% end %>
+  </div>
+</div>
+

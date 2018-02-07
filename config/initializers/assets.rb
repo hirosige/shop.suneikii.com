@@ -13,4 +13,6 @@ Rails.application.config.assets.version = '1.0'
 Rails.application.config.assets.precompile += %w( footermanifest.js)
 Rails.application.config.assets.precompile += %w( gentelella/production/index.html )
 Rails.application.config.assets.precompile += %w( front.css )
+Rails.application.config.assets.precompile += %w( admin.css )
+Rails.application.config.assets.precompile += %w( admin.js )
 Rails.application.config.assets.precompile += %w( shop_style.css )

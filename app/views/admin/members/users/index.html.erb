@@ -1,27 +1,33 @@
 <% @users.title(t('admin.users.title')) %>
 
-<div class="right_col" role="main">
-  <div class="">
+<h4 class="ui horizontal divider header" style="margin: 20px 0;">
+  <i class="tag icon"></i>
+  Users
+</h4>
 
-    <%= render :partial => 'admin/shared/page_title', :locals => {title: t('admin.users.title'), description: t('admin.users.description')} %>
+<%= render :partial => 'search_form', :locals => {q: @q} %>
 
-    <div class="clearfix"></div>
-    <div class="row">
-      <div class="clearfix"></div>
-      <div class="col-md-12 col-sm-12 col-xs-12">
-        <%= render 'layouts/admin_menus/users_sub_tab' %>
+<%= render 'pagination' %>
 
-        <div class="x_panel">
-          <%= render :partial => 'admin/shared/table_title', :locals => {title: t('admin.users.title'), description: t('admin.users.description')} %>
-          <div class="x_content">
+<h3 class="ui top attached header">
+  <%= t('admin.users.title') %>
 
-            <%= render 'pagination' %>
-            <%= render :partial => 'table_contents', :locals => {users: @users} %>
-            <%= render 'pagination' %>
-
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+</h3>
+<div class="ui attached segment">
+  <table class="ui very basic collapsing celled table">
+    <thead>
+    <th><%= sort_link(@q, :name, t('admin.users.items.name')) %></th>
+    <th><%= sort_link(@q, :email, t('admin.users.items.email')) %></th>
+    <th><%= sort_link(@q, :login_ct, t('admin.users.items.login_ct')) %></th>
+    <th><%= sort_link(@q, :current_ip, t('admin.users.items.current_ip')) %></th>
+    </thead>
+    <tbody>
+      <%= render :partial => 'table_contents', :locals => { users: @users } %>
+    </tbody>
+  </table>
 </div>
+<h3 class="ui bottom attached header">
+  Footer
+</h3>
+
+<%= render 'pagination' %>

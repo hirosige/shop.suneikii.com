@@ -55,11 +55,7 @@
     <a href="<%= favorites_path %>" class="control-box__login-info">
       <p><i class="fa fa-save control-box__icon"></i></p>
       <p id="favorite_counter" class="control-box__counter">
-        <% if current_user.favorites.nil? %>
-            <%= 0 %>
-        <% else %>
-            <%= current_user.favorites.size %>
-        <% end %>
+
       </p>
       <p><%= t('front.header.session.favorites') %></p>
     </a>

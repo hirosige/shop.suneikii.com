@@ -3,7 +3,9 @@ class Admin::Products::ColorsController < AdminController
   before_action :set_breadcrumps_base
 
   def index
-    @colors = Color.page(params[:page])
+    @q = Color.search(params[:q])
+    @colors = @q.result.page(params[:page])
+
     respond_to do |format|
       format.html
       format.csv do
