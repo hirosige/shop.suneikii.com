@@ -1,6 +1,4 @@
-require 'faker'
-
-class ApartmentSeeds
+class ApartmentSeeder
   attr_accessor :creating_pts
   attr_accessor :name
 
