@@ -7,6 +7,13 @@ GIT
       rake (>= 10.4, < 13.0)
 
 GIT
+  remote: https://github.com/doabit/semantic-ui-sass.git
+  revision: 9395d5cbcc7c63de5b751c3b270d01cc2e12473f
+  specs:
+    semantic-ui-sass (2.2.12.1)
+      sass (>= 3.2)
+
+GIT
   remote: https://github.com/jonigual/mobylette.git
   revision: 872563834b711f83c693a1b3944ef52234f49671
   specs:
@@ -827,6 +834,7 @@ DEPENDENCIES
   ruby-debug-ide
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
+  semantic-ui-sass!
   shoulda-matchers
   sitemap_generator
   slim-rails (= 3.1.1)

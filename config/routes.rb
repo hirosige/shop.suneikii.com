@@ -164,60 +164,6 @@ Rails.application.routes.draw do
       get 'omniauth_callbacks/foursquare'
    end
 
-   namespace :sample do
-
-      # Dashboards
-      root 'dashboard#dashboard'
-      get '/dashboard2'          => 'dashboard#dashboard2'
-      get '/dashboard3'          => 'dashboard#dashboard3'
-
-      # GeneralForms
-      get '/general_form'        => 'general_form#general_form'
-      get '/advanced_components' => 'general_form#advanced_components'
-      get '/form_validation'     => 'general_form#form_validation'
-      get '/form_wizard'         => 'general_form#form_wizard'
-      get '/form_upload'         => 'general_form#form_upload'
-      get '/form_buttons'        => 'general_form#form_buttons'
-      get '/login'               => 'general_form#login'
-
-      # General Elements
-      get '/general_elements' => 'ui_elements#general_elements'
-      get '/media_gallery'    => 'ui_elements#media_gallery'
-      get '/typography'       => 'ui_elements#typography'
-      get '/icons'            => 'ui_elements#icons'
-      get '/glyphicons'       => 'ui_elements#glyphicons'
-      get '/widgets'          => 'ui_elements#widgets'
-      get '/invoice'          => 'ui_elements#invoice'
-      get '/inbox'            => 'ui_elements#inbox'
-      get '/calendar'         => 'ui_elements#calendar'
-
-      # Tables
-      get '/tables' => 'tables#tables'
-      get '/table_dynamic' => 'tables#table_dynamic'
-
-      # Data Presentation
-      get '/chart_js'     => 'data_presentation#chart_js'
-      get '/chart_js2'    => 'data_presentation#chart_js2'
-      get '/moris_js'     => 'data_presentation#moris_js'
-      get '/e_charts'     => 'data_presentation#e_charts'
-      get '/other_charts' => 'data_presentation#other_charts'
-
-      # Additional Pages
-      get '/e_commerce' => 'additional_pages#e_commerce'
-      get '/projects' => 'additional_pages#projects'
-      get '/project_detail' => 'additional_pages#project_detail'
-      get '/contacts' => 'additional_pages#contacts'
-      get '/profile' => 'additional_pages#profile'
-
-      # Extra
-      get '/error_403'      => 'extras#error_403'
-      get '/error_404'      => 'extras#error_404'
-      get '/error_500'      => 'extras#error_500'
-      get '/plain_page'     => 'extras#plain_page'
-      get '/login_page'     => 'extras#login_page'
-      get '/pricing_tables' => 'extras#pricing_tables'
-   end
-
    get '/sitemap'  => redirect('https://s3-ap-southeast-1.amazonaws.com/suneikii-sitemap-dev/sitemaps/sitemap.xml.gz')
    devise_for :users, :controllers => {
        :omniauth_callbacks => 'app/omniauth_callbacks',
@@ -273,60 +219,14 @@ Rails.application.routes.draw do
          get  'site_inquiry'             => 'site_inquiry#index'
          post 'site_inquiry/confirm'     => 'site_inquiry#confirm'
          post 'site_inquiry/thanks'      => 'site_inquiry#thanks'
-
-         get  'apartments'                                        => 'apartments#province',       as: 'apartment_province_list'
-         get  'apartments/:id'                                    => 'apartments#show',           as: 'apartment'
-         get  'apartments/:province/city'                         => 'apartments#district',       as: 'apartment_district_list'
-         get  'apartments/:province/city/:district'               => 'apartments#index',          as: 'apartments'
-         get  'apartments/:id/inquiry'                            => 'apartments#inquiry',        as: 'apartment_inquiry'
-         post 'apartments/:id/confirm'                            => 'apartments#confirm',        as: 'apartment_inquiry_confirm'
-         post 'apartments/thanks'                                 => 'apartments#thanks',         as: 'apartment_inquiry_thanks'
       end
 
       # Administrator Pages
       get 'admin' => 'admin/members/users#index'
+
       namespace :admin do
         namespace :settings do
           resources :use_terms
-        end
-
-        namespace :areas do
-          resources :countries, shallow: true, :only => [:index, :show]
-          resources :provinces, shallow: true, :only => [:index, :show]
-          resources :districts, shallow: true, :only => [:index, :show]
-        end
-
-        namespace :accommodations do
-          resources :room_classes
-          resources :rooms
-          resources :services
-          resources :accessories
-        end
-
-        scope module: :apartments do
-          resources :apartments do
-            member do
-              get 'publish'
-              get 'decline'
-              get 'clean'
-              get 'occupy'
-              get 'enable'
-              get 'disable'
-            end
-          end
-
-          resources :apartment_options
-        end
-
-        namespace :facilities do
-          resources :surroundings
-        end
-
-        namespace :foods do
-          resources :restaurants do
-            resources :menus
-            resources :courses
-          end
         end
 
         namespace :products do
@@ -342,16 +242,7 @@ Rails.application.routes.draw do
              member do
                 get 'toggle_ban'
              end
-
-             resources :customers
-             resources :business_partners
-             resources :system_admins
           end
-
-          get '/customers' => 'customers#index'
-          get '/bps' => 'business_partners#index'
-          get '/system_admins' => 'system_admins#index'
-          get '/roles' => 'roles#index'
         end
 
         namespace :tenants do
@@ -359,10 +250,6 @@ Rails.application.routes.draw do
           resources :shop_statuses
           resources :distributors
           resources :shoppers_distributors
-        end
-
-        namespace :providers do
-          resources :providers
         end
 
         namespace :dealings do
@@ -377,21 +264,6 @@ Rails.application.routes.draw do
         end
       end
 
-      # Front Pages
-      get  'help'            => 'static_pages#help'
-      get  'retail_law'      => 'static_pages#retail_law'
-      get  'privacy'         => 'static_pages#privacy'
-      get  'layout_sample'   => 'static_pages#layout_sample'
-      get  'recruit'         => 'static_pages#privacy'
-      get  'location'        => 'static_pages#location'
-      get  'access'          => 'static_pages#access'
-      get  'floor_map'       => 'static_pages#floor_map'
-
-      # Inquiry
-      get  'inquiry'         => 'inquiry#index'
-      post 'inquiry/confirm' => 'inquiry#confirm'
-      post 'inquiry/thanks'  => 'inquiry#thanks'
       get '*path', controller: 'application', action: 'render_404'
-
    end
 end

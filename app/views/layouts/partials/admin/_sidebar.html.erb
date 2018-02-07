@@ -1,0 +1,38 @@
+<h2 class="ui header" style="margin: 20px; color: #fff;">
+  <i class="shop icon"></i>
+  <div class="content">
+    Suneikii Shop Admin
+  </div>
+</h2>
+
+<a class="ui item big label">
+  <img class="ui right spaced avatar image" src="https://iwiz-chie.c.yimg.jp/im_sigggAecvxPpdhW7zACP6RAfKw---x320-y320-exp5m-n1/d/iwiz-chie/que-14179404119">
+  Welcom,
+  <p style="margin-top: 10px;">Mr, <%= current_user.name %></p>
+</a>
+
+<div class="item">
+  <div class="ui input"><input type="text" placeholder="Search..."></div>
+</div>
+
+<div class="item">
+  <div class="header" style="margin-bottom: 15px;">Admin Menu</div>
+
+  <%= render_menu %>
+
+</div>
+
+<script>
+  $(function() {
+    $('.ui.dropdown')
+      .dropdown()
+    ;
+
+    $('#side-menu').click(function() {
+      $('.ui.sidebar')
+        .sidebar('toggle')
+      ;
+
+    });
+  })
+</script>

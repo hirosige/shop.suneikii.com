@@ -3,7 +3,12 @@ class Admin::Members::UsersController < AdminController
   before_action :set_breadcrumps_base
 
   def index
-    set_users
+    @q = User.search(params[:q])
+    @users = UsersDecorator.decorate(
+        UserDecorator.decorate_collection(
+            @q.result.accessible_by(current_ability).page(params[:page])
+        )
+    )
   end
 
   def show
@@ -29,14 +34,6 @@ class Admin::Members::UsersController < AdminController
   private
     def set_user
       @user = User.find(params[:id])
-    end
-
-    def set_users
-      @users = UsersDecorator.decorate(
-        UserDecorator.decorate_collection(
-            User.accessible_by(current_ability).page(params[:page])
-        )
-      )
     end
 
     def set_breadcrumps_base

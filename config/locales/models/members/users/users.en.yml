@@ -15,6 +15,7 @@ en:
         reference:   "Reference"
         from_where:  "From Where?"
         control_del: "Delete"
+        name:        "Name"
       buttons:
         customer_before:       "Input Customer"
         customer_after:        "Show Customer"

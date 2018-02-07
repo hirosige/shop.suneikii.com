@@ -8,19 +8,18 @@
 
 </head>
 
-<body class="nav-md">
-  <div class="container body">
-    <div class="main_container">
-      <%= render 'layouts/shared/flash' %>
+<body>
+  <% render 'layouts/shared/flash' %>
 
-      <%= render "layouts/partials/admin_sidenav" %>
-      <%= render "layouts/partials/topnav" %>
+  <div class="ui sidebar inverted vertical accordion menu">
+    <%= render 'layouts/partials/admin/sidebar' %>
+  </div>
+  <div class="pusher">
+    <%= render 'layouts/partials/admin/header' %>
 
+    <div class="ui container">
       <%= yield %>
-
-      <%= render "layouts/partials/footer" %>
     </div>
-    <%= javascript_include_tag 'footermanifest', 'data-turbolinks-track' => true %>
   </div>
 </body>
 </html>
