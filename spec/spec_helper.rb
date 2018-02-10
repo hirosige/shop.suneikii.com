@@ -104,12 +104,11 @@ RSpec.configure do |config|
     load Rails.root.join('db', 'seeds.rb')
   end
 
-  # config.before(:each) do
-  #   DatabaseCleaner.start
-  #   load Rails.root.join('db', 'seeds.rb')
-  # end
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
 
-  # config.after(:each) do
-  #   DatabaseCleaner.clean
-  # end
+  config.after(:each) do
+    DatabaseCleaner.clean
+  end
 end

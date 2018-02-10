@@ -25,6 +25,7 @@ class ApplicationController < ActionController::Base
   end
 
   def set_params_service
+    params.permit!
     @params_service = ParamsService.new(params)
   end
 

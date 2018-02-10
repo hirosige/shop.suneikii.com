@@ -66,6 +66,7 @@ class Admin::Products::ColorsController < AdminController
 
     def color_params
       params.require(:color).permit(:name)
+      params.permit!
     end
 
     def set_breadcrumps_base

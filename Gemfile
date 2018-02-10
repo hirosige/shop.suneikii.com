@@ -1,12 +1,12 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.2.5.1'
+gem 'rails', '5.1.4'
 gem 'mysql2', '>= 0.3.13', '< 0.5'
-gem 'sass-rails', '~> 5.0'
+gem 'sass-rails', '~>5.0.7'
 gem 'bootstrap', '~> 4.0.0.beta2'
 gem "font-awesome-rails"
 gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.1.0'
+gem 'coffee-rails', '~> 4.2.1'
 gem 'therubyracer', platforms: :ruby
 gem 'friendly_id'
 
@@ -71,6 +71,7 @@ gem 'swiper-rails'
 gem 'gravtastic'
 gem 'faker'
 
+gem 'bootsnap', require: false
 gem 'semantic-ui-sass', git: 'https://github.com/doabit/semantic-ui-sass.git'
 
 group :development, :test do
@@ -96,7 +97,6 @@ group :development do
   gem 'pry-doc'
   gem 'pry-rails'
   gem 'pry-stack_explorer'
-  gem 'quiet_assets'
   gem 'rack-mini-profiler'
   gem 'tapp'
   gem 'view_source_map'

@@ -29,6 +29,10 @@ RSpec.describe WashList, type: :model do
 
     it "good_id is valid" do
       @wash_list.good_id = 1
+
+      @wash_list.valid?
+      p @wash_list.errors
+
       expect(@wash_list.valid?).to be true
     end
 

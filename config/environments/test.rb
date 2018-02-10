@@ -12,7 +12,7 @@ Rails.application.configure do
   config.active_support.test_order = :random
   config.active_support.deprecation = :stderr
   # config.action_view.raise_on_missing_translations = true
-  config.active_record.raise_in_transactional_callbacks = true
+  # config.active_record.raise_in_transactional_callbacks = true
 
   config.log_level = :debug
 
