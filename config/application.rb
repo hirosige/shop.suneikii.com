@@ -1,4 +1,5 @@
-require File.expand_path('../boot', __FILE__)
+require_relative 'boot'
+
 require 'rails/all'
 
 Bundler.require(*Rails.groups)
@@ -7,6 +8,8 @@ module SnkProperty
   class Application < Rails::Application
 
     # config.time_zone = 'Central Time (US & Canada)'
+    #
+    config.load_defaults 5.1
 
     config.i18n.available_locales = %i(ja en th)
     config.i18n.enforce_available_locales = true
@@ -15,7 +18,6 @@ module SnkProperty
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
     config.assets.paths << Rails.root.join('vendor', 'assets', 'components', 'gentelella', 'production')
     # config.active_record.raise_in_transactional_callbacks = true
-    config.quiet_assets = true
 
     case Rails.env
       when 'development' then

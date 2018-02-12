@@ -27,7 +27,7 @@
 #  surety_company_id :integer
 #
 
-class Apartment < ActiveRecord::Base
+class Apartment < ApplicationRecord
   validates :name,           :presence => true
   validates :country_id,     :presence => true
   validates :province_id,    :presence => true

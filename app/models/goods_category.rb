@@ -8,7 +8,7 @@
 #  updated_at :datetime         not null
 #
 
-class GoodsCategory < ActiveRecord::Base
+class GoodsCategory < ApplicationRecord
   has_many :goods
 
   validates :name, presence: true

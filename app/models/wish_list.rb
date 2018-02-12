@@ -9,7 +9,7 @@
 #  updated_at :datetime         not null
 #
 
-class WashList < ActiveRecord::Base
+class WishList < ApplicationRecord
   validates :good_id, :presence => true
   validates :good_id, :uniqueness => { :scope => :user_id }
 

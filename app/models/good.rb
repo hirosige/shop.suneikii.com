@@ -37,7 +37,7 @@
 #  index_goods_on_size_id            (size_id)
 #
 
-class Good < ActiveRecord::Base
+class Good < ApplicationRecord
   belongs_to :ingredient
   belongs_to :gender
   belongs_to :goods_category

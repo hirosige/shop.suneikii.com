@@ -10,5 +10,5 @@
 #  updated_at :datetime         not null
 #
 
-class Distributor < ActiveRecord::Base
+class Distributor < ApplicationRecord
 end

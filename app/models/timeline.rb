@@ -10,7 +10,7 @@
 #  updated_at          :datetime         not null
 #
 
-class Timeline < ActiveRecord::Base
+class Timeline < ApplicationRecord
   belongs_to :order
   belongs_to :timeline_message
 end

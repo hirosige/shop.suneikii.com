@@ -8,7 +8,7 @@
 #  updated_at :datetime         not null
 #
 
-class Ingredient < ActiveRecord::Base
+class Ingredient < ApplicationRecord
   has_many :goods
 
   validates :name, presence: true

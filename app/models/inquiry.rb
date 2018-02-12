@@ -10,7 +10,7 @@
 #  updated_at :datetime         not null
 #
 
-class Inquiry < ActiveRecord::Base
+class Inquiry < ApplicationRecord
 
   validates :name, presence: true
   validates :email, presence: true

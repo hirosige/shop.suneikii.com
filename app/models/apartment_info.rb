@@ -47,7 +47,7 @@
 #  light_direction      :string(255)
 #
 
-class ApartmentInfo < ActiveRecord::Base
+class ApartmentInfo < ApplicationRecord
   validates :latitude,              presence: true
   validates :longitude,             presence: true
   validates :brandnew,              presence: true

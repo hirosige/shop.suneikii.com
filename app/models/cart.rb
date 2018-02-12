@@ -10,7 +10,7 @@
 #  updated_at   :datetime         not null
 #
 
-class Cart < ActiveRecord::Base
+class Cart < ApplicationRecord
   validates :user_id, :presence => true
 
   has_many :cart_contents

@@ -9,7 +9,7 @@
 #  updated_at     :datetime         not null
 #
 
-class ShoppersDistributor < ActiveRecord::Base
+class ShoppersDistributor < ApplicationRecord
   belongs_to :shopper
   belongs_to :distributor
 end

@@ -8,7 +8,7 @@
 #  updated_at :datetime         not null
 #
 
-class Gender < ActiveRecord::Base
+class Gender < ApplicationRecord
   has_many :goods
 
   validates :name, presence: true

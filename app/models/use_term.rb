@@ -10,7 +10,7 @@
 #  updated_at  :datetime         not null
 #
 
-class UseTerm < ActiveRecord::Base
+class UseTerm < ApplicationRecord
   has_many :use_term_articles
   accepts_nested_attributes_for :use_term_articles, allow_destroy: true
 end

@@ -15,7 +15,7 @@
 #  tel            :string(255)
 #
 
-class PropertyInquiry < ActiveRecord::Base
+class PropertyInquiry < ApplicationRecord
   validates :name, presence: true
   validates :email, presence: true
   validates_format_of :email,

@@ -17,7 +17,7 @@
 #  updated_at   :datetime         not null
 #
 
-class Provider < ActiveRecord::Base
+class Provider < ApplicationRecord
   has_many :users
 
   mount_uploader :photo, ProviderPhotoUploader

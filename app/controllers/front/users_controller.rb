@@ -1,5 +1,5 @@
 class Front::UsersController < FrontController
-  before_filter :authenticate_user!
+  before_action :authenticate_user!
   before_action :set_user, only: [:profile, :edit, :update, :update_profile, :name, :address, :email]
 
   def profile
