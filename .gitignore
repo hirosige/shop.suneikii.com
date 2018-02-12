@@ -12,3 +12,4 @@ public/uploads
 /config/application.yml
 node_modules
 spec/results
+vendor/bundle
