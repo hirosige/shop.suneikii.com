@@ -1,10 +1,11 @@
+# This creates testing data for Color
 class ColorSeeder < ApplicationSeeder
   include Printable
 
   def initialize(creating_pts)
     super({
-      :name  => "Color",
-      :pts   => creating_pts
+      name: 'Color',
+      pts: creating_pts
     })
   end
 
@@ -13,7 +14,7 @@ class ColorSeeder < ApplicationSeeder
 
     @pts.times do
       model = @model.new(
-          :name => Faker::Color.color_name.capitalize
+        name: Faker::Color.color_name.capitalize
       )
 
       model.save if @model.validate

@@ -8,9 +8,10 @@
 #  updated_at :datetime         not null
 #
 
+# Color Model
 class Color < ApplicationRecord
   has_many :goods
 
   validates :name, presence: true
-  validates :name, :length => { :maximum => 100 }
+  validates :name, length: { maximum: 100 }
 end
