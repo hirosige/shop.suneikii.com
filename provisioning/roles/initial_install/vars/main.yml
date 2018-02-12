@@ -12,5 +12,9 @@
       "libjpeg-devel",
       "libpng-devel",
       "ImageMagick",
-      "ImageMagick-devel"
+      "ImageMagick-devel",
+      "autoconf",
+      "automake",
+      "autogen",
+      "libtool"
  ]
