@@ -9,6 +9,6 @@
 #  updated_at          :datetime         not null
 #
 
-class UseTermArticleDetail < ActiveRecord::Base
+class UseTermArticleDetail < ApplicationRecord
   belongs_to :use_term_article
 end

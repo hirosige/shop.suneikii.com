@@ -9,7 +9,7 @@
 #  updated_at  :datetime         not null
 #
 
-class UseTermArticle < ActiveRecord::Base
+class UseTermArticle < ApplicationRecord
   belongs_to :use_term
   has_many :use_term_article_details
 

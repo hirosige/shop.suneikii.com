@@ -12,6 +12,6 @@
 #  sub_total  :float(24)
 #
 
-class OrderDetail < ActiveRecord::Base
+class OrderDetail < ApplicationRecord
   belongs_to :order
 end

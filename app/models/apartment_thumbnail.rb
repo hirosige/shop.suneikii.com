@@ -17,7 +17,7 @@
 #  fk_rails_...  (apartment_id => apartments.id)
 #
 
-class ApartmentThumbnail < ActiveRecord::Base
+class ApartmentThumbnail < ApplicationRecord
   belongs_to :apartment
 
   mount_uploader :image, ApartmentThumbnailUploader

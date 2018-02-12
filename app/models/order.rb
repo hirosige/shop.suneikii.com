@@ -16,7 +16,7 @@
 #  updated_at         :datetime         not null
 #
 
-class Order < ActiveRecord::Base
+class Order < ApplicationRecord
   has_many :order_details, dependent: :destroy
   has_many :timeline_messages, through: :timelines
   has_many :timelines

@@ -8,5 +8,5 @@
 #  updated_at :datetime         not null
 #
 
-class ShopStatus < ActiveRecord::Base
+class ShopStatus < ApplicationRecord
 end

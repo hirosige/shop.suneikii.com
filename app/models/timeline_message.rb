@@ -10,6 +10,6 @@
 #  posted_at  :datetime
 #
 
-class TimelineMessage < ActiveRecord::Base
+class TimelineMessage < ApplicationRecord
   belongs_to :user
 end

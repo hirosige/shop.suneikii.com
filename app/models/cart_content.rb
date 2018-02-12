@@ -11,7 +11,7 @@
 #  updated_at :datetime         not null
 #
 
-class CartContent < ActiveRecord::Base
+class CartContent < ApplicationRecord
   validates :good_id,    :presence => true
   validates :pts,        :presence => true
   validates :sub_amount, :presence => true

@@ -18,7 +18,7 @@
 #  updated_at          :datetime         not null
 #
 
-class Shopper < ActiveRecord::Base
+class Shopper < ApplicationRecord
   has_many :shoppers_distributors
   has_many :distributors, through: :shoppers_distributors
   has_many :goods
