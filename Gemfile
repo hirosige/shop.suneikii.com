@@ -41,6 +41,9 @@ gem 'gmaps4rails'
 gem 'geocoder'
 gem 'carrierwave'
 gem 'fog'
+gem 'fog-core', '~> 1.45'
+gem "unicode-display_width"
+
 gem 'rmagick'
 gem 'mini_magick'
 
@@ -91,8 +94,6 @@ group :development do
   gem 'web-console', '~> 2.0'
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'hirb'
-  gem 'hirb-unicode'
   gem 'pry-byebug'
   gem 'pry-doc'
   gem 'pry-rails'
@@ -103,7 +104,7 @@ group :development do
   gem 'meta_request'
   gem 'spring'
   gem 'awesome_print'
-  gem 'rubocop', require: false
+  gem 'rubocop', '~> 0.52.1', require: false
   gem 'ruby-debug-ide'
   gem 'debase'
 

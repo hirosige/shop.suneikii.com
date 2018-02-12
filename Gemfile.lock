@@ -77,7 +77,7 @@ GEM
       public_suffix (>= 2.0.2, < 4.0)
     arel (8.0.0)
     ast (2.4.0)
-    autoprefixer-rails (7.2.5)
+    autoprefixer-rails (8.0.0)
       execjs
     awesome_print (1.8.0)
     bcrypt (3.1.11)
@@ -184,7 +184,7 @@ GEM
     dry-container (0.6.0)
       concurrent-ruby (~> 1.0)
       dry-configurable (~> 0.1, >= 0.1.3)
-    dry-core (0.4.3)
+    dry-core (0.4.4)
       concurrent-ruby (~> 1.0)
     dry-equalizer (0.2.0)
     dry-logic (0.4.2)
@@ -404,10 +404,6 @@ GEM
       guard-compat (~> 1.1)
       rspec (>= 2.99.0, < 4.0)
     hashie (3.5.7)
-    hirb (0.7.3)
-    hirb-unicode (0.0.5)
-      hirb (~> 0.5)
-      unicode-display_width (~> 0.1.1)
     hpricot (0.8.6)
     html2slim (0.2.0)
       hpricot
@@ -443,7 +439,7 @@ GEM
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
       ruby_dep (~> 1.2)
-    loofah (2.1.1)
+    loofah (2.2.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     lumberjack (1.0.12)
@@ -518,6 +514,7 @@ GEM
       cocaine (~> 0.5.5)
       mime-types
       mimemagic (~> 0.3.0)
+    parallel (1.12.1)
     parser (2.4.0.2)
       ast (~> 2.3)
     pg (1.0.0)
@@ -543,7 +540,7 @@ GEM
     pry-stack_explorer (0.4.9.2)
       binding_of_caller (>= 0.7)
       pry (>= 0.9.11)
-    public_suffix (3.0.1)
+    public_suffix (3.0.2)
     puma (3.11.2)
     rack (2.0.4)
     rack-contrib (2.0.1)
@@ -580,8 +577,7 @@ GEM
       method_source
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
-    rainbow (2.2.2)
-      rake
+    rainbow (3.0.0)
     raindrops (0.19.0)
     rake (12.3.0)
     ransack (1.6.6)
@@ -656,11 +652,13 @@ GEM
       rspec-mocks (~> 3.7.0)
       rspec-support (~> 3.7.0)
     rspec-support (3.7.1)
-    rubocop (0.36.0)
-      parser (>= 2.3.0.0, < 3.0)
+    rubocop (0.52.1)
+      parallel (~> 1.10)
+      parser (>= 2.4.0.2, < 3.0)
       powerpack (~> 0.1)
-      rainbow (>= 1.99.1, < 3.0)
+      rainbow (>= 2.2.2, < 4.0)
       ruby-progressbar (~> 1.7)
+      unicode-display_width (~> 1.0, >= 1.0.1)
     ruby-debug-ide (0.6.1)
       rake (>= 0.8.1)
     ruby-progressbar (1.9.0)
@@ -733,7 +731,7 @@ GEM
     uber (0.1.0)
     uglifier (4.1.6)
       execjs (>= 0.3.0, < 3)
-    unicode-display_width (0.1.1)
+    unicode-display_width (1.3.0)
     unicorn (5.4.0)
       kgio (~> 2.6)
       raindrops (~> 0.7)
@@ -794,6 +792,7 @@ DEPENDENCIES
   figaro
   fog
   fog-aws
+  fog-core (~> 1.45)
   font-awesome-rails
   friendly_id
   geocoder
@@ -801,8 +800,6 @@ DEPENDENCIES
   gravtastic
   guard-livereload
   guard-rspec
-  hirb
-  hirb-unicode
   html2slim
   jbuilder (~> 2.0)
   jquery-rails
@@ -838,7 +835,7 @@ DEPENDENCIES
   reform-rails
   rmagick
   rspec-rails
-  rubocop
+  rubocop (~> 0.52.1)
   ruby-debug-ide
   sass-rails (~> 5.0.7)
   sdoc (~> 0.4.0)
@@ -858,6 +855,7 @@ DEPENDENCIES
   timecop
   turbolinks
   uglifier (>= 1.3.0)
+  unicode-display_width
   unicorn
   view_source_map
   web-console (~> 2.0)
