@@ -1,10 +1,11 @@
+# IngredientSeeder
 class IngredientSeeder < ApplicationSeeder
   include Printable
 
   def initialize(creating_pts)
     super({
-      :name  => "Ingredient",
-      :pts   => creating_pts
+      name: 'Ingredient',
+      pts:  creating_pts
     })
   end
 
@@ -13,7 +14,7 @@ class IngredientSeeder < ApplicationSeeder
 
     @pts.times do
       model = @model.new(
-          :name => Faker::Food.ingredient
+        name: Faker::Food.ingredient
       )
 
       model.save if @model.validate

@@ -1,4 +1,4 @@
-class CreateSiteInquiries < ActiveRecord::Migration
+class CreateSiteInquiries < ActiveRecord::Migration[5.0]
   def change
     create_table :site_inquiries do |t|
       t.string :name

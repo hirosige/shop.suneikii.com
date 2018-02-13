@@ -1,10 +1,11 @@
+# GoodCategorySeeder
 class GoodsCategorySeeder < ApplicationSeeder
   include Printable
 
   def initialize(creating_pts)
     super({
-      :name  => "GoodsCategory",
-      :pts   => creating_pts
+      name: 'GoodsCategory',
+      pts:  creating_pts
     })
   end
 
@@ -13,7 +14,7 @@ class GoodsCategorySeeder < ApplicationSeeder
 
     @pts.times do
       model = @model.new(
-          :name => %w(Shampoo Perfume Soap BodySoap).sample
+        name: %w[Shampoo Perfume Soap BodySoap].sample
       )
 
       model.save if @model.validate

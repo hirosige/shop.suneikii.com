@@ -1,4 +1,4 @@
-class AddColumnsToUser < ActiveRecord::Migration
+class AddColumnsToUser < ActiveRecord::Migration[5.0]
   def up
     add_column(:users, :name_kanji, :string)
     add_column(:users, :name_kana, :string)

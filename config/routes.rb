@@ -140,8 +140,6 @@
 #                          inquiry_thanks POST   (/:locale)/inquiry/thanks(.:format)                                     inquiry#thanks {:locale=>/ja|en/}
 #
 
-
-
 Rails.application.routes.draw do
 
   root 'front/top#home'
@@ -155,115 +153,116 @@ Rails.application.routes.draw do
     end
   end
 
-   namespace :users do
-      get 'omniauth_callbacks/github'
-      get 'omniauth_callbacks/facebook'
-      get 'omniauth_callbacks/twitter'
-      get 'omniauth_callbacks/instagram'
-      get 'omniauth_callbacks/flickr'
-      get 'omniauth_callbacks/foursquare'
-   end
+  namespace :users do
+    get 'omniauth_callbacks/github'
+    get 'omniauth_callbacks/facebook'
+    get 'omniauth_callbacks/twitter'
+    get 'omniauth_callbacks/instagram'
+    get 'omniauth_callbacks/flickr'
+    get 'omniauth_callbacks/foursquare'
+  end
 
-   get '/sitemap'  => redirect('https://s3-ap-southeast-1.amazonaws.com/suneikii-sitemap-dev/sitemaps/sitemap.xml.gz')
-   devise_for :users, :controllers => {
-       :omniauth_callbacks => 'app/omniauth_callbacks',
-       :registrations      => 'app/registrations',
-       :passwords          => 'app/passwords',
-       :sessions           => 'app/sessions',
-       :unlocks            => 'app/unlocks',
-       :confirmations      => 'app/confirmations',
-   }
+  get '/sitemap' => redirect('https://s3-ap-southeast-1.amazonaws.com/suneikii-sitemap-dev/sitemaps/sitemap.xml.gz')
+  devise_for :users, controllers: {
+    omniauth_callbacks: 'app/omniauth_callbacks',
+    registrations:      'app/registrations',
+    passwords:          'app/passwords',
+    sessions:           'app/sessions',
+    unlocks:            'app/unlocks',
+    confirmations:      'app/confirmations',
+  }
 
-   devise_scope :user do
-      get 'eliminate' => 'app/sessions#destroy'
-      get '/user/input'     => 'app/omniauth_callbacks#input'
-      post '/user/complete' => 'app/omniauth_callbacks#complete'
-   end
+  devise_scope :user do
+    get 'eliminate' => 'app/sessions#destroy'
+    get '/user/input'     => 'app/omniauth_callbacks#input'
+    post '/user/complete' => 'app/omniauth_callbacks#complete'
+  end
 
-   scope "(:locale)", :locale => /#{I18n.available_locales.map(&:to_s).join('|')}/ do
+  scope '(:locale)', locale: /#{I18n.available_locales.map(&:to_s).join('|')}/ do
 
-      # Front Pages
-      scope module: 'front' do
-         resources :products, shallow: true, :only => [:index, :show] do
-           member do
-             get 'add_cart'
-           end
+    # Front Pages
+    scope module: 'front' do
+      resources :products, shallow: true, only: %i[index show] do
+        member do
+          get 'add_cart'
+        end
 
-           collection do
-             get 'cart'
-             get 'kill'
-           end
-         end
+        collection do
+          get 'cart'
+          get 'kill'
+        end
 
-         get 'user/profile'       => 'users#profile'
-         get 'user/name'          => 'users#name'
-         put 'user/name'          => 'users#update'
-         get 'user/address'       => 'users#address'
-         put 'user/address'       => 'users#update_profile'
-         get 'user/email'         => 'users#email'
-         put 'user/email'         => 'users#update_profile'
-         get 'user/profile'       => 'users#profile'
-         get 'user/edit'          => 'users#edit'
-         get 'user/clear_session' => 'users#clear_session'
-         get 'user/logout'        => 'sessions#logout'
-         get 'user/visited'       => 'sessions#visited'
-
-         # resources :apartments, shallow: true, :only => [:index, :show]
-         resources :favorites, :only => [:index, :show] do
-           collection do
-             post 'like'
-           end
-         end
-
-         # Inquiry
-         get  'site_inquiry'             => 'site_inquiry#index'
-         post 'site_inquiry/confirm'     => 'site_inquiry#confirm'
-         post 'site_inquiry/thanks'      => 'site_inquiry#thanks'
       end
 
-      # Administrator Pages
-      get 'admin' => 'admin/members/users#index'
+      get 'user/profile'       => 'users#profile'
+      get 'user/name'          => 'users#name'
+      put 'user/name'          => 'users#update'
+      get 'user/address'       => 'users#address'
+      put 'user/address'       => 'users#update_profile'
+      get 'user/email'         => 'users#email'
+      put 'user/email'         => 'users#update_profile'
+      get 'user/profile'       => 'users#profile'
+      get 'user/edit'          => 'users#edit'
+      get 'user/clear_session' => 'users#clear_session'
+      get 'user/logout'        => 'sessions#logout'
+      get 'user/visited'       => 'sessions#visited'
 
-      namespace :admin do
-        namespace :settings do
-          resources :use_terms
+      # resources :apartments, shallow: true, :only => [:index, :show]
+      resources :favorites, only: %i[index show] do
+        collection do
+          post 'like'
         end
+      end
 
-        namespace :products do
-          resources :colors
-          resources :goods_categories
-          resources :goods
-          resources :ingredients
-          resources :sizes
-        end
+      # Inquiry
+      get  'site_inquiry'             => 'site_inquiry#index'
+      post 'site_inquiry/confirm'     => 'site_inquiry#confirm'
+      post 'site_inquiry/thanks'      => 'site_inquiry#thanks'
+    end
 
-        scope module: :members do
-          resources :users, shallow: true, :only => [:index, :show, :destroy] do
-             member do
-                get 'toggle_ban'
-             end
-          end
-        end
+    # Administrator Pages
+    get 'admin' => 'admin/members/users#index'
+    namespace :admin do
+      scope module: :settings do
+        resources :use_terms
+      end
 
-        namespace :tenants do
-          resources :shoppers
-          resources :shop_statuses
-          resources :distributors
-          resources :shoppers_distributors
-        end
+      scope module: :products do
+        resources :colors
+        resources :goods_categories
+        resources :goods
+        resources :ingredients
+        resources :sizes
+      end
 
-        namespace :dealings do
-          resources :orders do
-            member do
-              get 'pay'
-              get 'refund'
-
-              post 'post' => 'timeline_messages#post'
-            end
+      scope module: :members do
+        resources :users, shallow: true, only: %i[index show destroy] do
+          member do
+            get 'toggle_ban'
           end
         end
       end
 
-      get '*path', controller: 'application', action: 'render_404'
-   end
+      scope module: :tenants do
+        resources :shoppers
+        resources :shop_statuses
+        resources :distributors
+        resources :shoppers_distributors
+      end
+
+      scope module: :dealings do
+        resources :orders do
+          member do
+            get 'pay'
+            get 'refund'
+            post 'post' => 'timeline_messages#post'
+          end
+        end
+      end
+
+    end
+
+    get '*path', controller: 'application', action: 'render_404'
+
+  end
 end

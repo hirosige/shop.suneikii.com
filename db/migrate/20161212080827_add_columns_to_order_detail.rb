@@ -1,4 +1,4 @@
-class AddColumnsToOrderDetail < ActiveRecord::Migration
+class AddColumnsToOrderDetail < ActiveRecord::Migration[5.0]
   def change
     add_column :order_details, :good_id, :integer
     add_column :order_details, :qty, :integer

@@ -1,19 +1,16 @@
 # == Schema Information
 #
-# Table name: wish_lists
+# Table name: good_images
 #
 #  id         :integer          not null, primary key
-#  user_id    :integer
+#  image      :string(255)
 #  good_id    :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 
-# WishList
-class WishList < ApplicationRecord
-  validates :good_id, presence: true
-  validates :good_id, uniqueness: { scope: :user_id }
-
-  belongs_to :user
+class GoodImage < ApplicationRecord
   belongs_to :good
+
+  mount_uploader :image, GoodImagesUploader
 end

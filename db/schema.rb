@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,351 +10,328 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171213135251) do
+ActiveRecord::Schema.define(version: 20180213165412) do
 
-  create_table "cart_contents", force: :cascade do |t|
-    t.integer  "good_id",    limit: 4
-    t.integer  "pts",        limit: 4
-    t.decimal  "sub_amount",           precision: 16, scale: 3
-    t.integer  "cart_id",    limit: 4
-    t.datetime "created_at",                                    null: false
-    t.datetime "updated_at",                                    null: false
+  create_table "cart_contents", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "good_id"
+    t.integer "pts"
+    t.decimal "sub_amount", precision: 16, scale: 3
+    t.integer "cart_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "carts", force: :cascade do |t|
-    t.decimal  "total_amount",             precision: 16, scale: 3
-    t.string   "status",       limit: 255
-    t.integer  "user_id",      limit: 4
-    t.datetime "created_at",                                        null: false
-    t.datetime "updated_at",                                        null: false
+  create_table "carts", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.decimal "total_amount", precision: 16, scale: 3
+    t.string "status"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "colors", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+  create_table "colors", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "customers", force: :cascade do |t|
-    t.string   "first_name", limit: 255
-    t.string   "last_name",  limit: 255
-    t.date     "birthday"
-    t.integer  "gender_id",  limit: 4
-    t.string   "zip_code",   limit: 255
-    t.string   "address",    limit: 255
-    t.string   "tel1",       limit: 255
-    t.string   "tel2",       limit: 255
-    t.text     "memo",       limit: 65535
-    t.integer  "user_id",    limit: 4
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+  create_table "customers", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.date "birthday"
+    t.integer "gender_id"
+    t.string "zip_code"
+    t.string "address"
+    t.string "tel1"
+    t.string "tel2"
+    t.text "memo"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "distributors", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.string   "tel",        limit: 255
-    t.string   "address",    limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+  create_table "distributors", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
+    t.string "tel"
+    t.string "address"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "friendly_id_slugs", force: :cascade do |t|
-    t.string   "slug",           limit: 255, null: false
-    t.integer  "sluggable_id",   limit: 4,   null: false
-    t.string   "sluggable_type", limit: 50
-    t.string   "scope",          limit: 255
+  create_table "friendly_id_slugs", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "slug", null: false
+    t.integer "sluggable_id", null: false
+    t.string "sluggable_type", limit: 50
+    t.string "scope"
     t.datetime "created_at"
+    t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true, length: { slug: 70, scope: 70 }
+    t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", length: { slug: 140 }
+    t.index ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
+    t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
   end
 
-  add_index "friendly_id_slugs", ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true, length: {"slug"=>70, "sluggable_type"=>nil, "scope"=>70}, using: :btree
-  add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", length: {"slug"=>140, "sluggable_type"=>nil}, using: :btree
-  add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
-  add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
-
-  create_table "genders", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+  create_table "genders", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "goods", force: :cascade do |t|
-    t.string   "name",               limit: 255
-    t.integer  "size",               limit: 4
-    t.integer  "stock",              limit: 4
-    t.integer  "price",              limit: 4
-    t.string   "ingredient",         limit: 255
-    t.string   "description",        limit: 255
-    t.string   "tenant_name",        limit: 255
-    t.string   "category",           limit: 255
-    t.string   "keyword",            limit: 255
-    t.boolean  "gender"
-    t.text     "memo",               limit: 65535
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
-    t.integer  "ingredient_id",      limit: 4
-    t.integer  "gender_id",          limit: 4
-    t.integer  "goods_category_id",  limit: 4
-    t.string   "photo_file_name",    limit: 255
-    t.string   "photo_content_type", limit: 255
-    t.integer  "photo_file_size",    limit: 4
+  create_table "good_images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "image"
+    t.integer "good_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "goods", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
+    t.integer "size"
+    t.integer "stock"
+    t.integer "price"
+    t.string "ingredient"
+    t.string "description"
+    t.string "tenant_name"
+    t.string "category"
+    t.string "keyword"
+    t.boolean "gender"
+    t.text "memo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "ingredient_id"
+    t.integer "gender_id"
+    t.integer "goods_category_id"
+    t.string "photo_file_name"
+    t.string "photo_content_type"
+    t.integer "photo_file_size"
     t.datetime "photo_updated_at"
-    t.integer  "color_id",           limit: 4
-    t.integer  "size_id",            limit: 4
-    t.integer  "shopper_id",         limit: 4
-    t.string   "status",             limit: 255
+    t.integer "color_id"
+    t.integer "size_id"
+    t.integer "shopper_id"
+    t.string "status"
+    t.index ["color_id"], name: "index_goods_on_color_id"
+    t.index ["gender_id"], name: "index_goods_on_gender_id"
+    t.index ["goods_category_id"], name: "index_goods_on_goods_category_id"
+    t.index ["ingredient_id"], name: "index_goods_on_ingredient_id"
+    t.index ["size_id"], name: "index_goods_on_size_id"
   end
 
-  add_index "goods", ["color_id"], name: "index_goods_on_color_id", using: :btree
-  add_index "goods", ["gender_id"], name: "index_goods_on_gender_id", using: :btree
-  add_index "goods", ["goods_category_id"], name: "index_goods_on_goods_category_id", using: :btree
-  add_index "goods", ["ingredient_id"], name: "index_goods_on_ingredient_id", using: :btree
-  add_index "goods", ["size_id"], name: "index_goods_on_size_id", using: :btree
-
-  create_table "goods_categories", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+  create_table "goods_categories", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "ingredients", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+  create_table "ingredients", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "inquiries", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.string   "email",      limit: 255
-    t.text     "message",    limit: 65535
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+  create_table "inquiries", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
+    t.string "email"
+    t.text "message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "order_details", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-    t.integer  "order_id",   limit: 4
-    t.integer  "good_id",    limit: 4
-    t.integer  "qty",        limit: 4
-    t.float    "sub_total",  limit: 24
+  create_table "order_details", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "order_id"
+    t.integer "good_id"
+    t.integer "qty"
+    t.float "sub_total", limit: 24
   end
 
-  create_table "orders", force: :cascade do |t|
+  create_table "orders", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "order_date"
-    t.integer  "user_id",            limit: 4
-    t.string   "payment_status",     limit: 255
-    t.string   "fulfillment_status", limit: 255
-    t.float    "total_amount",       limit: 24
-    t.float    "shipping_cost",      limit: 24
-    t.float    "tax",                limit: 24
-    t.text     "note",               limit: 65535
-    t.integer  "timeline_id",        limit: 4
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
+    t.integer "user_id"
+    t.string "payment_status"
+    t.string "fulfillment_status"
+    t.float "total_amount", limit: 24
+    t.float "shipping_cost", limit: 24
+    t.float "tax", limit: 24
+    t.text "note"
+    t.integer "timeline_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "policies", force: :cascade do |t|
-    t.string   "title",       limit: 255
-    t.string   "sub_title",   limit: 255
-    t.text     "description", limit: 65535
-    t.string   "category",    limit: 255
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+  create_table "policies", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "title"
+    t.string "sub_title"
+    t.text "description"
+    t.string "category"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "profiles", force: :cascade do |t|
-    t.string   "postal_code",    limit: 255
-    t.text     "address",        limit: 65535
-    t.string   "tel",            limit: 255
-    t.string   "reciever_email", limit: 255
-    t.integer  "user_id",        limit: 4
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+  create_table "profiles", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "photo"
+    t.string "postal_code"
+    t.text "address"
+    t.string "tel"
+    t.string "reciever_email"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "property_inquiries", force: :cascade do |t|
-    t.string   "name",           limit: 255
-    t.string   "email",          limit: 255
-    t.text     "body",           limit: 65535
-    t.integer  "apartment_id",   limit: 4
-    t.integer  "land_id",        limit: 4
-    t.integer  "condominium_id", limit: 4
-    t.integer  "house_id",       limit: 4
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
-    t.string   "tel",            limit: 255
+  create_table "property_inquiries", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
+    t.string "email"
+    t.text "body"
+    t.integer "apartment_id"
+    t.integer "land_id"
+    t.integer "condominium_id"
+    t.integer "house_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "tel"
   end
 
-  create_table "roles", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+  create_table "roles", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "room_types", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+  create_table "room_types", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "sessions", force: :cascade do |t|
-    t.string   "session_id", limit: 255,   null: false
-    t.text     "data",       limit: 65535
-    t.datetime "created_at"
-    t.datetime "updated_at"
+  create_table "sessions", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "session_id", null: false
+    t.text "data"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["session_id"], name: "index_sessions_on_session_id", unique: true
+    t.index ["updated_at"], name: "index_sessions_on_updated_at"
   end
 
-  add_index "sessions", ["session_id"], name: "index_sessions_on_session_id", unique: true, using: :btree
-  add_index "sessions", ["updated_at"], name: "index_sessions_on_updated_at", using: :btree
-
-  create_table "shop_statuses", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+  create_table "shop_statuses", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "shoppers", force: :cascade do |t|
-    t.string   "shop_name",           limit: 255
-    t.string   "representative_name", limit: 255
-    t.string   "zip_code",            limit: 255
-    t.text     "address",             limit: 65535
-    t.string   "tel1",                limit: 255
-    t.string   "tel2",                limit: 255
-    t.string   "mail_address",        limit: 255
-    t.integer  "shop_status_id",      limit: 4
-    t.string   "account_number",      limit: 255
-    t.text     "memo",                limit: 65535
-    t.integer  "user_id",             limit: 4
-    t.datetime "created_at",                        null: false
-    t.datetime "updated_at",                        null: false
+  create_table "shoppers", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "shop_name"
+    t.string "representative_name"
+    t.string "zip_code"
+    t.text "address"
+    t.string "tel1"
+    t.string "tel2"
+    t.string "mail_address"
+    t.integer "shop_status_id"
+    t.string "account_number"
+    t.text "memo"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "shoppers_distributors", force: :cascade do |t|
-    t.integer  "shopper_id",     limit: 4
-    t.integer  "distributor_id", limit: 4
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+  create_table "shoppers_distributors", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "shopper_id"
+    t.integer "distributor_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "site_inquiries", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.string   "email",      limit: 255
-    t.text     "body",       limit: 65535
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+  create_table "site_inquiries", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
+    t.string "email"
+    t.text "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "sizes", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+  create_table "sizes", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "taggings", force: :cascade do |t|
-    t.integer  "tag_id",        limit: 4
-    t.integer  "taggable_id",   limit: 4
-    t.string   "taggable_type", limit: 255
-    t.integer  "tagger_id",     limit: 4
-    t.string   "tagger_type",   limit: 255
-    t.string   "context",       limit: 128
-    t.datetime "created_at"
+  create_table "test_models", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  add_index "taggings", ["context"], name: "index_taggings_on_context", using: :btree
-  add_index "taggings", ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true, using: :btree
-  add_index "taggings", ["tag_id"], name: "index_taggings_on_tag_id", using: :btree
-  add_index "taggings", ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context", using: :btree
-  add_index "taggings", ["taggable_id", "taggable_type", "tagger_id", "context"], name: "taggings_idy", using: :btree
-  add_index "taggings", ["taggable_id"], name: "index_taggings_on_taggable_id", using: :btree
-  add_index "taggings", ["taggable_type"], name: "index_taggings_on_taggable_type", using: :btree
-  add_index "taggings", ["tagger_id", "tagger_type"], name: "index_taggings_on_tagger_id_and_tagger_type", using: :btree
-  add_index "taggings", ["tagger_id"], name: "index_taggings_on_tagger_id", using: :btree
-
-  create_table "tags", force: :cascade do |t|
-    t.string  "name",           limit: 255
-    t.integer "taggings_count", limit: 4,   default: 0
-  end
-
-  add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
-
-  create_table "test_models", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-  end
-
-  create_table "timeline_messages", force: :cascade do |t|
-    t.string   "message",    limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-    t.integer  "user_id",    limit: 4
+  create_table "timeline_messages", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
     t.datetime "posted_at"
   end
 
-  create_table "timelines", force: :cascade do |t|
-    t.integer  "order_id",            limit: 4
-    t.integer  "user_id",             limit: 4
-    t.integer  "timeline_message_id", limit: 4
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+  create_table "timelines", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "order_id"
+    t.integer "user_id"
+    t.integer "timeline_message_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "use_term_article_details", force: :cascade do |t|
-    t.text     "description",         limit: 65535
-    t.integer  "use_term_article_id", limit: 4
-    t.datetime "created_at",                        null: false
-    t.datetime "updated_at",                        null: false
+  create_table "use_term_article_details", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text "description"
+    t.integer "use_term_article_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "use_term_articles", force: :cascade do |t|
-    t.string   "title",       limit: 255
-    t.integer  "use_term_id", limit: 4
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+  create_table "use_term_articles", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "title"
+    t.integer "use_term_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "use_terms", force: :cascade do |t|
-    t.string   "title",       limit: 255
-    t.string   "sub_title",   limit: 255
-    t.text     "description", limit: 65535
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+  create_table "use_terms", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "title"
+    t.string "sub_title"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string   "email",                  limit: 255, default: "",         null: false
-    t.string   "encrypted_password",     limit: 255, default: "",         null: false
-    t.string   "reset_password_token",   limit: 255
+  create_table "users", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          limit: 4,   default: 0,          null: false
+    t.integer "sign_in_count", default: 0, null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip",     limit: 255
-    t.string   "last_sign_in_ip",        limit: 255
-    t.string   "confirmation_token",     limit: 255
+    t.string "current_sign_in_ip"
+    t.string "last_sign_in_ip"
+    t.string "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
-    t.string   "unconfirmed_email",      limit: 255
-    t.datetime "created_at",                                              null: false
-    t.datetime "updated_at",                                              null: false
-    t.boolean  "blacklist_flg"
-    t.integer  "role_id",                limit: 4
-    t.string   "uid",                    limit: 255
-    t.string   "provider",               limit: 255
-    t.string   "name",                   limit: 255
-    t.string   "role",                   limit: 255, default: "customer", null: false
+    t.string "unconfirmed_email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "blacklist_flg"
+    t.integer "role_id"
+    t.string "uid"
+    t.string "provider"
+    t.string "name"
+    t.string "role", default: "customer", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
-
-  create_table "wash_lists", force: :cascade do |t|
-    t.integer  "user_id",    limit: 4
-    t.integer  "good_id",    limit: 4
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+  create_table "wish_lists", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "user_id"
+    t.integer "good_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

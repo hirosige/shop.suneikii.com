@@ -22,9 +22,12 @@ class InquiryController < FrontTopController
   end
 
   private
-    def inquiry_params
-      params.require(:inquiry).permit(
-          :name, :email, :message
-      )
-    end
+
+  def inquiry_params
+    params.require(:inquiry).permit(
+      :name,
+      :email,
+      :message
+    )
+  end
 end

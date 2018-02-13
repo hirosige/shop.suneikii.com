@@ -1,4 +1,4 @@
-class CreateUseTerms < ActiveRecord::Migration
+class CreateUseTerms < ActiveRecord::Migration[5.0]
   def change
     create_table :use_terms do |t|
       t.string :title
