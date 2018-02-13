@@ -1,4 +1,4 @@
-class CreatePropertyInquiries < ActiveRecord::Migration
+class CreatePropertyInquiries < ActiveRecord::Migration[5.0]
   def change
     create_table :property_inquiries do |t|
       t.string :name

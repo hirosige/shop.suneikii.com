@@ -38,16 +38,13 @@
 #
 
 class Good < ApplicationRecord
+  has_many :good_images
   belongs_to :ingredient
   belongs_to :gender
   belongs_to :goods_category
   belongs_to :color
   belongs_to :size
   belongs_to :shopper
-  paginates_per 10
-
-  has_attached_file :photo, styles: { large: "600x600", medium: "300x300>", thumb: "100x100>" }
-  validates_attachment :photo, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"] }, locale: :en
 
   state_machine :status, initial: :unreleased do
     state :unreleased

@@ -1,4 +1,4 @@
-class RemovesColumnsFromUser < ActiveRecord::Migration
+class RemovesColumnsFromUser < ActiveRecord::Migration[5.0]
   def self.up
     remove_column :users, :admin
     remove_column :users, :name_kanji

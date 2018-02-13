@@ -1,4 +1,4 @@
-class CreateShoppersDistributors < ActiveRecord::Migration
+class CreateShoppersDistributors < ActiveRecord::Migration[5.0]
   def change
     create_table :shoppers_distributors do |t|
       t.integer :shopper_id

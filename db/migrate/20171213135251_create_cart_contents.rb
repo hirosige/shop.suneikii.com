@@ -1,4 +1,4 @@
-class CreateCartContents < ActiveRecord::Migration
+class CreateCartContents < ActiveRecord::Migration[5.0]
   def change
     create_table :cart_contents do |t|
       t.integer :good_id

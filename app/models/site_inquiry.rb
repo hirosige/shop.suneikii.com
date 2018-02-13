@@ -14,6 +14,6 @@ class SiteInquiry < ApplicationRecord
   validates :name, presence: true
   validates :email, presence: true
   validates_format_of :email,
-    :with => /\A([0-9]+|[a-z]+|(\.|\-))+@([0-9]+|[a-z]+)+\.([0-9]+|[a-z]+)+(\.([0-9]+|[a-z]+))*\z/i
+    with: /\A([0-9]+|[a-z]+|(\.|\-))+@([0-9]+|[a-z]+)+\.([0-9]+|[a-z]+)+(\.([0-9]+|[a-z]+))*\z/i
   validates :body, presence: true
 end

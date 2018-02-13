@@ -1,4 +1,4 @@
-# This creates testing data for Color
+# ColorSeeder
 class ColorSeeder < ApplicationSeeder
   include Printable
 

@@ -3,6 +3,7 @@
 # Table name: profiles
 #
 #  id             :integer          not null, primary key
+#  photo          :string(255)
 #  postal_code    :string(255)
 #  address        :text(65535)
 #  tel            :string(255)
@@ -14,4 +15,6 @@
 
 class Profile < ApplicationRecord
   belongs_to :user
+
+  mount_uploader :photo, ProfilePhotoUploader
 end

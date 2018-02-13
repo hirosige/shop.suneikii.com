@@ -1,5 +1,6 @@
 require 'faker'
 
+# ApplicationSeeder
 class ApplicationSeeder
   attr_accessor :model
   attr_accessor :pts

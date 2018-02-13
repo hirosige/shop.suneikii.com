@@ -1,4 +1,4 @@
-class CreateUseTermArticles < ActiveRecord::Migration
+class CreateUseTermArticles < ActiveRecord::Migration[5.0]
   def change
     create_table :use_term_articles do |t|
       t.string :title

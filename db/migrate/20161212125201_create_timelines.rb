@@ -1,4 +1,4 @@
-class CreateTimelines < ActiveRecord::Migration
+class CreateTimelines < ActiveRecord::Migration[5.0]
   def change
     create_table :timelines do |t|
       t.integer :order_id

@@ -50,13 +50,13 @@ class User < ApplicationRecord
   has_many :favorites
   accepts_nested_attributes_for :profile, allow_destroy: true
 
-  belongs_to :realestate_provider
+  belongs_to :realestate_provider, optional: true
 
   enum role: {
-    :admin    => 'admin',
-    :staff    => 'staff',
-    :provider => 'provider',
-    :customer => 'customer'
+    admin:    'admin',
+    staff:    'staff',
+    provider: 'provider',
+    customer: 'customer'
   }
 
   def self.has_oauth_user_exist(auth)
@@ -73,11 +73,11 @@ class User < ApplicationRecord
 
     unless user
       user = User.new(
-          uid:      auth.uid,
-          provider: auth.provider,
-          email:    User.dummy_email(auth),
-          password: Devise.friendly_token[0, 20],
-          role: :customer
+        uid:      auth.uid,
+        provider: auth.provider,
+        email:    User.dummy_email(auth),
+        password: Devise.friendly_token[0, 20],
+        role:     :customer
       )
       user.build_profile
       user.save
@@ -87,22 +87,20 @@ class User < ApplicationRecord
   end
 
   def self.create_oauth_user(auth, name)
-      user = User.new(
-          uid:      auth.uid,
-          name:     name,
-          provider: auth.provider,
-          email:    User.dummy_email(auth),
-          password: Devise.friendly_token[0, 20],
-          role: :customer
-      )
+    user = User.new(
+      uid:      auth.uid,
+      name:     name,
+      provider: auth.provider,
+      email:    User.dummy_email(auth),
+      password: Devise.friendly_token[0, 20],
+      role: :customer
+    )
 
-      user.build_profile
-      user.save
+    user.build_profile
+    user.save
 
     user
   end
-
-  private
 
   def self.dummy_email(auth)
     "#{auth.uid}-#{auth.provider}@example.com"
