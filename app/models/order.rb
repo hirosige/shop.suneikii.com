@@ -7,11 +7,11 @@
 #  user_id            :integer
 #  payment_status     :string(255)
 #  fulfillment_status :string(255)
-#  total_amount       :float(24)
-#  shipping_cost      :float(24)
-#  tax                :float(24)
+#  total_amount       :decimal(10, 2)
+#  shipping_cost      :decimal(10, 2)
+#  tax                :decimal(5, 2)
 #  note               :text(65535)
-#  timeline_id        :integer
+#  tracking_no        :string(255)
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
 #

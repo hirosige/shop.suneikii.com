@@ -2,39 +2,22 @@
 #
 # Table name: goods
 #
-#  id                 :integer          not null, primary key
-#  name               :string(255)
-#  size               :integer
-#  stock              :integer
-#  price              :integer
-#  ingredient         :string(255)
-#  description        :string(255)
-#  tenant_name        :string(255)
-#  category           :string(255)
-#  keyword            :string(255)
-#  gender             :boolean
-#  memo               :text(65535)
-#  created_at         :datetime         not null
-#  updated_at         :datetime         not null
-#  ingredient_id      :integer
-#  gender_id          :integer
-#  goods_category_id  :integer
-#  photo_file_name    :string(255)
-#  photo_content_type :string(255)
-#  photo_file_size    :integer
-#  photo_updated_at   :datetime
-#  color_id           :integer
-#  size_id            :integer
-#  shopper_id         :integer
-#  status             :string(255)
-#
-# Indexes
-#
-#  index_goods_on_color_id           (color_id)
-#  index_goods_on_gender_id          (gender_id)
-#  index_goods_on_goods_category_id  (goods_category_id)
-#  index_goods_on_ingredient_id      (ingredient_id)
-#  index_goods_on_size_id            (size_id)
+#  id                :integer          not null, primary key
+#  collection_id     :integer
+#  shopper_id        :integer
+#  goods_category_id :integer
+#  color_id          :integer
+#  size_id           :integer
+#  ingredient_id     :integer
+#  name              :string(255)
+#  thumbnail         :string(255)
+#  price             :decimal(10, 2)
+#  description       :string(255)
+#  gender            :integer
+#  admin_memo        :text(65535)
+#  status            :string(255)
+#  created_at        :datetime         not null
+#  updated_at        :datetime         not null
 #
 
 class Good < ApplicationRecord

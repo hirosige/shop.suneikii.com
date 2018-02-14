@@ -19,11 +19,8 @@
 #  unconfirmed_email      :string(255)
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
-#  blacklist_flg          :boolean
-#  role_id                :integer
 #  uid                    :string(255)
 #  provider               :string(255)
-#  name                   :string(255)
 #  role                   :string(255)      default("customer"), not null
 #
 # Indexes

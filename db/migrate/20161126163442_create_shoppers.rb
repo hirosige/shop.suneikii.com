@@ -1,15 +1,15 @@
 class CreateShoppers < ActiveRecord::Migration[5.0]
   def change
     create_table :shoppers do |t|
-      t.string :shop_name
+      t.string :name
+      t.string :photo
       t.string :representative_name
-      t.string :zip_code
+      t.string :postal_code
       t.text :address
       t.string :tel1
       t.string :tel2
-      t.string :mail_address
-      t.integer :shop_status_id
-      t.string :account_number
+      t.string :email
+      t.integer :status
       t.text :memo
       t.integer :user_id
 
