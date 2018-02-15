@@ -173,7 +173,7 @@
       <part>id</part>
     </key>
   </table>
-  <table x="324" y="308" name="good_categories">
+  <table x="342" y="325" name="good_categories">
     <row name="id" null="1" autoincrement="1">
       <datatype>INTEGER</datatype>
       <default>NULL</default></row>
@@ -190,7 +190,7 @@
       <part>id</part>
     </key>
   </table>
-  <table x="192" y="679" name="ingredients">
+  <table x="216" y="639" name="ingredients">
     <row name="id" null="1" autoincrement="1">
       <datatype>INTEGER</datatype>
       <default>NULL</default></row>
@@ -230,7 +230,7 @@
       <part>id</part>
     </key>
   </table>
-  <table x="1119" y="89" name="orders">
+  <table x="1131" y="103" name="orders">
     <row name="id" null="1" autoincrement="1">
       <datatype>INTEGER</datatype>
       <default>NULL</default></row>
@@ -501,7 +501,8 @@
       <default>NULL</default></row>
     <row name="shopper_id" null="1" autoincrement="0">
       <datatype>INTEGER</datatype>
-      <default>NULL</default></row>
+      <default>NULL</default><relation table="shoppers" row="id" />
+    </row>
     <row name="created_at" null="1" autoincrement="0">
       <datatype>INTEGER</datatype>
       <default>NULL</default></row>
@@ -543,7 +544,7 @@
       <part>id</part>
     </key>
   </table>
-  <table x="128" y="112" name="collections">
+  <table x="133" y="120" name="collections">
     <row name="id" null="1" autoincrement="1">
       <datatype>INTEGER</datatype>
       <default>NULL</default></row>
@@ -754,7 +755,7 @@
       <part>id</part>
     </key>
   </table>
-  <table x="300.6666679382324" y="129" name="collection_connection">
+  <table x="313.6666679382324" y="148" name="collection_connection">
     <row name="id" null="1" autoincrement="1">
       <datatype>INTEGER</datatype>
       <default>NULL</default></row>
@@ -776,7 +777,7 @@
       <part>id</part>
     </key>
   </table>
-  <table x="387.1111125946045" y="471" name="color_selection">
+  <table x="387.1111125946045" y="471" name="color_selections">
     <row name="id" null="1" autoincrement="1">
       <datatype>INTEGER</datatype>
       <default>NULL</default></row>
@@ -798,7 +799,7 @@
       <part>id</part>
     </key>
   </table>
-  <table x="372.1111125946045" y="654" name="allegic_contents">
+  <table x="391.1111125946045" y="627" name="allegic_contents">
     <row name="id" null="1" autoincrement="1">
       <datatype>INTEGER</datatype>
       <default>NULL</default></row>
@@ -810,6 +811,45 @@
       <datatype>INTEGER</datatype>
       <default>NULL</default><relation table="goods" row="id" />
     </row>
+    <row name="created_at" null="1" autoincrement="0">
+      <datatype>INTEGER</datatype>
+      <default>NULL</default></row>
+    <row name="updated_at" null="1" autoincrement="0">
+      <datatype>INTEGER</datatype>
+      <default>NULL</default></row>
+    <key type="PRIMARY" name="">
+      <part>id</part>
+    </key>
+  </table>
+  <table x="395.7777786254883" y="789" name="size_selections">
+    <row name="id" null="1" autoincrement="1">
+      <datatype>INTEGER</datatype>
+      <default>NULL</default></row>
+    <row name="size_id" null="1" autoincrement="0">
+      <datatype>INTEGER</datatype>
+      <default>NULL</default><relation table="sizes" row="id" />
+    </row>
+    <row name="good_id" null="1" autoincrement="0">
+      <datatype>INTEGER</datatype>
+      <default>NULL</default><relation table="goods" row="id" />
+    </row>
+    <row name="created_at" null="1" autoincrement="0">
+      <datatype>INTEGER</datatype>
+      <default>NULL</default></row>
+    <row name="updated_at" null="1" autoincrement="0">
+      <datatype>INTEGER</datatype>
+      <default>NULL</default></row>
+    <key type="PRIMARY" name="">
+      <part>id</part>
+    </key>
+  </table>
+  <table x="222.77777862548828" y="793" name="sizes">
+    <row name="id" null="1" autoincrement="1">
+      <datatype>INTEGER</datatype>
+      <default>NULL</default></row>
+    <row name="name" null="1" autoincrement="0">
+      <datatype>INTEGER</datatype>
+      <default>NULL</default></row>
     <row name="created_at" null="1" autoincrement="0">
       <datatype>INTEGER</datatype>
       <default>NULL</default></row>

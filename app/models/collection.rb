@@ -12,4 +12,6 @@
 #
 
 class Collection < ApplicationRecord
+  has_many :collection_connections
+  has_many :goods, through: :collection_connections
 end

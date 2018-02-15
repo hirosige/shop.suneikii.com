@@ -22,5 +22,4 @@ class Shopper < ApplicationRecord
   has_many :shoppers_distributors
   has_many :distributors, through: :shoppers_distributors
   has_many :goods
-  belongs_to :shop_status
 end

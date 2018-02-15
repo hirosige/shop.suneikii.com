@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180214152304) do
+ActiveRecord::Schema.define(version: 20180215140721) do
+
+  create_table "allergic_contents", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "ingredient_id"
+    t.integer "good_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "cart_contents", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "good_id"
@@ -29,11 +36,25 @@ ActiveRecord::Schema.define(version: 20180214152304) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "collection_connections", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "collection_id"
+    t.integer "good_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "collections", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "start_at"
     t.datetime "end_at"
     t.decimal "discount_rate", precision: 5, scale: 2
     t.string "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "color_selections", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "color_id"
+    t.integer "good_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -72,12 +93,8 @@ ActiveRecord::Schema.define(version: 20180214152304) do
   end
 
   create_table "goods", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer "collection_id"
     t.integer "shopper_id"
     t.integer "goods_category_id"
-    t.integer "color_id"
-    t.integer "size_id"
-    t.integer "ingredient_id"
     t.string "name"
     t.string "thumbnail"
     t.decimal "price", precision: 10, scale: 2
@@ -111,7 +128,7 @@ ActiveRecord::Schema.define(version: 20180214152304) do
   end
 
   create_table "orders", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.datetime "order_date"
+    t.datetime "ordered_on"
     t.integer "user_id"
     t.string "payment_status"
     t.string "fulfillment_status"
@@ -227,6 +244,13 @@ ActiveRecord::Schema.define(version: 20180214152304) do
     t.text "address"
     t.text "privacy_policy"
     t.text "condition_of_use"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "size_selections", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "size_id"
+    t.integer "good_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

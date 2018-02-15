@@ -1,12 +1,8 @@
 class CreateGoods < ActiveRecord::Migration[5.0]
   def change
     create_table :goods do |t|
-      t.integer :collection_id
       t.integer :shopper_id
       t.integer :goods_category_id
-      t.integer :color_id
-      t.integer :size_id
-      t.integer :ingredient_id
       t.string :name
       t.string :thumbnail
       t.decimal :price, precision: 10, scale: 2

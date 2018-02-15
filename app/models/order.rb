@@ -3,7 +3,7 @@
 # Table name: orders
 #
 #  id                 :integer          not null, primary key
-#  order_date         :datetime
+#  ordered_on         :datetime
 #  user_id            :integer
 #  payment_status     :string(255)
 #  fulfillment_status :string(255)
@@ -18,8 +18,6 @@
 
 class Order < ApplicationRecord
   has_many :order_details, dependent: :destroy
-  has_many :timeline_messages, through: :timelines
-  has_many :timelines
   belongs_to :user
 
   acts_as_ordered_taggable_on :kinds

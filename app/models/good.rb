@@ -3,12 +3,8 @@
 # Table name: goods
 #
 #  id                :integer          not null, primary key
-#  collection_id     :integer
 #  shopper_id        :integer
 #  goods_category_id :integer
-#  color_id          :integer
-#  size_id           :integer
-#  ingredient_id     :integer
 #  name              :string(255)
 #  thumbnail         :string(255)
 #  price             :decimal(10, 2)
@@ -22,11 +18,23 @@
 
 class Good < ApplicationRecord
   has_many :good_images
-  belongs_to :ingredient
-  belongs_to :gender
+
+  has_many :collection_connections
+  has_many :collections, through: :collection_connections
+
+  has_many :color_selections
+  has_many :colors, through: :color_selections
+
+  has_many :allergic_contents
+  has_many :ingredients, through: :allergic_contents
+
+  has_many :size_selections
+  has_many :sizes, through: :size_selections
+
+  has_many :wish_lists
+  has_many :ratings
+
   belongs_to :goods_category
-  belongs_to :color
-  belongs_to :size
   belongs_to :shopper
 
   state_machine :status, initial: :unreleased do

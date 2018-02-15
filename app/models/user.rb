@@ -44,7 +44,10 @@ class User < ApplicationRecord
          :omniauthable
 
   has_one :profile, dependent: :destroy
-  has_many :favorites
+  has_many :wish_lists
+  has_many :ratings
+  has_many :personal_questions
+
   accepts_nested_attributes_for :profile, allow_destroy: true
 
   belongs_to :realestate_provider, optional: true

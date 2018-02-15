@@ -9,7 +9,8 @@
 #
 
 class Ingredient < ApplicationRecord
-  has_many :goods
+  has_many :allergic_contents
+  has_many :goods, through: :allergic_contents
 
   validates :name, presence: true
 end
