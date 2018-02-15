@@ -1,0 +1,19 @@
+# == Schema Information
+#
+# Table name: personal_questions
+#
+#  id          :integer          not null, primary key
+#  title       :string(255)
+#  description :text(65535)
+#  user_id     :integer
+#  status      :string(255)
+#  answer      :text(65535)
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
+require 'rails_helper'
+
+RSpec.describe PersonalQuestion, type: :model do
+  pending "add some examples to (or delete) #{__FILE__}"
+end

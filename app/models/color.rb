@@ -10,7 +10,8 @@
 
 # Color Model
 class Color < ApplicationRecord
-  has_many :goods
+  has_many :color_selections
+  has_many :goods, through: :color_selections
 
   validates :name, presence: true
   validates :name, length: { maximum: 100 }

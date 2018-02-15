@@ -1,5 +1,5 @@
 class Front::ApartmentsController < FrontController
-  include Mobylette::RespondToMobileRequests
+  # include Mobylette::RespondToMobileRequests
 
   before_action :set_apartment, only: [:show]
   before_action :set_root_breadcrumb
