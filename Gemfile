@@ -118,4 +118,4 @@ group :development do
 end
 
 gem 'rails_12factor', group: :production
-gem 'pg', '0.21.0', group: :production
+gem 'pg', '~> 0.21.0', group: :production
