@@ -45,8 +45,8 @@ class Good < ApplicationRecord
     after_transition on: :released, do: :set_public_date
 
     event :switch_publish do
-      transition :from => :unreleased, :to => :released
-      transition :from => :released, :to => :unreleased
+      transition from: :unreleased, to: :released
+      transition from: :released, to: :unreleased
     end
 
     def set_public_date

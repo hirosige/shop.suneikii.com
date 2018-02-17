@@ -1,10 +1,21 @@
 FactoryBot.define do
-  factory :user do
-    name                  Faker::Name.name
-    email                 Faker::Internet.email
-    password              'abCD1234'
-    password_confirmation 'abCD1234'
-    role :admin
-    confirmed_at Time.now
+  factory :user do |user|
+    user.trait :user1 do |item|
+      item.email "1#{Faker::Internet.email}"
+
+    end
+
+    user.trait :user2 do |item|
+      item.email "2#{Faker::Internet.email}"
+    end
+
+    user.trait :user3 do |item|
+      item.email "3#{Faker::Internet.email}"
+    end
+
+    user.password 'abCD1234'
+    user.password_confirmation 'abCD1234'
+    user.role :admin
+    user.confirmed_at Time.now
   end
 end

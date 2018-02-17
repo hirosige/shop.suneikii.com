@@ -1,9 +1,9 @@
 # == Schema Information
 #
-# Table name: allegic_contents
+# Table name: collection_connections
 #
 #  id            :integer          not null, primary key
-#  ingredient_id :integer
+#  collection_id :integer
 #  good_id       :integer
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
@@ -11,6 +11,5 @@
 
 require 'rails_helper'
 
-RSpec.describe AllegicContent, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+RSpec.describe CollectionConnection, type: :model do
 end
