@@ -46,7 +46,7 @@ RSpec.describe WishList, type: :model do
 
     it 'can register not duplicated set' do
       wish_list = create(:wish_list, :one)
-      wish_list2 = build(:wish_list, :two, user_id: wish_list.user_id)
+      wish_list2 = build(:wish_list, :one, user_id: wish_list.user_id)
 
       expect(wish_list2.valid?).to be true
     end
