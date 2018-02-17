@@ -12,5 +12,5 @@ class Size < ApplicationRecord
   has_many :size_selections
   has_many :goods, through: :size_selections
 
-  validates :name, presence: true
+  validates :name, presence: true, length: { maximum: 255 }, uniqueness: true
 end

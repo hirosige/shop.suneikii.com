@@ -1,15 +1,18 @@
 # == Schema Information
 #
-# Table name: apartment_options
+# Table name: order_details
 #
 #  id         :integer          not null, primary key
-#  name       :string(255)
+#  order_id   :integer
+#  good_id    :integer
+#  qty        :integer
+#  sub_total  :decimal(10, 2)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 
 FactoryBot.define do
-  factory :apartment_option do
-    name "MyString"
+  factory :order_detail do
+
   end
 end

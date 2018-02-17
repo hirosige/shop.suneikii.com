@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: wash_lists
+# Table name: wish_lists
 #
 #  id         :integer          not null, primary key
 #  user_id    :integer

@@ -1,21 +1,15 @@
 # == Schema Information
 #
-# Table name: surroundings
+# Table name: colors
 #
 #  id         :integer          not null, primary key
 #  name       :string(255)
-#  latitude   :decimal(16, 13)
-#  longitude  :decimal(16, 13)
-#  photo      :string(255)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 
 FactoryBot.define do
-  factory :surrounding do
-    name "MyString"
-    latitude ""
-    longitude ""
-    photo "MyString"
+  factory :color do
+
   end
 end
