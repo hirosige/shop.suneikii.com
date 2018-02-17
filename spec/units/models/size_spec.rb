@@ -33,8 +33,4 @@ RSpec.describe Size, type: :model do
     expect(size.validate).to eq false
   end
 
-  it 'has many size selections' do
-    should have_many(:goods)
-  end
-
 end
