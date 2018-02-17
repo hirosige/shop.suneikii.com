@@ -1,0 +1,25 @@
+<%
+  dev_database  = 'shop_db'
+  test_database = 'shop_db_test'
+  user_name     = 'shop_admin'
+  password      = 'password'
+%>
+
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
+  username: <%= user_name %>
+  password: <%= password %>
+  host: localhost
+
+development:
+  <<: *default
+  database: <%= dev_database %>
+
+test:
+  <<: *default
+  database: <%= test_database %>
+
+production:
+  url: <%= ENV['DATABASE_URL'] %>

@@ -2,7 +2,6 @@ source 'https://rubygems.org'
 
 gem 'rails', '5.1.4'
 gem 'mysql2', '>= 0.3.13', '< 0.5'
-gem 'pg'
 gem 'sass-rails', '~>5.0.7'
 gem 'bootstrap', '~> 4.0.0.beta2'
 gem "font-awesome-rails"
@@ -119,3 +118,4 @@ group :development do
 end
 
 gem 'rails_12factor', group: :production
+gem 'pg', group: :production
