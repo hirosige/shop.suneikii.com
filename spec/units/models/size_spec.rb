@@ -1,22 +1,19 @@
 # == Schema Information
 #
-# Table name: inquiries
+# Table name: size_selections
 #
 #  id         :integer          not null, primary key
-#  name       :string(255)
-#  email      :string(255)
-#  message    :text(65535)
+#  size_id    :integer
+#  good_id    :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 
 require 'rails_helper'
 
-RSpec.describe Inquiry, type: :model do
-
+RSpec.describe Size, type: :model do
   it "can create" do
-    inquiry = Inquiry.new
-    expect(inquiry.class.to_s).to eq('Inquiry')
+    size = build(:size, :s)
+    expect(size.validate).to eq true
   end
-
 end

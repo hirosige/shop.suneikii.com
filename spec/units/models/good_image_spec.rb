@@ -1,9 +1,9 @@
 # == Schema Information
 #
-# Table name: size_selections
+# Table name: good_images
 #
 #  id         :integer          not null, primary key
-#  size_id    :integer
+#  image      :string(255)
 #  good_id    :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
@@ -11,6 +11,5 @@
 
 require 'rails_helper'
 
-RSpec.describe SizeSelection, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+RSpec.describe GoodImage, type: :model do
 end

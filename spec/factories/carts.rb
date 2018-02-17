@@ -11,9 +11,10 @@
 #
 
 FactoryBot.define do
-  factory :cart do
-    total_amount "9.99"
-    status "MyString"
-    user_id 1
+  factory :cart do |cart|
+    cart.trait :one do |item|
+      item.total_amount 0.0
+      item.user_id 1
+    end
   end
 end

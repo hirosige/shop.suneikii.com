@@ -5,6 +5,11 @@ RSpec.describe Cart, :type => :model do
 
   before :each do
     @cart = Cart.new
+    @user = create(:user, :user1)
+    @category = create(:goods_category, :soap)
+    @shopper = create(:shopper, :a, user_id: @user.id)
+    @good1 = create(:good, :a, goods_category_id: @category.id, shopper_id: @shopper.id)
+    @good2 = create(:good, :b, goods_category_id: @category.id, shopper_id: @shopper.id)
   end
 
   describe "can create" do
@@ -14,14 +19,14 @@ RSpec.describe Cart, :type => :model do
     end
 
     it "can put properties" do
-      @cart.user_id = 1
+      @cart.user_id = @user.id
       @cart.total_amount = 10.02
 
       expect(@cart).to be_valid
     end
 
     it "can put decimal" do
-      @cart.user_id = 1
+      @cart.user_id = @user.id
       @cart.total_amount = 10000000000000000.000
 
       expect(@cart).to be_valid
@@ -33,7 +38,7 @@ RSpec.describe Cart, :type => :model do
     end
 
     it "can be inactivated" do
-      @cart.user_id = 1
+      @cart.user_id = @user.id
       @cart.inactivate
 
       expect(@cart.inactive?).to be true
@@ -48,31 +53,27 @@ RSpec.describe Cart, :type => :model do
     end
 
     it "user_id is valid" do
-      @cart.user_id = 1
+      @cart.user_id = @user.id
       expect(@cart.valid?).to be true
     end
 
     it "can add to shopping cart" do
-      @good = Good.create(:name => 'test', :price => 100)
-      @cart.add_item(@good.id)
+      @cart.add_item(@good1.id)
 
       expect(@cart.cart_contents.size).to be 1
     end
 
     it "should be calced after add" do
-      @good = Good.create(:name => 'test', :price => 100)
-      @cart.add_item(@good.id)
+      @cart.add_item(@good1.id)
 
-      expect(@cart.cart_contents[0].sub_amount).to eq 100.0
+      expect(@cart.cart_contents[0].sub_amount).to eq 2000.0
     end
 
     it "can remove" do
-      @good = Good.create(:name => 'test', :price => 100)
-      @good2 = Good.create(:name => 'test2', :price => 200)
       @cart.user_id = 1
       @cart.save
 
-      @cart.add_item(@good.id)
+      @cart.add_item(@good1.id)
       @cart.add_item(@good2.id)
       @cart.cart_contents[0].change_quantity(1)
       @cart.cart_contents[1].change_quantity(1)
@@ -86,12 +87,10 @@ RSpec.describe Cart, :type => :model do
     end
 
     it "can change child quantity" do
-      @good = Good.create(:name => 'test', :price => 100)
-      @good2 = Good.create(:name => 'test2', :price => 200)
-      @cart.user_id = 1
+      @cart.user_id = @user.id
       @cart.save
 
-      @cart.add_item(@good.id)
+      @cart.add_item(@good1.id)
       @cart.add_item(@good2.id)
       @cart.save
 
@@ -101,9 +100,9 @@ RSpec.describe Cart, :type => :model do
 
       expect(@cart.cart_contents.size).to be 2
       expect(@cart.cart_contents[0].pts).to be 1
-      expect(@cart.cart_contents[0].sub_amount).to eq 100.0
+      expect(@cart.cart_contents[0].sub_amount).to eq 2000.0
       expect(@cart.cart_contents[1].pts).to be 2
-      expect(@cart.cart_contents[1].sub_amount).to eq 400.0
+      expect(@cart.cart_contents[1].sub_amount).to eq 6000.0
     end
   end
 end
