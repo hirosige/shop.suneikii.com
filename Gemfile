@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '5.1.4'
 gem 'mysql2', '>= 0.3.13', '< 0.5'
+gem 'pg'
 gem 'sass-rails', '~>5.0.7'
 gem 'bootstrap', '~> 4.0.0.beta2'
 gem "font-awesome-rails"
@@ -115,9 +116,4 @@ group :development do
   gem 'guard-livereload'
   gem 'terminal-notifier'
   gem 'terminal-notifier-guard'
-end
-
-group :production do
-  gem 'rails_12factor'
-  gem 'pg'
 end
