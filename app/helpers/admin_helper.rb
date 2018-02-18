@@ -6,80 +6,80 @@ module AdminHelper
 
     # Home
     home = CategoryService.new({
-      :name => "Home",
-      :controller => params[:controller]
+      name: 'Home',
+      controller: params[:controller]
     })
 
     home.add(ItemService.new({
-      :name => "Settings",
-      :controller => params[:controller],
-      :link => ''
+      name: 'Settings',
+      controller: params[:controller],
+      link: ''
     }))
 
     # Members
     members = CategoryService.new({
-      :name => "Members",
-      :controller => params[:controller]
+      name: 'Members',
+      controller: params[:controller]
     })
 
     members.add(ItemService.new({
-      :name => "Users",
-      :controller => params[:controller],
-      :link => admin_users_path
+      name: 'Users',
+      controller: params[:controller],
+      link: admin_users_path
     }))
 
     # Products
     products = CategoryService.new({
-      :name => "Products",
-      :controller => params[:controller]
+      name: 'Products',
+      controller: params[:controller]
     })
 
     products.add(ItemService.new({
-      :name => "Goods",
-      :controller => params[:controller],
-      :link => admin_products_goods_path
+      name: 'Goods',
+      controller: params[:controller],
+      link: admin_goods_path
     }))
 
     products.add(ItemService.new({
-      :name => "GoodsCategories",
-      :controller => params[:controller],
-      :link => admin_products_goods_categories_path
+      name: 'GoodsCategories',
+      controller: params[:controller],
+      link: admin_goods_categories_path
     }))
 
     products.add(ItemService.new({
-      :name => "Colors",
-      :controller => params[:controller],
-      :link => admin_products_colors_path
+      name: 'Colors',
+      controller: params[:controller],
+      link: admin_colors_path
     }))
 
     products.add(ItemService.new({
-      :name => "Ingredients",
-      :controller => params[:controller],
-      :link => admin_products_ingredients_path
+      name: 'Ingredients',
+      controller: params[:controller],
+      link: admin_ingredients_path
     }))
 
     products.add(ItemService.new({
-      :name => "Ingredients",
-      :controller => params[:controller],
-      :link => admin_products_ingredients_path
+      name: 'Ingredients',
+      controller: params[:controller],
+      link: admin_ingredients_path
     }))
 
     products.add(ItemService.new({
-      :name => "Sizes",
-      :controller => params[:controller],
-      :link => admin_products_sizes_path
+      name: 'Sizes',
+      controller: params[:controller],
+      link: admin_sizes_path
     }))
 
     # Dealings
     dealings = CategoryService.new({
-      :name => "Dealings",
-      :controller => params[:controller]
+      name: 'Dealings',
+      controller: params[:controller]
     })
 
     dealings.add(ItemService.new({
-      :name => "Orders",
-      :controller => params[:controller],
-      :link => admin_dealings_orders_path
+      name: 'Orders',
+      controller: params[:controller],
+      link: admin_orders_path
     }))
 
     # Set Categories
@@ -91,4 +91,3 @@ module AdminHelper
     @menu.show.html_safe
   end
 end
-

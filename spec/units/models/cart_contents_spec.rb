@@ -10,7 +10,7 @@ RSpec.describe CartContent, :type => :model do
       @user = create(:user, :user1)
       @cart = create(:cart, :one, user_id: @user.id)
       @category = create(:goods_category, :soap)
-      @shopper = create(:shopper, :a, user_id: @user.id)
+      @shopper = create(:shopper, :a)
       @good1 = create(:good, :a, goods_category_id: @category.id, shopper_id: @shopper.id)
       @good2 = create(:good, :b, goods_category_id: @category.id, shopper_id: @shopper.id)
     end

@@ -9,7 +9,13 @@
 #
 
 FactoryBot.define do
-  factory :ingredient do
+  factory :ingredient do |ingredient|
+    ingredient.trait :shrimp do |item|
+      item.name "shrimp"
+    end
 
+    ingredient.trait :milk do |item|
+      item.name "milk"
+    end
   end
 end

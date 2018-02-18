@@ -13,7 +13,6 @@
 #  email               :string(255)
 #  status              :integer
 #  memo                :text(65535)
-#  user_id             :integer
 #  created_at          :datetime         not null
 #  updated_at          :datetime         not null
 #
@@ -30,7 +29,6 @@ FactoryBot.define do
       item.tel2 5345345
       item.email "test"
       item.memo "test"
-      item.user_id 1
     end
   end
 end

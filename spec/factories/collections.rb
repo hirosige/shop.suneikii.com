@@ -3,6 +3,7 @@
 # Table name: collections
 #
 #  id            :integer          not null, primary key
+#  name          :string(255)
 #  start_at      :datetime
 #  end_at        :datetime
 #  discount_rate :decimal(5, 2)

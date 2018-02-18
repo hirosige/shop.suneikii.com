@@ -10,6 +10,8 @@
 #
 
 class AllergicContent < ApplicationRecord
+  validates :ingredient_id, uniqueness: { scope: :good_id }
+
   belongs_to :ingredient
   belongs_to :good
 end

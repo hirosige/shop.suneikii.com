@@ -548,6 +548,9 @@
     <row name="id" null="1" autoincrement="1">
       <datatype>INTEGER</datatype>
       <default>NULL</default></row>
+    <row name="name" null="1" autoincrement="0">
+      <datatype>INTEGER</datatype>
+      <default>NULL</default></row>
     <row name="start_at" null="1" autoincrement="0">
       <datatype>INTEGER</datatype>
       <default>NULL</default></row>
@@ -755,7 +758,7 @@
       <part>id</part>
     </key>
   </table>
-  <table x="313.6666679382324" y="148" name="collection_connection">
+  <table x="313" y="148" name="collection_connection">
     <row name="id" null="1" autoincrement="1">
       <datatype>INTEGER</datatype>
       <default>NULL</default></row>
@@ -777,7 +780,7 @@
       <part>id</part>
     </key>
   </table>
-  <table x="387.1111125946045" y="471" name="color_selections">
+  <table x="387" y="471" name="color_selections">
     <row name="id" null="1" autoincrement="1">
       <datatype>INTEGER</datatype>
       <default>NULL</default></row>
@@ -799,7 +802,7 @@
       <part>id</part>
     </key>
   </table>
-  <table x="391.1111125946045" y="627" name="allegic_contents">
+  <table x="391" y="627" name="allegic_contents">
     <row name="id" null="1" autoincrement="1">
       <datatype>INTEGER</datatype>
       <default>NULL</default></row>
@@ -821,7 +824,7 @@
       <part>id</part>
     </key>
   </table>
-  <table x="395.7777786254883" y="789" name="size_selections">
+  <table x="395" y="789" name="size_selections">
     <row name="id" null="1" autoincrement="1">
       <datatype>INTEGER</datatype>
       <default>NULL</default></row>
@@ -843,7 +846,7 @@
       <part>id</part>
     </key>
   </table>
-  <table x="222.77777862548828" y="793" name="sizes">
+  <table x="222" y="793" name="sizes">
     <row name="id" null="1" autoincrement="1">
       <datatype>INTEGER</datatype>
       <default>NULL</default></row>

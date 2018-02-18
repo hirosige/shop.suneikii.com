@@ -40,8 +40,9 @@ class Cart < ApplicationRecord
   end
 
   def change_quantity(cart_content_id, quantity)
-    cart_contents.map do |item|
-      item.change_quantity(quantity) if item.id == cart_content_id
-    end
+    cart_content = CartContent.find(cart_content_id)
+    cart_content.change_quantity(quantity)
+
+    cart_contents.each(&:reload)
   end
 end

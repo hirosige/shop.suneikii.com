@@ -10,8 +10,23 @@
 #
 
 FactoryBot.define do
-  factory :allegic_content do
-    ingredient_id 1
-    good_id 1
+  factory :allergic_content do |ingredient|
+    ingredient.trait :a_shrimp do |item|
+      item.association :ingredient, factory: %i[ingredient shrimp]
+      item.association :good, factory: %i[good a]
+    end
+
+    ingredient.trait :a_milk do |item|
+      item.association :ingredient, factory: %i[ingredient milk]
+      item.association :good, factory: %i[good a]
+    end
+
+    ingredient.trait :ingredient_nil do |item|
+      item.association :good, factory: %i[good a]
+    end
+
+    ingredient.trait :good_nil do |item|
+      item.association :ingredient, factory: %i[ingredient milk]
+    end
   end
 end
