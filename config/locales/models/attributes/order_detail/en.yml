@@ -1,0 +1,11 @@
+en:
+  activerecord:
+    attributes:
+      order_detail:
+        id: 'ID'
+        order_id: 'Order'
+        good_id: 'Good'
+        qty: 'Qty'
+        sub_total: 'Sub Amount'
+        created_at: 'Created at'
+        updated_at: 'Updated at'

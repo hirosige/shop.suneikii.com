@@ -1,0 +1,9 @@
+th:
+  activerecord:
+    attributes:
+      wish_list:
+        id: 'ID'
+        user_id: 'User'
+        good_id: 'Good'
+        created_at: 'Created at'
+        updated_at: 'Updated at'

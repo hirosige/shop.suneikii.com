@@ -1,0 +1,9 @@
+ja:
+  activerecord:
+    attributes:
+      size_selection:
+        id: 'ID'
+        size_id: 'Size'
+        good_id: 'Good'
+        created_at: 'Created at'
+        updated_at: 'Updated at'

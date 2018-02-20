@@ -1,0 +1,10 @@
+ja:
+  activerecord:
+    attributes:
+      site_inquiry:
+        id: 'ID'
+        name: 'Name'
+        email: 'Email'
+        body: 'Body'
+        created_at: 'Created at'
+        updated_at: 'Updated at'

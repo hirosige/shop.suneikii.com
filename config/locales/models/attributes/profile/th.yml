@@ -1,0 +1,20 @@
+th:
+  activerecord:
+    attributes:
+      profile:
+        id: 'ID'
+        user_id: 'User'
+        country_id: 'Country'
+        province_at: 'Province'
+        district_at: 'District'
+        sub_district_id: 'Sub District'
+        first_name: 'First Name'
+        last_name: 'Last Name'
+        postal_code: 'Postal Code'
+        address1: 'Address1'
+        address2: 'Address2'
+        tel: 'Tel'
+        email: 'Email'
+        photo: 'Photo'
+        created_at: 'Created at'
+        updated_at: 'Updated at'

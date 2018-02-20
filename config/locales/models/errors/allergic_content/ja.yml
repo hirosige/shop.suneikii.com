@@ -1,0 +1,8 @@
+ja:
+  activerecord:
+    errors:
+      models:
+        allergic_content:
+          attributes:
+            ingredient_id:
+              blank: 'must be selected'

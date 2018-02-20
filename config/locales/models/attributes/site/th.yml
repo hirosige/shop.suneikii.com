@@ -1,0 +1,14 @@
+th:
+  activerecord:
+    attributes:
+      site:
+        id: 'ID'
+        name: 'Site Name'
+        email: 'Email'
+        tel1: 'Tel1'
+        tel2: 'Tel2'
+        address: 'Address'
+        privacy_policy: 'Privacy Policy'
+        condition_of_use: 'Condition of Use'
+        created_at: 'Created at'
+        updated_at: 'Updated at'

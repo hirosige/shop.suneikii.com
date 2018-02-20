@@ -1,0 +1,25 @@
+en:
+  activerecord:
+    attributes:
+      user:
+        id: 'ID'
+        email: 'Email'
+        encrypted_password: 'Encrypted Password'
+        reset_password_token: 'Reset Password Token'
+        reset_password_sent_at: 'Reset Password Sent at'
+        remember_created_at: 'Remember Created at'
+        sign_in_count: 'SignIn Count'
+        current_sign_in_at: 'Current SignIn at'
+        last_sign_in_at: 'Last SignIn at'
+        current_sign_in_ip: 'Current SignIn IP'
+        last_sign_in_ip: 'Last SignIn IP'
+        confirmation_token: 'Confirmation Token'
+        confirmed_at: 'Confirmed at'
+        confirmation_sent_at: 'Confirmation Sent at'
+        unconfirmed_email: 'Unconfirmed Email'
+        uid: 'UID'
+        provider: 'Provider'
+        role: 'Role'
+        shopper_id: 'Shopper'
+        created_at: 'Created at'
+        updated_at: 'Updated at'

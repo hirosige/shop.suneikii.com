@@ -1,0 +1,9 @@
+th:
+  activerecord:
+    attributes:
+      shopper_distributor:
+        id: 'ID'
+        shopper_id: 'Shopper'
+        distributor_id: 'Distributor'
+        created_at: 'Created at'
+        updated_at: 'Updated at'

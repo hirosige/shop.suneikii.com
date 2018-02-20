@@ -1,0 +1,5 @@
+th:
+  admin:
+    good:
+      input:
+        title: 'hello'

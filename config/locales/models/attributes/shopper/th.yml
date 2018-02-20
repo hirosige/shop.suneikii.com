@@ -1,0 +1,17 @@
+th:
+  activerecord:
+    attributes:
+      shopper:
+        id: 'ID'
+        name: 'Shopper Name'
+        photo: 'Photo'
+        representative_name: 'Representative Name'
+        postal_code: 'Postal Code'
+        address: 'Address'
+        tel1: 'Tel1'
+        tel2: 'Tel2'
+        email: 'Email'
+        status: 'Status'
+        memo: 'Memo'
+        created_at: 'Created at'
+        updated_at: 'Updated at'

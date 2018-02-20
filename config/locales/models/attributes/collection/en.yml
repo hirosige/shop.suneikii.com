@@ -1,0 +1,12 @@
+en:
+  activerecord:
+    attributes:
+      collection:
+        id: 'ID'
+        name: 'Collection Name'
+        start_at: 'Start at'
+        end_at: 'End at'
+        discount_rate: 'Discount Rate'
+        status: 'Status'
+        created_at: 'Created at'
+        updated_at: 'Updated at'

@@ -1,0 +1,10 @@
+th:
+  activerecord:
+    attributes:
+      distributor:
+        id: 'ID'
+        name: 'Distributor Name'
+        tel: 'Tel'
+        address: 'Address'
+        created_at: 'Created at'
+        updated_at: 'Updated at'
