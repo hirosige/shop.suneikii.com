@@ -13,7 +13,12 @@
             </div>
           </div>
         </h4></td>
-      <td><%= user.email %> <a class="ui teal tag label"><%= user.your_id_sign %></a></td>
+      <td>
+        <%= user.email %>
+        <% if user.your_id_sign %>
+          <span class="ui teal tag label" style="margin: 0 20px;"><%= user.your_id_sign %></span>
+        <% end %>
+      </td>
       <td><%= user.sign_in_count %></td>
       <td><%= user.current_sign_in_ip %></td>
     </tr>

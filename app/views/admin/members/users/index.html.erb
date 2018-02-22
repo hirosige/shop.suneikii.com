@@ -16,10 +16,10 @@
 <div class="ui attached segment">
   <table class="ui very basic collapsing celled table">
     <thead>
-    <th><%= sort_link(@q, :name, t('admin.users.items.name')) %></th>
-    <th><%= sort_link(@q, :email, t('admin.users.items.email')) %></th>
-    <th><%= sort_link(@q, :login_ct, t('admin.users.items.login_ct')) %></th>
-    <th><%= sort_link(@q, :current_ip, t('admin.users.items.current_ip')) %></th>
+    <th><%= AttrValue.attr('profile.first_name') %></th>
+    <th><%= sort_link(@q, :email, AttrValue.attr('user.email')) %></th>
+    <th><%= sort_link(@q, :login_ct, AttrValue.attr('user.sign_in_count')) %></th>
+    <th><%= sort_link(@q, :current_ip, AttrValue.attr('user.current_sign_in_ip')) %></th>
     </thead>
     <tbody>
       <%= render :partial => 'table_contents', :locals => { users: @users } %>

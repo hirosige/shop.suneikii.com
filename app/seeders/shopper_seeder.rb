@@ -22,8 +22,7 @@ class ShopperSeeder < ApplicationSeeder
         tel1: 'test',
         tel2: 'test',
         email: 'test@gmail.com',
-        memo: 'test',
-        user_id: 1
+        memo: 'test'
       )
 
       model.save if @model.validate
