@@ -1,0 +1,16 @@
+en:
+  activerecord:
+    errors:
+      models:
+        shopper:
+          attributes:
+            name:
+            photo:
+            representative_name:
+            postal_code:
+            address:
+            tel1:
+            tel2:
+            email:
+            status:
+            memo:

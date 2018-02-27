@@ -1,0 +1,13 @@
+ja:
+  activerecord:
+    errors:
+      models:
+        site:
+          attributes:
+            name:
+            email:
+            tel1:
+            tel2:
+            address:
+            privacy_policy:
+            condition_of_use:

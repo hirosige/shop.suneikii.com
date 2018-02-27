@@ -17,5 +17,14 @@ FactoryBot.define do
     ingredient.trait :milk do |item|
       item.name "milk"
     end
+
+    ingredient.trait :blank_name do |item|
+      item.name ""
+    end
+
+    ingredient.trait :name_is_too_long do |item|
+      too_long_name = "M" * 256
+      item.name too_long_name
+    end
   end
 end

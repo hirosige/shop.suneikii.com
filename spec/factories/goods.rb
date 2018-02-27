@@ -26,7 +26,6 @@ FactoryBot.define do
       item.description "test"
       item.gender 0
       item.admin_memo "test"
-
       item.association :goods_category, factory: %i[goods_category soap]
       item.association :shopper, factory: %i[shopper a]
     end

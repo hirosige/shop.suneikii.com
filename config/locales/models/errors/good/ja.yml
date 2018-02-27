@@ -1,0 +1,15 @@
+ja:
+  activerecord:
+    errors:
+      models:
+        good:
+          attributes:
+            shopper_id:
+            goods_category_id:
+            name:
+            thumbnail:
+            price:
+            description:
+            gender:
+            admin_memo:
+            status:

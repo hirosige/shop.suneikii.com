@@ -1,0 +1,11 @@
+en:
+  activerecord:
+    errors:
+      models:
+        rating:
+          attributes:
+            user_id:
+            good_id:
+            rates:
+            description:
+            status:

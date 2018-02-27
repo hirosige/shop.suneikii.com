@@ -1,0 +1,10 @@
+th:
+  activerecord:
+    errors:
+      models:
+        cart_content:
+          attributes:
+            good_id:
+            pts:
+            sub_amount:
+            cart_id:

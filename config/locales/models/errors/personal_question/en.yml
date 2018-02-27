@@ -1,0 +1,11 @@
+en:
+  activerecord:
+    errors:
+      models:
+        personal_question:
+          attributes:
+            title:
+            description:
+            user_id:
+            status:
+            answer:

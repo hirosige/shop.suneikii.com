@@ -1,0 +1,9 @@
+th:
+  activerecord:
+    errors:
+      models:
+        distributor:
+          attributes:
+            name:
+            tel:
+            address:

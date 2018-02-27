@@ -5,4 +5,5 @@ ja:
         allergic_content:
           attributes:
             ingredient_id:
-              blank: 'must be selected'
+              taken: 'with Good set has already been taken'
+            good_id:

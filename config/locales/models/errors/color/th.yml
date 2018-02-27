@@ -1,0 +1,7 @@
+th:
+  activerecord:
+    errors:
+      models:
+        color:
+          attributes:
+            name:

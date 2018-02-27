@@ -1,0 +1,11 @@
+th:
+  activerecord:
+    errors:
+      models:
+        connection:
+          attributes:
+            name:
+            start_at:
+            end_at:
+            discount_rate:
+            status:

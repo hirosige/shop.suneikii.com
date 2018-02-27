@@ -1,0 +1,7 @@
+th:
+  activerecord:
+    errors:
+      models:
+        goods_category:
+          attributes:
+            name:

@@ -1,0 +1,8 @@
+th:
+  activerecord:
+    errors:
+      models:
+        shopper_distributor:
+          attributes:
+            shopper_id:
+            distributor_id:

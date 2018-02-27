@@ -1,0 +1,10 @@
+en:
+  activerecord:
+    errors:
+      models:
+        order_detail:
+          attributes:
+            order_id:
+            good_id:
+            qty:
+            sub_total:

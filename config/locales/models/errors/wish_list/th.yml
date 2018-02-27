@@ -1,0 +1,8 @@
+th:
+  activerecord:
+    errors:
+      models:
+        wish_list:
+          attributes:
+            user_id:
+            good_id:
