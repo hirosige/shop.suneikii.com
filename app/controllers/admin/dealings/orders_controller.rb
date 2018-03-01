@@ -8,6 +8,21 @@ class Admin::Dealings::OrdersController < AdminController
 
   def show
     @order = Order.find(params[:id])
+
+    respond_to do |format|
+      format.html
+      format.pdf do
+
+        report =Thinreports::Report.new(layout: "#{Rails.root}/app/pdfs/order_receipt.tlf")
+
+        report.start_new_page
+
+        report.page.item(:order_id).value(@order.id)
+        report.page.item(:ordered_on).value(@order.created_at)
+
+        send_data report.generate, {filename: "#{@order.id}.pdf", type: "application/pdf", disposition: "inline"}
+      end
+    end
   end
 
   def pay

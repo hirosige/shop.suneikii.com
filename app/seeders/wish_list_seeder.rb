@@ -14,8 +14,8 @@ class WishListSeeder < ApplicationSeeder
 
     @pts.times do
       model = @model.new(
-        user_id: 1,
-        good_id: 1
+        user_id: User.all.sample.id,
+        good_id: Good.all.sample.id
       )
 
       model.save if @model.validate

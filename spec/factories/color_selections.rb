@@ -10,8 +10,18 @@
 #
 
 FactoryBot.define do
-  factory :color_selection do
-    color_id 1
-    good_id 1
+  factory :color_selection do |color_selection|
+    color_selection.trait :a_white do |item|
+      item.association :color, factory: %i[color white]
+      item.association :good, factory: %i[good a]
+    end
+
+    color_selection.trait :blank_color do |item|
+      item.association :good, factory: %i[good a]
+    end
+
+    color_selection.trait :blank_good do |item|
+      item.association :color, factory: %i[color white]
+    end
   end
 end

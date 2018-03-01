@@ -13,6 +13,5 @@ class Color < ApplicationRecord
   has_many :color_selections
   has_many :goods, through: :color_selections
 
-  validates :name, presence: true
-  validates :name, length: { maximum: 100 }
+  validates :name, presence: true, length: { maximum: 255 }, uniqueness: true
 end

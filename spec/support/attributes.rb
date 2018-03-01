@@ -38,8 +38,24 @@ def invalid_date(attribute)
   "#{attribute} is not a date"
 end
 
+def invalid_datetime(attribute)
+  "#{attribute} is not a datetime"
+end
+
 def past_date(attribute)
   "#{attribute} must be past date"
+end
+
+def future_date(attribute)
+  "#{attribute} must be future date"
+end
+
+def comp_date(start_date, end_date)
+  "#{end_date} must be after #{start_date}"
+end
+
+def image_black_list(attribute)
+  "#{attribute} You are not allowed to upload \"pdf\" files, allowed types: jpg, jpeg, gif, png"
 end
 
 def attributes(attribte)

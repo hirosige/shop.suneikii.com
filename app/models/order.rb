@@ -20,8 +20,6 @@ class Order < ApplicationRecord
   has_many :order_details, dependent: :destroy
   belongs_to :user
 
-  acts_as_ordered_taggable_on :kinds
-
   accepts_nested_attributes_for :order_details,
                                 reject_if: :all_blank,
                                 allow_destroy: true

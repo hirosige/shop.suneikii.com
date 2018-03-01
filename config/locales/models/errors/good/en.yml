@@ -7,9 +7,13 @@ en:
             shopper_id:
             goods_category_id:
             name:
+              blank: 'cant be blank'
             thumbnail:
+              blank: 'cant be blank'
             price:
+              blank: 'cant be blank'
             description:
             gender:
+              blank: 'cant be blank'
             admin_memo:
             status:

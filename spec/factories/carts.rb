@@ -14,7 +14,16 @@ FactoryBot.define do
   factory :cart do |cart|
     cart.trait :one do |item|
       item.total_amount 0.0
-      item.user_id 1
+      item.association :user, factory: %i[user user1]
+    end
+
+    cart.trait :my_cart do |item|
+      item.total_amount 0.0
+      item.association :user, factory: %i[user me]
+    end
+
+    cart.trait :blank_user do |item|
+      item.total_amount 0.0
     end
   end
 end

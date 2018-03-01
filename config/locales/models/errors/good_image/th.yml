@@ -5,4 +5,5 @@ th:
         good_image:
           attributes:
             image:
+              error: 'You are not allowed to upload \"pdf\" files. (jpg, jpeg, gif, png are allowed)'
             good_id:

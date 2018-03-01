@@ -4,7 +4,7 @@ en:
       good:
         id: 'ID'
         shopper_id: 'Shopper'
-        good_category_id: 'Goods Category'
+        goods_category_id: 'Goods category'
         name: 'Goods Name'
         thumbnail: 'Thumbnail'
         price: 'Price'

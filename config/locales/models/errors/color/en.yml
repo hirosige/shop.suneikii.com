@@ -5,3 +5,6 @@ en:
         color:
           attributes:
             name:
+              blank: 'cant be blank'
+              too_long: 'is too long (maximum is 255 characters)'
+              taken: 'has already been taken'

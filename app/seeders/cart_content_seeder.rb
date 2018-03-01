@@ -14,10 +14,10 @@ class CartContentSeeder < ApplicationSeeder
 
     @pts.times do
       model = @model.new(
-        good_id: 1,
+        good_id: Good.all.sample.id,
         pts: 1,
         sub_amount: 20000.0,
-        cart_id: 1
+        cart_id: Cart.all.sample.id
       )
 
       model.save if @model.validate

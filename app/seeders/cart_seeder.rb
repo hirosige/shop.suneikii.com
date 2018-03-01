@@ -15,7 +15,7 @@ class CartSeeder < ApplicationSeeder
     @pts.times do
       model = @model.new(
         total_amount: 1,
-        user_id: 1
+        user_id: User.all.sample.id
       )
 
       model.save if @model.validate

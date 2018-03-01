@@ -15,7 +15,7 @@ class OrderSeeder < ApplicationSeeder
     @pts.times do
       model = @model.new(
         ordered_on: Time.zone.today,
-        user_id: 1,
+        user_id: User.all.sample.id,
         total_amount: 20000.0,
         shipping_cost: 200.00,
         tax: 10,

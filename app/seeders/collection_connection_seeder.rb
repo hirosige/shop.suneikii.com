@@ -14,8 +14,8 @@ class CollectionConnectionSeeder < ApplicationSeeder
 
     @pts.times do
       model = @model.new(
-        collection_id: 1,
-        good_id:       1
+        collection_id: Collection.all.sample.id,
+        good_id:       Good.all.sample.id
       )
 
       model.save if @model.validate

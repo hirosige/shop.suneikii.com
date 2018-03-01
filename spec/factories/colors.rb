@@ -9,7 +9,26 @@
 #
 
 FactoryBot.define do
-  factory :color do
+  factory :color do |color|
+    color.trait :white do |item|
+      item.name 'White'
+    end
 
+    color.trait :blank_name do |item|
+      item.name ''
+    end
+
+    color.trait :name_is_too_long do |item|
+      too_long_name = "M" * 256
+      item.name too_long_name
+    end
+
+    color.trait :unique_chk_fail do |item|
+      item.name "White"
+    end
+
+    color.trait :unique_chk_success do |item|
+      item.name "Milky White"
+    end
   end
 end

@@ -13,20 +13,13 @@
 
 class CartContent < ApplicationRecord
   validates :good_id,    presence: true
-  validates :pts,        presence: true
+  validates :pts,        presence: true, numericality: { greater_than_or_equal_to: 1 }
   validates :sub_amount, presence: true
   validates :cart_id,    presence: true
   validates :good_id, uniqueness: { scope: :cart_id }
-  validate :pts_should_be_more_than_zero
 
   belongs_to :good
   belongs_to :cart
-
-  def pts_should_be_more_than_zero
-    if self.pts.present? && self.pts <= 0
-      errors.add(:pts, "can't be zero and less")
-    end
-  end
 
   def calc_sub_amount
     self.sub_amount = self.good.price * self.pts
@@ -34,7 +27,7 @@ class CartContent < ApplicationRecord
 
   def change_quantity(pts)
     if pts <= 0
-      errors.add(:pts, "can't input 0 and less for quantity")
+      raise "can't input 0 and less for quantity"
     else
       self.pts = pts
       self.calc_sub_amount

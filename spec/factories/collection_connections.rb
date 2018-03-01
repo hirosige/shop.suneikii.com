@@ -10,8 +10,18 @@
 #
 
 FactoryBot.define do
-  factory :collection_connection do
-    collection_id 1
-    good_id 1
+  factory :collection_connection do |collection_connection|
+    collection_connection.trait :summer_collection_a do |item|
+      item.association :collection, factory: %i[collection summer_collection]
+      item.association :good, factory: %i[good a]
+    end
+
+    collection_connection.trait :blank_collection do |item|
+      item.association :good, factory: %i[good a]
+    end
+
+    collection_connection.trait :blank_good do |item|
+      item.association :collection, factory: %i[collection summer_collection]
+    end
   end
 end
