@@ -60,8 +60,8 @@ RSpec.describe Cart, :type => :model do
     cart.add_item(good_a.id)
     cart.add_item(good_b.id)
 
-    cart.change_quantity(id: cart.contents(0).id, qty: 1)
-    cart.change_quantity(id: cart.contents(1).id, qty: 1)
+    cart.change_pts(id: cart.contents(0).id, pts: 1)
+    cart.change_pts(id: cart.contents(1).id, pts: 1)
 
     expect(cart.size).to be 2
 
@@ -78,8 +78,8 @@ RSpec.describe Cart, :type => :model do
     cart.add_item(good_a.id)
     cart.add_item(good_b.id)
 
-    cart.change_quantity(id: cart.contents(0).id, qty: 1)
-    cart.change_quantity(id: cart.contents(1).id, qty: 2)
+    cart.change_pts(id: cart.contents(0).id, pts: 1)
+    cart.change_pts(id: cart.contents(1).id, pts: 2)
 
     expect(cart.cart_contents.size).to be 2
     expect(cart.contents(0).pts).to be 1
@@ -99,8 +99,8 @@ RSpec.describe Cart, :type => :model do
     cart.add_item(good_b.id)
     expect(cart.total_amount).to eq 5000.0
 
-    cart.change_quantity(id: cart.contents(0).id, qty: 3)
-    cart.change_quantity(id: cart.contents(1).id, qty: 5)
+    cart.change_pts(id: cart.contents(0).id, pts: 3)
+    cart.change_pts(id: cart.contents(1).id, pts: 5)
     expect(cart.total_amount).to eq 21000.0
 
   end

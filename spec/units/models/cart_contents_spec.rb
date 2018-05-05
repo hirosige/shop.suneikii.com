@@ -19,20 +19,20 @@ RSpec.describe CartContent, :type => :model do
     cart_content.calc_sub_amount
     expect(cart_content.sub_amount).to eq 6000.0
 
-    expect{cart_content.change_quantity(4)}.to change{cart_content.pts}.from(3).to(4)
+    expect{cart_content.change_pts(4)}.to change{cart_content.pts}.from(3).to(4)
     expect(cart_content.sub_amount).to eq 8000.0
   end
 
   it "cannot change zero" do
     cart_content = build(:cart_content, :buy_a_three_in_my_cart)
     cart_content.calc_sub_amount
-    expect{ cart_content.change_quantity(0) }.to raise_error RuntimeError, "can't input 0 and less for quantity"
+    expect{ cart_content.change_pts(0) }.to raise_error RuntimeError, "can't input 0 and less for quantity"
   end
 
   it "can change to minus" do
     cart_content = build(:cart_content, :buy_a_three_in_my_cart)
     cart_content.calc_sub_amount
-    expect{ cart_content.change_quantity(-3) }.to raise_error RuntimeError, "can't input 0 and less for quantity"
+    expect{ cart_content.change_pts(-3) }.to raise_error RuntimeError, "can't input 0 and less for quantity"
   end
 
   it "good_id cannot be empty" do

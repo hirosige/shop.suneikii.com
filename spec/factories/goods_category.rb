@@ -21,5 +21,26 @@ FactoryBot.define do
     category.trait :soap do |item|
       item.name "soap"
     end
+
+    category.trait :towel do |item|
+      item.name "towel"
+    end
+
+    category.trait :blank_name do |item|
+      item.name ""
+    end
+
+    category.trait :name_is_too_long do |item|
+      too_long_name = "M" * 256
+      item.name too_long_name
+    end
+
+    category.trait :unique_chk_fail do |item|
+      item.name 'test'
+    end
+
+    category.trait :unique_chk_success do |item|
+      item.name 'test2'
+    end
   end
 end

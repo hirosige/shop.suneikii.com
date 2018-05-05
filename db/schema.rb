@@ -122,14 +122,14 @@ ActiveRecord::Schema.define(version: 20180215140721) do
   create_table "order_details", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "order_id"
     t.integer "good_id"
-    t.integer "qty"
-    t.decimal "sub_total", precision: 10, scale: 2
+    t.integer "pts"
+    t.decimal "sub_amount", precision: 10, scale: 2
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "orders", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.datetime "ordered_on"
+    t.datetime "ordered_at"
     t.integer "user_id"
     t.string "payment_status"
     t.string "fulfillment_status"

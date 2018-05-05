@@ -17,7 +17,7 @@
 #
 
 class Good < ApplicationRecord
-  validates :name,        presence: true, length: { maximum: 255 }
+  validates :name,        presence: true, length: { maximum: 255 }, uniqueness: true
   validates :thumbnail,   presence: true
   validates :price,       presence: true
   validates :description, presence: true, length: { maximum: 255 }

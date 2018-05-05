@@ -22,10 +22,11 @@ RSpec.describe GoodImage, type: :model do
   end
 
   it 'can upload images files' do
-    png  = build(:good_image, :can_upload_png)
-    jpg  = build(:good_image, :can_upload_jpg)
-    jpeg = build(:good_image, :can_upload_jpeg)
-    gif  = build(:good_image, :can_upload_gif)
+    good = create(:good, :a)
+    png  = build(:good_image, :can_upload_png, good_id: good.id)
+    jpg  = build(:good_image, :can_upload_jpg, good_id: good.id)
+    jpeg = build(:good_image, :can_upload_jpeg, good_id: good.id)
+    gif  = build(:good_image, :can_upload_gif, good_id: good.id)
 
     expect(png.valid?).to eq true
     expect(jpg.valid?).to eq true

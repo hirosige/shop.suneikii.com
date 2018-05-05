@@ -27,6 +27,20 @@ FactoryBot.define do
       item.association :cart, factory: %i[cart my_cart]
     end
 
+    cart_content.trait :copy_ex1 do |item|
+      item.association :good, factory: %i[good a]
+      item.pts 3
+      item.sub_amount 100.0
+      item.association :cart, factory: %i[cart my_cart]
+    end
+
+    cart_content.trait :copy_ex2 do |item|
+      item.association :good, factory: %i[good b]
+      item.pts 3
+      item.sub_amount 0.0
+      item.association :cart, factory: %i[cart my_cart]
+    end
+
     cart_content.trait :blank_good do |item|
       item.pts 3
       item.sub_amount 0.0

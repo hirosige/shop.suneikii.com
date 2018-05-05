@@ -12,6 +12,8 @@
 #
 
 class CartContent < ApplicationRecord
+  include TotalCalcable
+
   validates :good_id,    presence: true
   validates :pts,        presence: true, numericality: { greater_than_or_equal_to: 1 }
   validates :sub_amount, presence: true
@@ -21,17 +23,4 @@ class CartContent < ApplicationRecord
   belongs_to :good
   belongs_to :cart
 
-  def calc_sub_amount
-    self.sub_amount = self.good.price * self.pts
-  end
-
-  def change_quantity(pts)
-    if pts <= 0
-      raise "can't input 0 and less for quantity"
-    else
-      self.pts = pts
-      self.calc_sub_amount
-      save
-    end
-  end
 end

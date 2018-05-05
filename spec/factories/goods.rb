@@ -32,9 +32,9 @@ FactoryBot.define do
 
     good.trait :b do |item|
       file_name = 'spec/factories/docs/test.png'
-      item.association :shopper, factory: %i[shopper a]
+      item.association :shopper, factory: %i[shopper b]
       item.association :goods_category, factory: %i[goods_category soap]
-      item.name "good_a"
+      item.name "good_b"
       item.thumbnail { Rack::Test::UploadedFile.new(File.join(Rails.root, file_name)) }
       item.price 3000.0
       item.description "test"
@@ -144,6 +144,42 @@ FactoryBot.define do
       item.description 'description'
       item.gender 0
       item.admin_memo too_long_admin_memo
+    end
+
+    good.trait :unique_chk_fail1 do |item|
+      file_name = 'spec/factories/docs/test.png'
+      item.association :shopper, factory: %i[shopper a]
+      item.association :goods_category, factory: %i[goods_category soap]
+      item.name 'good_a'
+      item.thumbnail { Rack::Test::UploadedFile.new(File.join(Rails.root, file_name)) }
+      item.price 2000.0
+      item.description 'description'
+      item.gender 0
+      item.admin_memo 'test'
+    end
+
+    good.trait :unique_chk_fail2 do |item|
+      file_name = 'spec/factories/docs/test.png'
+      item.association :shopper, factory: %i[shopper a]
+      item.association :goods_category, factory: %i[goods_category soap]
+      item.name 'good_a'
+      item.thumbnail { Rack::Test::UploadedFile.new(File.join(Rails.root, file_name)) }
+      item.price 2000.0
+      item.description 'description'
+      item.gender 0
+      item.admin_memo 'test'
+    end
+
+    good.trait :unique_chk_success do |item|
+      file_name = 'spec/factories/docs/test.png'
+      item.association :shopper, factory: %i[shopper b]
+      item.association :goods_category, factory: %i[goods_category towel]
+      item.name 'good_a'
+      item.thumbnail { Rack::Test::UploadedFile.new(File.join(Rails.root, file_name)) }
+      item.price 2000.0
+      item.description 'description'
+      item.gender 0
+      item.admin_memo 'test'
     end
   end
 end

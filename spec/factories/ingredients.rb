@@ -26,5 +26,13 @@ FactoryBot.define do
       too_long_name = "M" * 256
       item.name too_long_name
     end
+
+    ingredient.trait :unique_chk_fail do |item|
+      item.name 'test'
+    end
+
+    ingredient.trait :unique_chk_success do |item|
+      item.name 'test2'
+    end
   end
 end

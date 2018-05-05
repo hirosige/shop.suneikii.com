@@ -25,5 +25,10 @@ FactoryBot.define do
     cart.trait :blank_user do |item|
       item.total_amount 0.0
     end
+
+    cart.trait :copy_ex do |item|
+      item.total_amount 0.0
+      item.association :user, factory: %i[user user3]
+    end
   end
 end

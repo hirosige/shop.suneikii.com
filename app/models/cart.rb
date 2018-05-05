@@ -19,7 +19,6 @@ class Cart < ApplicationRecord
   state_machine :status, initial: :active do
     state :active
     state :inactive
-    state :checked
 
     event :inactivate do
       transition from: :active, to: :inactive
@@ -48,9 +47,9 @@ class Cart < ApplicationRecord
     reload
   end
 
-  def change_quantity(params)
+  def change_pts(params)
     cart_content = CartContent.find(params[:id])
-    cart_content.change_quantity(params[:qty])
+    cart_content.change_pts(params[:pts])
 
     cart_contents.each(&:reload)
     calc_total

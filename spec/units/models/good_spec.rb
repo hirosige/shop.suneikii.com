@@ -95,4 +95,10 @@ RSpec.describe Good, type: :model do
     expect(good.errors.full_messages).to include too_long_err_msg(admin_memo, 65535)
   end
 
+  it 'name should be unique fail' do
+    create(:good, :unique_chk_fail1)
+    good = build(:good, :unique_chk_fail2)
+    expect(good.valid?).to eq false
+    expect(good.errors.full_messages).to include taken_err_msg(name)
+  end
 end

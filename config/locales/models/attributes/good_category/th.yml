@@ -1,7 +1,7 @@
 th:
   activerecord:
     attributes:
-      good_category:
+      goods_category:
         id: 'ID'
         name: 'Category Name'
         created_at: 'Created at'

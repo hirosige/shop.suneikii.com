@@ -87,7 +87,7 @@ gem 'validates_timeliness'
 group :development, :test do
   gem 'byebug'
 
-  gem "rspec-rails"
+  gem 'rspec-rails', '~> 3.7'
   gem "shoulda-matchers"
   gem "factory_bot_rails"
 

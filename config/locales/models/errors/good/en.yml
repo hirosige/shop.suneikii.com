@@ -8,12 +8,17 @@ en:
             goods_category_id:
             name:
               blank: 'cant be blank'
+              too_long: 'is too long (maximum is 255 characters)'
+              taken: 'has already been taken'
             thumbnail:
               blank: 'cant be blank'
+              too_long: 'is too long (maximum is 255 characters)'
             price:
               blank: 'cant be blank'
             description:
+              too_long: 'is too long (maximum is 255 characters)'
             gender:
               blank: 'cant be blank'
             admin_memo:
+              too_long: 'is too long (maximum is 65535 characters)'
             status:

@@ -843,7 +843,7 @@ DEPENDENCIES
   reform
   reform-rails
   rmagick
-  rspec-rails
+  rspec-rails (~> 3.7)
   rubocop (~> 0.52.1)
   ruby-debug-ide
   sass-rails (~> 5.0.7)
