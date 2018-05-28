@@ -13,7 +13,7 @@ class FrontController < ApplicationController
   def set_shopping_cart
     return nil unless user_signed_in?
 
-    return Cart.new(current_user).save if session[:cart_id].nil?
+    return Cart.new(current_user.id).save if session[:cart_id].nil?
     Cart.find(session[:cart_id])
   end
 

@@ -13,7 +13,6 @@
 #  email               :string(255)
 #  status              :integer
 #  memo                :text(65535)
-#  user_id             :integer
 #  created_at          :datetime         not null
 #  updated_at          :datetime         not null
 #
@@ -30,7 +29,18 @@ FactoryBot.define do
       item.tel2 5345345
       item.email "test"
       item.memo "test"
-      item.user_id 1
+    end
+
+    shopper.trait :b do |item|
+      item.name "shopper_b"
+      item.photo "test"
+      item.representative_name "test"
+      item.postal_code "test"
+      item.address "test"
+      item.tel1 5354345
+      item.tel2 5345345
+      item.email "test2"
+      item.memo "test"
     end
   end
 end

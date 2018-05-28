@@ -19,26 +19,167 @@
 FactoryBot.define do
   factory :good do |good|
     good.trait :a do |item|
-      item.goods_category_id 1
+      file_name = 'spec/factories/docs/test.png'
+      item.association :shopper, factory: %i[shopper a]
+      item.association :goods_category, factory: %i[goods_category soap]
       item.name "good_a"
-      item.thumbnail "test"
+      item.thumbnail { Rack::Test::UploadedFile.new(File.join(Rails.root, file_name)) }
       item.price 2000.0
       item.description "test"
       item.gender 0
       item.admin_memo "test"
-
-      item.association :goods_category, factory: %i[goods_category soap]
-      item.association :shopper, factory: %i[shopper a]
     end
 
     good.trait :b do |item|
-      item.goods_category_id 1
+      file_name = 'spec/factories/docs/test.png'
+      item.association :shopper, factory: %i[shopper b]
+      item.association :goods_category, factory: %i[goods_category soap]
       item.name "good_b"
-      item.thumbnail "test"
+      item.thumbnail { Rack::Test::UploadedFile.new(File.join(Rails.root, file_name)) }
       item.price 3000.0
       item.description "test"
       item.gender 0
       item.admin_memo "test"
+    end
+
+    good.trait :blank_shopper do |item|
+      file_name = 'spec/factories/docs/test.png'
+      item.association :goods_category, factory: %i[goods_category soap]
+      item.name "good_a"
+      item.thumbnail { Rack::Test::UploadedFile.new(File.join(Rails.root, file_name)) }
+      item.price 3000.0
+      item.description "test"
+      item.gender 0
+      item.admin_memo "test"
+    end
+
+    good.trait :blank_goods_category do |item|
+      file_name = 'spec/factories/docs/test.png'
+      item.association :shopper, factory: %i[shopper a]
+      item.name "good_a"
+      item.thumbnail { Rack::Test::UploadedFile.new(File.join(Rails.root, file_name)) }
+      item.price 3000.0
+      item.description "test"
+      item.gender 0
+      item.admin_memo "test"
+    end
+
+    good.trait :blank_name do |item|
+      file_name = 'spec/factories/docs/test.png'
+      item.association :shopper, factory: %i[shopper a]
+      item.association :goods_category, factory: %i[goods_category soap]
+      item.thumbnail { Rack::Test::UploadedFile.new(File.join(Rails.root, file_name)) }
+      item.price 3000.0
+      item.description "test"
+      item.gender 0
+      item.admin_memo "test"
+    end
+
+    good.trait :blank_thumbnail do |item|
+      item.association :shopper, factory: %i[shopper a]
+      item.association :goods_category, factory: %i[goods_category soap]
+      item.name "good_a"
+      item.price 3000.0
+      item.description "test"
+      item.gender 0
+      item.admin_memo "test"
+    end
+
+    good.trait :blank_price do |item|
+      file_name = 'spec/factories/docs/test.png'
+      item.association :shopper, factory: %i[shopper a]
+      item.association :goods_category, factory: %i[goods_category soap]
+      item.name "good_a"
+      item.thumbnail { Rack::Test::UploadedFile.new(File.join(Rails.root, file_name)) }
+      item.description "test"
+      item.gender 0
+      item.admin_memo "test"
+    end
+
+    good.trait :blank_gender do |item|
+      file_name = 'spec/factories/docs/test.png'
+      item.association :shopper, factory: %i[shopper a]
+      item.association :goods_category, factory: %i[goods_category soap]
+      item.name "good_a"
+      item.thumbnail { Rack::Test::UploadedFile.new(File.join(Rails.root, file_name)) }
+      item.price 3000.0
+      item.description "test"
+      item.admin_memo "test"
+    end
+
+    good.trait :name_is_too_long do |item|
+      file_name = 'spec/factories/docs/test.png'
+      too_long_name = "M" * 256
+      item.association :shopper, factory: %i[shopper a]
+      item.association :goods_category, factory: %i[goods_category soap]
+      item.name too_long_name
+      item.thumbnail { Rack::Test::UploadedFile.new(File.join(Rails.root, file_name)) }
+      item.price 2000.0
+      item.description "test"
+      item.gender 0
+      item.admin_memo "test"
+    end
+
+    good.trait :desc_is_too_long do |item|
+      file_name = 'spec/factories/docs/test.png'
+      too_long_desc = "M" * 256
+      item.association :shopper, factory: %i[shopper a]
+      item.association :goods_category, factory: %i[goods_category soap]
+      item.name 'good_a'
+      item.thumbnail { Rack::Test::UploadedFile.new(File.join(Rails.root, file_name)) }
+      item.price 2000.0
+      item.description too_long_desc
+      item.gender 0
+      item.admin_memo "test"
+    end
+
+    good.trait :admin_memo_is_too_long do |item|
+      file_name = 'spec/factories/docs/test.png'
+      too_long_admin_memo = "M" * 65536
+      item.association :shopper, factory: %i[shopper a]
+      item.association :goods_category, factory: %i[goods_category soap]
+      item.name 'good_a'
+      item.thumbnail { Rack::Test::UploadedFile.new(File.join(Rails.root, file_name)) }
+      item.price 2000.0
+      item.description 'description'
+      item.gender 0
+      item.admin_memo too_long_admin_memo
+    end
+
+    good.trait :unique_chk_fail1 do |item|
+      file_name = 'spec/factories/docs/test.png'
+      item.association :shopper, factory: %i[shopper a]
+      item.association :goods_category, factory: %i[goods_category soap]
+      item.name 'good_a'
+      item.thumbnail { Rack::Test::UploadedFile.new(File.join(Rails.root, file_name)) }
+      item.price 2000.0
+      item.description 'description'
+      item.gender 0
+      item.admin_memo 'test'
+    end
+
+    good.trait :unique_chk_fail2 do |item|
+      file_name = 'spec/factories/docs/test.png'
+      item.association :shopper, factory: %i[shopper a]
+      item.association :goods_category, factory: %i[goods_category soap]
+      item.name 'good_a'
+      item.thumbnail { Rack::Test::UploadedFile.new(File.join(Rails.root, file_name)) }
+      item.price 2000.0
+      item.description 'description'
+      item.gender 0
+      item.admin_memo 'test'
+    end
+
+    good.trait :unique_chk_success do |item|
+      file_name = 'spec/factories/docs/test.png'
+      item.association :shopper, factory: %i[shopper b]
+      item.association :goods_category, factory: %i[goods_category towel]
+      item.name 'good_a'
+      item.thumbnail { Rack::Test::UploadedFile.new(File.join(Rails.root, file_name)) }
+      item.price 2000.0
+      item.description 'description'
+      item.gender 0
+      item.admin_memo 'test'
     end
   end
 end

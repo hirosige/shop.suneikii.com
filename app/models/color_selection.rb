@@ -10,4 +10,6 @@
 #
 
 class ColorSelection < ApplicationRecord
+  belongs_to :color
+  belongs_to :good
 end

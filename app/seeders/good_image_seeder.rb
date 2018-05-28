@@ -15,7 +15,7 @@ class GoodImageSeeder < ApplicationSeeder
     @pts.times do
       model = @model.new(
         image: 'test.com',
-        good_id: 1
+        good_id: Good.all.sample.id
       )
 
       model.save if @model.validate

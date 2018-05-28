@@ -1,0 +1,9 @@
+th:
+  activerecord:
+    errors:
+      models:
+        cart:
+          attributes:
+            total_amount:
+            status:
+            user_id:

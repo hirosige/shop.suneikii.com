@@ -14,8 +14,8 @@ class OrderDetailSeeder < ApplicationSeeder
 
     @pts.times do
       model = @model.new(
-        order_id: 1,
-        good_id: 1,
+        order_id: Order.all.sample.id,
+        good_id: Good.all.sample.id,
         qty: 1,
         sub_total: 20000.0
       )

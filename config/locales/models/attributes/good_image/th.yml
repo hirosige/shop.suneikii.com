@@ -1,0 +1,9 @@
+th:
+  activerecord:
+    attributes:
+      good_image:
+        id: 'ID'
+        image: 'Image'
+        good_id: 'Good'
+        created_at: 'Created at'
+        updated_at: 'Updated at'

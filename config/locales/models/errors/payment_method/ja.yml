@@ -1,0 +1,9 @@
+ja:
+  activerecord:
+    errors:
+      models:
+        payment_method:
+          attributes:
+            name:
+            account_number:
+            account_name:

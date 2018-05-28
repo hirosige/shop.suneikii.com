@@ -1,0 +1,9 @@
+en:
+  activerecord:
+    errors:
+      models:
+        site_inquiry:
+          attributes:
+            name:
+            email:
+            body:

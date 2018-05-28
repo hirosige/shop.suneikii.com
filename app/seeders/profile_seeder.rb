@@ -14,7 +14,7 @@ class ProfileSeeder < ApplicationSeeder
 
     @pts.times do
       model = @model.new(
-        user_id: 1,
+        user_id: User.all.sample.id,
         country_id: 1,
         province_id: 1,
         district_id: 1,

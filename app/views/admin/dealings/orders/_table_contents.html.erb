@@ -30,19 +30,17 @@
 
     <tbody>
     <% orders.each do |order| %>
-        <tr class="even pointer" data-href="<%= admin_dealings_order_path(order.id) %>">
+        <tr class="even pointer" data-href="<%= admin_order_path(order.id) %>">
           <td class="a-center">
             <input type="checkbox" class="flat" id="table_records_<%= order.id %>" name="table_records" data-ids="<%= order.id %>">
           </td>
           <td class=" "><%= order.id %></td>
-          <td class=" "><%= order.order_date %></td>
+          <td class=" "><%= order.ordered_on %></td>
           <td class=" "><%= order.user.email unless order.user.nil? %></td>
           <td class=" "><label class="label label-primary"><%= order.payment_status %></label></td>
           <td class=" "><label class="label label-primary"><%= order.fulfillment_status %></label></td>
           <td class=" "><%= order.total_amount %></td>
-          <td> <%= set_button_show('', [:admin, :dealings, order]) %></td>
-          <td> <%= set_button_edit('', edit_admin_dealings_order_path(order)) %></td>
-          <td> <%= set_button_delete('', [:admin, :dealings, order]) %></td>
+          <td> <%= link_to 'pdf', admin_order_path(order, format: "pdf") %></td>
         </tr>
     <% end %>
     </tbody>

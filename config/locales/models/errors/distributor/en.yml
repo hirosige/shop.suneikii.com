@@ -1,0 +1,12 @@
+en:
+  activerecord:
+    errors:
+      models:
+        distributor:
+          attributes:
+            name:
+              blank: 'cant be blank'
+            tel:
+              blank: 'cant be blank'
+            address:
+              blank: 'cant be blank'

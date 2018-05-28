@@ -1,0 +1,12 @@
+ja:
+  activerecord:
+    attributes:
+      personal_question:
+        id: 'ID'
+        title: 'Title'
+        description: 'Description'
+        user_id: 'User'
+        status: 'Status'
+        answer: 'Answer'
+        created_at: 'Created at'
+        updated_at: 'Updated at'

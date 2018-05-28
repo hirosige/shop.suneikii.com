@@ -1,0 +1,15 @@
+ja:
+  activerecord:
+    errors:
+      models:
+        order:
+          attributes:
+            ordered_on:
+            user_id:
+            payment_status:
+            fulfillment_status:
+            total_amount:
+            shipping_cost:
+            tax:
+            note:
+            tracking_no:

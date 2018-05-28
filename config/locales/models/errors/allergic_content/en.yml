@@ -1,0 +1,9 @@
+en:
+  activerecord:
+    errors:
+      models:
+        allergic_content:
+          attributes:
+            ingredient_id:
+              taken: 'with Good set has already been taken'
+            good_id:

@@ -9,8 +9,8 @@
 #
 
 class Ingredient < ApplicationRecord
+  validates :name, presence: true, length: { maximum: 255 }, uniqueness: true
+
   has_many :allergic_contents
   has_many :goods, through: :allergic_contents
-
-  validates :name, presence: true
 end

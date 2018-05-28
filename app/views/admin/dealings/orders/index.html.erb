@@ -8,7 +8,6 @@
     <div class="row">
       <div class="clearfix"></div>
       <div class="col-md-12 col-sm-12 col-xs-12">
-        <%= render 'layouts/admin_menus/dealings_sub_tab' %>
 
         <div class="x_panel">
           <%= render :partial => 'admin/shared/table_title', :locals => {title: t('admin.orders.title'), description: t('admin.orders.description')} %>
@@ -41,8 +40,6 @@
             </div>
 
             <br>
-            <%= set_button_new(t('admin.orders.buttons.add'), new_admin_dealings_order_path) %>
-            <%= set_button_csv(t('admin.orders.buttons.csv_export'), admin_dealings_orders_path(format: 'csv')) %>
             <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal2">
               商品を選ぶ
             </button>

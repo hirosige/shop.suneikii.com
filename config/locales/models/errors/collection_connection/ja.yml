@@ -1,0 +1,8 @@
+ja:
+  activerecord:
+    errors:
+      models:
+        collection_connection:
+          attributes:
+            collection_id:
+            good_id:

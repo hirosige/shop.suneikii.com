@@ -14,8 +14,8 @@ class ShoppersDistributorSeeder < ApplicationSeeder
 
     @pts.times do
       model = @model.new(
-        shopper_id: 1,
-        distributor_id: 1
+        shopper_id: Shopper.all.sample.id,
+        distributor_id: Distributor.all.sample.id
       )
 
       model.save if @model.validate

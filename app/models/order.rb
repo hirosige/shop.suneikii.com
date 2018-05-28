@@ -3,7 +3,7 @@
 # Table name: orders
 #
 #  id                 :integer          not null, primary key
-#  ordered_on         :datetime
+#  ordered_at         :datetime
 #  user_id            :integer
 #  payment_status     :string(255)
 #  fulfillment_status :string(255)
@@ -18,9 +18,8 @@
 
 class Order < ApplicationRecord
   has_many :order_details, dependent: :destroy
+  has_one :payment
   belongs_to :user
-
-  acts_as_ordered_taggable_on :kinds
 
   accepts_nested_attributes_for :order_details,
                                 reject_if: :all_blank,
@@ -29,14 +28,22 @@ class Order < ApplicationRecord
   state_machine :payment_status, :initial => :pending do
     state :pending
     state :paid
-    state :refunded
+    state :canceled
+    state :sent
+    state :distributed
+
+    after_transition on: :prepare, do: :make_payment
 
     event :pay do
-      transition :from => :pending, :to => :paid
+      transition from: :pending, to: :paid
     end
 
-    event :refund do
-      transition :from => :paid, :to => :refunded
+    event :cancel do
+      transition from: :pending, to: :canceled
+    end
+
+    event :send do
+      transition from: :paid, to: :distributed
     end
   end
 
@@ -48,8 +55,42 @@ class Order < ApplicationRecord
       transition :from => :unfulfilled, :to => :fulfilled
     end
 
-    event :cancel do
-      transition :from => :fulfilled, :to => :unfulfilled
+  end
+
+  def details(index)
+    order_details[index]
+  end
+
+  def calc
+    order_details.each(&:calc_sub_amount)
+
+    total_amount = order_details.sum { |attr| attr[:sub_amount]}
+    total_amount = total_amount + total_amount * (self.tax / 100) unless self.tax.nil?
+    total_amount = total_amount + self.shipping_cost unless self.shipping_cost.nil?
+    self.total_amount = total_amount
+  end
+
+  def self.convert_cart_by(cart_id)
+    cart = Cart.find(cart_id)
+    order = Order.new
+
+    order.total_amount = cart.total_amount
+    order.user_id = cart.user_id
+
+    cart.cart_contents.each do |content|
+      order.order_details.build(
+        good_id: content.good_id,
+        pts: content.pts,
+        sub_amount: content.sub_amount
+      )
     end
+
+    order.calc
+    order
+  end
+
+  def make_payment
+    self.build_payment
+    save
   end
 end

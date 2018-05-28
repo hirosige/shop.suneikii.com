@@ -1,0 +1,10 @@
+en:
+  activerecord:
+    attributes:
+      payment_method:
+        id: 'ID'
+        name: 'Payment Method Name'
+        account_number: 'Acount Number'
+        account_name: 'Acount Name'
+        created_at: 'Created at'
+        updated_at: 'Updated at'

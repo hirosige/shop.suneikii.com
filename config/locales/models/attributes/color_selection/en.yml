@@ -1,0 +1,9 @@
+en:
+  activerecord:
+    attributes:
+      color_selection:
+        id: 'ID'
+        color_id: 'Color'
+        good_id: 'Good'
+        created_at: 'Created at'
+        updated_at: 'Updated at'

@@ -17,6 +17,13 @@
 #
 
 class Good < ApplicationRecord
+  validates :name,        presence: true, length: { maximum: 255 }, uniqueness: true
+  validates :thumbnail,   presence: true
+  validates :price,       presence: true
+  validates :description, presence: true, length: { maximum: 255 }
+  validates :gender,      presence: true
+  validates :admin_memo,  presence: true, length: { maximum: 65535 }
+
   has_many :good_images
 
   has_many :collection_connections
@@ -58,4 +65,5 @@ class Good < ApplicationRecord
     end
   end
 
+  mount_uploader :thumbnail, GoodImagesUploader
 end

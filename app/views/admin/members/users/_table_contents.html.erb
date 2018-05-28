@@ -1,20 +1,49 @@
-<% users.each do |user| %>
-    <tr>
-      <td>
-        <h4 class="ui image header">
-          <div class="content">
-            <div class="sub header">
-              <a class="ui blue image large label">
-                <img src="https://kotobank.jp/image/dictionary/nipponica/media/81306024014516.jpg">
-                <%= user.name %>
-                <div class="detail"><%= user.role.capitalize %></div>
-              </a>
-
-            </div>
+<% users.each_with_index do |user, i| %>
+  <div class="ui styled fluid accordion">
+    <div class="title <%= "active" if i === 0 %>">
+      <i class="dropdown icon"></i>
+      <a class="ui blue image label">
+        <img src="https://static.curazy.com/wp-content/uploads/2014/06/136499596.jpg">
+        <%= user.first_name %> <%= user.last_name %>
+        <div class="detail"><%= user.who_are_you %></div>
+        <div class="detail"><<%= user.email %>></div>
+      </a>
+      <div class="ui labeled mini button" tabindex="0">
+        <div class="ui red mini button">
+          <i class="heart icon"></i> Like
+        </div>
+        <a class="ui basic red left pointing label">
+          1,048
+        </a>
+      </div>
+      <div class="ui labeled mini button" tabindex="0">
+        <div class="ui basic blue mini button">
+          <i class="fork icon"></i> Thanks
+        </div>
+        <a class="ui basic left pointing blue label">
+          1,048
+        </a>
+      </div>
+      <button class="ui red mini button">
+        <i class="trash icon"></i> Delete
+      </button>
+    </div>
+    <div class="<%= "active" if i === 0 %> content">
+      <div class="ui fitted divider"></div>
+      <p class="transition visible" style="display: block !important;">
+        <div class="ui segments">
+          <div class="ui segment">
+            <p>Tags</p>
           </div>
-        </h4></td>
-      <td><%= user.email %> <a class="ui teal tag label"><%= user.your_id_sign %></a></td>
-      <td><%= user.sign_in_count %></td>
-      <td><%= user.current_sign_in_ip %></td>
-    </tr>
+          <div class="ui segments">
+            <a class="ui red label" style="margin: 10px;">Later</a>
+            <a class="ui red label" style="margin: 10px;">Later</a>
+          </div>
+          <div class="ui segment">
+            <p>Activities</p>
+          </div>
+        </div>
+      </p>
+    </div>
+  </div>
 <% end %>

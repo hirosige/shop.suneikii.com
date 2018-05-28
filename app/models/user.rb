@@ -21,6 +21,7 @@
 #  updated_at             :datetime         not null
 #  uid                    :string(255)
 #  provider               :string(255)
+#  shopper_id             :integer
 #  role                   :string(255)      default("customer"), not null
 #
 # Indexes
@@ -73,11 +74,11 @@ class User < ApplicationRecord
 
     unless user
       user = User.new(
-        uid:      auth.uid,
+        uid: auth.uid,
         provider: auth.provider,
-        email:    User.dummy_email(auth),
+        email: User.dummy_email(auth),
         password: Devise.friendly_token[0, 20],
-        role:     :customer
+        role: :customer
       )
       user.build_profile
       user.save
@@ -88,15 +89,15 @@ class User < ApplicationRecord
 
   def self.create_oauth_user(auth, name)
     user = User.new(
-      uid:      auth.uid,
-      name:     name,
+      uid: auth.uid,
       provider: auth.provider,
-      email:    User.dummy_email(auth),
+      email: User.dummy_email(auth),
       password: Devise.friendly_token[0, 20],
       role: :customer
     )
 
     user.build_profile
+    user.profile.first_name = name
     user.save
 
     user

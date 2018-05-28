@@ -1,0 +1,10 @@
+ja:
+  activerecord:
+    attributes:
+      cart:
+        id: 'ID'
+        total_amount: 'Total Amount'
+        status: 'Status'
+        user_id: 'User'
+        created_at: 'Created at'
+        updated_at: 'Updated at'

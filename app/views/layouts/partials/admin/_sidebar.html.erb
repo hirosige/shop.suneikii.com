@@ -8,7 +8,7 @@
 <a class="ui item big label">
   <img class="ui right spaced avatar image" src="https://iwiz-chie.c.yimg.jp/im_sigggAecvxPpdhW7zACP6RAfKw---x320-y320-exp5m-n1/d/iwiz-chie/que-14179404119">
   Welcom,
-  <p style="margin-top: 10px;">Mr, <%= current_user.name %></p>
+  <p style="margin-top: 10px;">Mr, ダミー</p>
 </a>
 
 <div class="item">
@@ -26,6 +26,13 @@
   $(function() {
     $('.ui.dropdown')
       .dropdown()
+    ;
+
+    $('.visible.example .ui.sidebar')
+      .sidebar({
+        context: '.visible.example .bottom.segment'
+      })
+      .sidebar('hide')
     ;
 
     $('#side-menu').click(function() {

@@ -13,7 +13,6 @@
 #  email               :string(255)
 #  status              :integer
 #  memo                :text(65535)
-#  user_id             :integer
 #  created_at          :datetime         not null
 #  updated_at          :datetime         not null
 #

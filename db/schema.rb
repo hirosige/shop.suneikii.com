@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 20180215140721) do
   end
 
   create_table "collections", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
     t.datetime "start_at"
     t.datetime "end_at"
     t.decimal "discount_rate", precision: 5, scale: 2
@@ -121,14 +122,14 @@ ActiveRecord::Schema.define(version: 20180215140721) do
   create_table "order_details", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "order_id"
     t.integer "good_id"
-    t.integer "qty"
-    t.decimal "sub_total", precision: 10, scale: 2
+    t.integer "pts"
+    t.decimal "sub_amount", precision: 10, scale: 2
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "orders", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.datetime "ordered_on"
+    t.datetime "ordered_at"
     t.integer "user_id"
     t.string "payment_status"
     t.string "fulfillment_status"
@@ -216,7 +217,6 @@ ActiveRecord::Schema.define(version: 20180215140721) do
     t.string "email"
     t.integer "status"
     t.text "memo"
-    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -280,6 +280,7 @@ ActiveRecord::Schema.define(version: 20180215140721) do
     t.datetime "updated_at", null: false
     t.string "uid"
     t.string "provider"
+    t.integer "shopper_id"
     t.string "role", default: "customer", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

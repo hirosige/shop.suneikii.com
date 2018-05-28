@@ -14,6 +14,7 @@ class Cart < ApplicationRecord
   validates :user_id, presence: true
 
   has_many :cart_contents
+  belongs_to :user
 
   state_machine :status, initial: :active do
     state :active
@@ -24,14 +25,21 @@ class Cart < ApplicationRecord
     end
   end
 
+  def size
+    cart_contents.size
+  end
+
+  def contents(index)
+    cart_contents[index]
+  end
+
   def add_item(good_id)
-    cart_contents.build(
-      good_id: good_id,
-      pts: 1,
-      sub_amount: 0.0
-    )
+    cart_contents.build( good_id: good_id, pts: 1, sub_amount: 0.0)
 
     cart_contents.each(&:calc_sub_amount)
+    calc_total
+
+    save
   end
 
   def remove_item(cart_content_id)
@@ -39,9 +47,18 @@ class Cart < ApplicationRecord
     reload
   end
 
-  def change_quantity(cart_content_id, quantity)
-    cart_contents.map do |item|
-      item.change_quantity(quantity) if item.id == cart_content_id
-    end
+  def change_pts(params)
+    cart_content = CartContent.find(params[:id])
+    cart_content.change_pts(params[:pts])
+
+    cart_contents.each(&:reload)
+    calc_total
+
+    save
+  end
+
+
+  def calc_total
+    self.total_amount = cart_contents.sum { |attr| attr[:sub_amount]}
   end
 end

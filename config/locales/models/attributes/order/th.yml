@@ -1,0 +1,16 @@
+th:
+  activerecord:
+    attributes:
+      order:
+        id: 'ID'
+        ordered_on: 'Ordered on'
+        user_id: 'User'
+        payment_status: 'Payment Status'
+        fulfillment_status: 'Fulfillment Status'
+        total_amount: 'Total Amount'
+        shipping_cost: 'Shipping Cost'
+        tax: 'Tax'
+        note: 'Note'
+        tracking_no: 'Tracking No'
+        created_at: 'Created at'
+        updated_at: 'Updated at'

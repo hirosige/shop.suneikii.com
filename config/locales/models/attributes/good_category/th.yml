@@ -1,0 +1,8 @@
+th:
+  activerecord:
+    attributes:
+      goods_category:
+        id: 'ID'
+        name: 'Category Name'
+        created_at: 'Created at'
+        updated_at: 'Updated at'

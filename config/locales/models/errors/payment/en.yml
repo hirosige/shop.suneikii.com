@@ -1,0 +1,10 @@
+en:
+  activerecord:
+    errors:
+      models:
+        payment:
+          attributes:
+            order_id:
+            payment_method_id:
+            evidence:
+            paid_at:

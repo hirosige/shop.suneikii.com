@@ -11,4 +11,7 @@
 #
 
 class Distributor < ApplicationRecord
+  validates :name,    presence: true, length: { maximum: 255 }, uniqueness: true
+  validates :tel,     presence: true, length: { maximum: 255 }
+  validates :address, presence: true, length: { maximum: 255 }
 end

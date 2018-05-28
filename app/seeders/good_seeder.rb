@@ -14,8 +14,8 @@ class GoodSeeder < ApplicationSeeder
 
     @pts.times do
       model = @model.new(
-        goods_category_id: 1,
-        shopper_id:        1,
+        goods_category_id: GoodsCategory.all.sample.id,
+        shopper_id:        Shopper.all.sample.id,
         name:              Faker::Coffee.blend_name,
         thumbnail:         '',
         price:             20000.0,

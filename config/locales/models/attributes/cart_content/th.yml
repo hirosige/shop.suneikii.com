@@ -1,0 +1,11 @@
+th:
+  activerecord:
+    attributes:
+      cart_content:
+        id: 'ID'
+        good_id: 'Good'
+        pts: 'Pts'
+        sub_amount: 'Sub Amount'
+        cart_id: 'Cart'
+        created_at: 'Created at'
+        updated_at: 'Updated at'

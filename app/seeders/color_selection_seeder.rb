@@ -14,8 +14,8 @@ class ColorSelectionSeeder < ApplicationSeeder
 
     @pts.times do
       model = @model.new(
-        color_id: 1,
-        good_id:  1
+        color_id: Color.all.sample.id,
+        good_id:  Good.all.sample.id
       )
 
       model.save if @model.validate

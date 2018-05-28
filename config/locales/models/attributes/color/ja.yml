@@ -1,0 +1,8 @@
+ja:
+  activerecord:
+    attributes:
+      color:
+        id: 'ID'
+        name: 'Color Name'
+        created_at: 'Created at'
+        updated_at: 'Updated at'

@@ -1,9 +1,9 @@
 module ApplicationHelper
   LOCALE = {
-      :ja => '日本語',
-      :en => 'English',
-      :th => 'ไทย',
-      :zh => '中文'
+    ja: '日本語',
+    en: 'English',
+    th: 'ไทย',
+    zh: '中文'
   }
 
   def i18n_url_for(options)

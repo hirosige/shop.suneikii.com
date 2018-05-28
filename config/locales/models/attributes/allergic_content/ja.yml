@@ -1,0 +1,9 @@
+ja:
+  activerecord:
+    attributes:
+      allergic_content:
+        id: 'ID'
+        ingredient_id: 'Ingredient'
+        good_id: 'Good'
+        created_at: 'Created at'
+        updated_at: 'Created at'

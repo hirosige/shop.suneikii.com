@@ -1,0 +1,8 @@
+ja:
+  activerecord:
+    errors:
+      models:
+        size_selection:
+          attributes:
+            size_id:
+            good_id:

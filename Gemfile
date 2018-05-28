@@ -46,6 +46,8 @@ gem "unicode-display_width"
 
 gem 'rmagick'
 gem 'mini_magick'
+gem 'thinreports'
+gem 'thinreports-rails'
 
 gem 'draper'
 gem 'cells'
@@ -77,15 +79,21 @@ gem 'faker'
 gem 'bootsnap', require: false
 gem 'semantic-ui-sass', git: 'https://github.com/doabit/semantic-ui-sass.git'
 
+gem 'email_validator'
+gem 'date_validator'
+gem 'validates_timeliness'
+
+
 group :development, :test do
   gem 'byebug'
 
-  gem "rspec-rails"
+  gem 'rspec-rails', '~> 3.7'
   gem "shoulda-matchers"
   gem "factory_bot_rails"
 
   gem "capybara"
   gem 'database_cleaner'
+  gem 'timecop'
 end
 
 group :development do

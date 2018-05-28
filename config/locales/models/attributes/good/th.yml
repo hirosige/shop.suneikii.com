@@ -1,0 +1,16 @@
+th:
+  activerecord:
+    attributes:
+      good:
+        id: 'ID'
+        shopper_id: 'Shopper'
+        goods_category_id: 'Goods category'
+        name: 'Goods Name'
+        thumbnail: 'Thumbnail'
+        price: 'Price'
+        description: 'Description'
+        gender: 'Gender'
+        admin_memo: 'Admin Memo'
+        status: 'Status'
+        created_at: 'Created at'
+        updated_at: 'Updated at'

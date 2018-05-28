@@ -1,0 +1,22 @@
+th:
+  activerecord:
+    errors:
+      models:
+        collection:
+          attributes:
+            name:
+              blank: 'cant be blank'
+              too_long: 'is too long (maximum is 255 characters)'
+              taken: 'has already been taken'
+            start_at:
+              blank: 'cant be blank'
+              invalid_datetime: 'is not a datetime'
+              on_or_after: 'must be future date'
+            end_at:
+              blank: 'cant be blank'
+              invalid_datetime: 'is not a datetime'
+              after: 'must be after Start at'
+            discount_rate:
+              blank: 'cant be blank'
+              not_a_number: 'is not a number'
+            status:

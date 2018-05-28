@@ -1,0 +1,11 @@
+ja:
+  activerecord:
+    attributes:
+      payment:
+        id: 'ID'
+        order_id: 'Order'
+        payment_method_id: 'Payment Method'
+        evidence: 'Evidence'
+        paid_at: 'Paid at'
+        created_at: 'Created at'
+        updated_at: 'Updated at'

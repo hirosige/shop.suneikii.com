@@ -11,7 +11,6 @@ class CreateShoppers < ActiveRecord::Migration[5.0]
       t.string :email
       t.integer :status
       t.text :memo
-      t.integer :user_id
 
       t.timestamps null: false
     end

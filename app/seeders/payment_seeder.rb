@@ -14,8 +14,8 @@ class PaymentSeeder < ApplicationSeeder
 
     @pts.times do
       model = @model.new(
-        order_id: 1,
-        payment_method_id: 1,
+        order_id: Order.all.sample.id,
+        payment_method_id: PaymentMethod.all.sample.id,
         evidence: 'test',
         paid_at: Time.zone.today
       )

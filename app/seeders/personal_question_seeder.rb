@@ -16,7 +16,7 @@ class PersonalQuestionSeeder < ApplicationSeeder
       model = @model.new(
         title: 'test',
         description: 'teasfasdf',
-        user_id: 1,
+        user_id: User.all.sample.id,
         answer: 'test'
       )
 

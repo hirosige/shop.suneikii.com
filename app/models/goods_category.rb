@@ -9,7 +9,7 @@
 #
 
 class GoodsCategory < ApplicationRecord
-  has_many :goods
+  validates :name, presence: true, length: { maximum: 255 }
 
-  validates :name, presence: true
+  has_many :goods
 end

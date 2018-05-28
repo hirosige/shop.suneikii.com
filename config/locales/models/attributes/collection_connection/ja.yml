@@ -1,0 +1,9 @@
+ja:
+  activerecord:
+    attributes:
+      collection_connection:
+        id: 'ID'
+        collection_id: 'Collection'
+        good_id: 'Good'
+        created_at: 'Created at'
+        updated_at: 'Updated at'
