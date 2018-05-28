@@ -1,33 +1,55 @@
 <% @users.title(t('admin.users.title')) %>
 
-<h4 class="ui horizontal divider header" style="margin: 20px 0;">
-  <i class="tag icon"></i>
-  Users
-</h4>
+
+<div class="ui success message">
+  <i class="close icon"></i>
+  <div class="header">
+    Your user registration was successful.
+  </div>
+  <p>You may now log-in with the username you have chosen</p>
+</div>
 
 <%= render :partial => 'search_form', :locals => {q: @q} %>
 
-<%= render 'pagination' %>
-
-<h3 class="ui top attached header">
-  <%= t('admin.users.title') %>
-
-</h3>
-<div class="ui attached segment">
-  <table class="ui very basic collapsing celled table">
-    <thead>
-    <th><%= AttrValue.attr('profile.first_name') %></th>
-    <th><%= sort_link(@q, :email, AttrValue.attr('user.email')) %></th>
-    <th><%= sort_link(@q, :login_ct, AttrValue.attr('user.sign_in_count')) %></th>
-    <th><%= sort_link(@q, :current_ip, AttrValue.attr('user.current_sign_in_ip')) %></th>
-    </thead>
-    <tbody>
-      <%= render :partial => 'table_contents', :locals => { users: @users } %>
-    </tbody>
-  </table>
+<br>
+<div class="ui fluid icon action input">
+  <input type="text" placeholder="Search...">
+  <select class="ui compact selection dropdown">
+    <option value="all">Equals</option>
+    <option selected="" value="articles">Like</option>
+    <option value="products">Email</option>
+  </select>
+  <select class="ui compact selection dropdown">
+    <option value="all">First Name</option>
+    <option selected="" value="articles">Last Name</option>
+    <option value="products">Email</option>
+  </select>
+  <button class="ui button">Search</button>
 </div>
-<h3 class="ui bottom attached header">
-  Footer
-</h3>
+<br>
+
+<div class="ui container">
+  <div class="ui image label">
+    First Name is Hiroshige
+    <i class="delete icon"></i>
+  </div>
+  <div class="ui image label">
+    Last Name is Negishi
+    <i class="delete icon"></i>
+  </div>
+</div>
+
+<br>
+<div class="ui attached segment">
+  <div class="ui tabular menu">
+    <a class="item active">
+      Users
+    </a>
+  </div>
+  <%= render :partial => 'table_contents', :locals => { users: @users } %>
+</div>
+<!--<h3 class="ui bottom attached header">-->
+
+<!--</h3>-->
 
 <%= render 'pagination' %>

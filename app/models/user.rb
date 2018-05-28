@@ -90,7 +90,6 @@ class User < ApplicationRecord
   def self.create_oauth_user(auth, name)
     user = User.new(
       uid: auth.uid,
-      name: name,
       provider: auth.provider,
       email: User.dummy_email(auth),
       password: Devise.friendly_token[0, 20],
@@ -98,6 +97,7 @@ class User < ApplicationRecord
     )
 
     user.build_profile
+    user.profile.first_name = name
     user.save
 
     user

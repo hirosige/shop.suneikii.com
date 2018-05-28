@@ -27,37 +27,23 @@ class Order < ApplicationRecord
 
   state_machine :payment_status, :initial => :pending do
     state :pending
-    state :processing
     state :paid
-    state :declined
-    state :approved
-    state :distributed
     state :canceled
+    state :sent
+    state :distributed
 
     after_transition on: :prepare, do: :make_payment
 
-    event :prepare do
-      transition from: :pending, to: :processing
-    end
-
     event :pay do
-      transition from: :processing, to: :paid
-    end
-
-    event :decline do
-      transition from: :paid, to: :declined
-    end
-
-    event :approve do
-      transition from: :paid, to: :approved
-    end
-
-    event :distribute do
-      transition from: :approved, to: :distributed
+      transition from: :pending, to: :paid
     end
 
     event :cancel do
-      transition from: any, to: :canceled
+      transition from: :pending, to: :canceled
+    end
+
+    event :send do
+      transition from: :paid, to: :distributed
     end
   end
 
