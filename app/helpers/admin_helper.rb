@@ -1,93 +1,28 @@
 module AdminHelper
+  def active? (action)
+    utilize_action = -> (act) {  act.split('/').reject {|item| item == 'admin'}.join('/') }
 
-  def render_menu
-    # Initialize Menu
-    @menu = MenuService.new
+    target_action = utilize_action.call(action)
+    current_action = utilize_action.call(params[:controller])
 
-    # Home
-    home = CategoryService.new({
-      name: 'Home',
-      controller: params[:controller]
-    })
+    if target_action == current_action
+      "active"
+    end
+  end
 
-    home.add(ItemService.new({
-      name: 'Settings',
-      controller: params[:controller],
-      link: ''
-    }))
+  def active_module? (members)
+    module_index = 1
 
-    # Members
-    members = CategoryService.new({
-      name: 'Members',
-      controller: params[:controller]
-    })
+    utilize_action = -> (act) {  act.split('/')[module_index] }
+    current_action = utilize_action.call(params[:controller])
 
-    members.add(ItemService.new({
-      name: 'Users',
-      controller: params[:controller],
-      link: admin_users_path
-    }))
+    if members == current_action
+      "active"
+    end
+  end
 
-    # Products
-    products = CategoryService.new({
-      name: 'Products',
-      controller: params[:controller]
-    })
-
-    products.add(ItemService.new({
-      name: 'Goods',
-      controller: params[:controller],
-      link: admin_goods_path
-    }))
-
-    products.add(ItemService.new({
-      name: 'GoodsCategories',
-      controller: params[:controller],
-      link: admin_goods_categories_path
-    }))
-
-    products.add(ItemService.new({
-      name: 'Colors',
-      controller: params[:controller],
-      link: admin_colors_path
-    }))
-
-    products.add(ItemService.new({
-      name: 'Ingredients',
-      controller: params[:controller],
-      link: admin_ingredients_path
-    }))
-
-    products.add(ItemService.new({
-      name: 'Ingredients',
-      controller: params[:controller],
-      link: admin_ingredients_path
-    }))
-
-    products.add(ItemService.new({
-      name: 'Sizes',
-      controller: params[:controller],
-      link: admin_sizes_path
-    }))
-
-    # Dealings
-    dealings = CategoryService.new({
-      name: 'Dealings',
-      controller: params[:controller]
-    })
-
-    dealings.add(ItemService.new({
-      name: 'Orders',
-      controller: params[:controller],
-      link: admin_orders_path
-    }))
-
-    # Set Categories
-    @menu.add(home)
-    @menu.add(products)
-    @menu.add(dealings)
-    @menu.add(members)
-
-    @menu.show.html_safe
+  def get_action
+    controller_index = 2
+    params[:controller].split('/')[controller_index].capitalize
   end
 end

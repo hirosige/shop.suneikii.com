@@ -1,0 +1,23 @@
+.ui.styled.accordion .active.title {
+  background: #A333C8;
+  color: #ffffff;
+}
+
+.ui.styled.accordion .title {
+   color: rgba(0, 0, 0, 0.87);
+ }
+
+.ui.styled.accordion .title:hover {
+  background: #A333C8;
+  color: #ffffff;
+}
+
+.ui.styled.accordion .content .item:hover {
+  background: #A333C8;
+  color: #ffffff;
+}
+
+.ui.styled.accordion .content .active.item {
+  background: #A333C8;
+  color: #ffffff;
+}

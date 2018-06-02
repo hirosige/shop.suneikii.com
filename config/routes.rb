@@ -240,6 +240,10 @@ Rails.application.routes.draw do
           member do
             get 'toggle_ban'
           end
+
+          collection do
+            get 'condition'
+          end
         end
       end
 

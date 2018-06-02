@@ -1,33 +1,11 @@
-<script>
-  $(function() {
-    $('.ui.accordion')
-      .accordion()
-    ;
-  });
-</script>
-<div class="ui styled fluid accordion">
-  <div class="title">
-    <i class="dropdown icon"></i>
-    <div class="ui large label">
-      <i class="search icon"></i> Search
-    </div>
-  </div>
-  <div class="content">
-    <%= search_form_for [:admin, q], :class => 'ui form' do |f| %>
-        <h4 class="ui dividing header">Search Conditions</h4>
-
-        <div class="field">
-
-          <div class="two fields">
-            <div class="field">
-              <%= f.label :email_start, "Email" %>
-              <%= f.search_field :email_cont, :placeholder => 'Email' %>
-            </div>
-          </div>
-        </div>
-
-        <%= f.submit :class => 'ui button' %>
+<div class="ui fluid icon action input loading" id="search-form">
+  <input id="search-text" type="text" placeholder="Search...">
+  <select id="search-column" class="ui compact selection dropdown">
+    <% UserDecorator.search_conditions.each do |condition| %>
+      <option value="<%= condition[:column] %>" data-type="<%= condition[:type] %>">
+        <%= condition[:name] %>
+      </option>
     <% end %>
-  </div>
+  </select>
+  <button id="search" class="ui purple button focus">Search</button>
 </div>
-

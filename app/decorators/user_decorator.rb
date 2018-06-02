@@ -6,7 +6,7 @@ class UserDecorator < Draper::Decorator
   end
 
   def who_are_you
-    h.current_user.role.capitalize
+    model.role.capitalize
   end
 
   def first_name
@@ -19,5 +19,13 @@ class UserDecorator < Draper::Decorator
 
   def blacklisted?
     'checked' if model.blacklist_flg
+  end
+
+  def self.search_conditions
+    conditions = []
+    conditions.push({ column: 'profile_first_name', type: 'input',  name: 'First Name' })
+    conditions.push({ column: 'profile_last_name',  type: 'input',  name: 'Last Name' })
+    conditions.push({ column: 'email',              type: 'input',  name: 'Email' })
+    conditions.push({ column: 'role',               type: 'select', name: 'Role' })
   end
 end

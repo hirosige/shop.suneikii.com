@@ -1,49 +1,25 @@
-<% users.each_with_index do |user, i| %>
-  <div class="ui styled fluid accordion">
-    <div class="title <%= "active" if i === 0 %>">
-      <i class="dropdown icon"></i>
-      <a class="ui blue image label">
-        <img src="https://static.curazy.com/wp-content/uploads/2014/06/136499596.jpg">
-        <%= user.first_name %> <%= user.last_name %>
-        <div class="detail"><%= user.who_are_you %></div>
-        <div class="detail"><<%= user.email %>></div>
-      </a>
-      <div class="ui labeled mini button" tabindex="0">
-        <div class="ui red mini button">
-          <i class="heart icon"></i> Like
-        </div>
-        <a class="ui basic red left pointing label">
-          1,048
-        </a>
-      </div>
-      <div class="ui labeled mini button" tabindex="0">
-        <div class="ui basic blue mini button">
-          <i class="fork icon"></i> Thanks
-        </div>
-        <a class="ui basic left pointing blue label">
-          1,048
-        </a>
-      </div>
-      <button class="ui red mini button">
-        <i class="trash icon"></i> Delete
-      </button>
-    </div>
-    <div class="<%= "active" if i === 0 %> content">
-      <div class="ui fitted divider"></div>
-      <p class="transition visible" style="display: block !important;">
-        <div class="ui segments">
-          <div class="ui segment">
-            <p>Tags</p>
+<table class="ui very basic collapsing celled table">
+  <thead>
+  <tr><th>User</th>
+    <th>Email Address</th>
+  </tr></thead>
+  <tbody>
+  <% @users.each_with_index do |user, i| %>
+    <tr>
+      <td>
+        <h4 class="ui image header">
+          <img src="http://img06.shop-pro.jp/PA01137/578/product/68035427.jpg?cmsp_timestamp=20160205104852" class="ui mini rounded image">
+          <div class="content">
+            <%= user.first_name %> <%= user.last_name %>
+            <div class="sub header">
+              <div class="ui mini violet label" style="margin-top: 5px;"><%= user.who_are_you %></div>
+            </div>
           </div>
-          <div class="ui segments">
-            <a class="ui red label" style="margin: 10px;">Later</a>
-            <a class="ui red label" style="margin: 10px;">Later</a>
-          </div>
-          <div class="ui segment">
-            <p>Activities</p>
-          </div>
-        </div>
-      </p>
-    </div>
-  </div>
-<% end %>
+        </h4></td>
+      <td>
+        <%= user.email %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

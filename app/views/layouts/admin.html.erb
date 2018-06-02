@@ -15,10 +15,15 @@
     <%= render 'layouts/partials/admin/sidebar' %>
   </div>
   <div class="pusher">
-    <%= render 'layouts/partials/admin/header' %>
 
-    <div class="ui container">
-      <%= yield %>
+    <div class="ui grid container">
+      <div class="four wide attached column">
+        <%= render 'layouts/partials/admin/sidebar' %>
+      </div>
+      <div class="twelve wide stretched attached column" style="margin-left: 0;">
+        <%= render 'layouts/partials/admin/header' %>
+        <%= yield %>
+      </div>
     </div>
   </div>
 </body>

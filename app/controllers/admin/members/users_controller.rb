@@ -3,12 +3,17 @@ class Admin::Members::UsersController < AdminController
   before_action :set_breadcrumps_base
 
   def index
-    @q = User.search(params[:q])
+    @q = User.ransack(params[:q])
+
     @users = UsersDecorator.decorate(
         UserDecorator.decorate_collection(
-            @q.result.accessible_by(current_ability).page(params[:page])
+            @q.result.includes(:profile).accessible_by(current_ability).page(params[:page])
         )
     )
+
+    if request.xhr?
+      render partial: 'contents'
+    end
   end
 
   def show
@@ -31,9 +36,18 @@ class Admin::Members::UsersController < AdminController
     end
   end
 
+  def condition
+    @condition = params[:condition]
+    render partial: 'admin/members/users/html/condition'
+  end
+
   private
     def set_user
       @user = User.find(params[:id])
+    end
+
+    def search_params
+      params.require(:q).permit(:email_cont)
     end
 
     def set_breadcrumps_base

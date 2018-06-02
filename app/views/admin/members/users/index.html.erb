@@ -1,42 +1,19 @@
 <% @users.title(t('admin.users.title')) %>
 
-
-<div class="ui success message">
-  <i class="close icon"></i>
-  <div class="header">
-    Your user registration was successful.
+<div id="notifications">
+  <div class="ui success message">
+    <i class="close icon" id="delete"></i>
+    <div class="header">
+      Your user registration was successful.
+    </div>
+    <p>You may now log-in with the username you have chosen</p>
   </div>
-  <p>You may now log-in with the username you have chosen</p>
 </div>
 
-<%= render :partial => 'search_form', :locals => {q: @q} %>
-
 <br>
-<div class="ui fluid icon action input">
-  <input type="text" placeholder="Search...">
-  <select class="ui compact selection dropdown">
-    <option value="all">Equals</option>
-    <option selected="" value="articles">Like</option>
-    <option value="products">Email</option>
-  </select>
-  <select class="ui compact selection dropdown">
-    <option value="all">First Name</option>
-    <option selected="" value="articles">Last Name</option>
-    <option value="products">Email</option>
-  </select>
-  <button class="ui button">Search</button>
-</div>
-<br>
+<%= render :partial => 'search_form' %>
 
-<div class="ui container">
-  <div class="ui image label">
-    First Name is Hiroshige
-    <i class="delete icon"></i>
-  </div>
-  <div class="ui image label">
-    Last Name is Negishi
-    <i class="delete icon"></i>
-  </div>
+<div id="search-conditions" class="ui container" style="margin-top: 10px;">
 </div>
 
 <br>
@@ -46,10 +23,10 @@
       Users
     </a>
   </div>
-  <%= render :partial => 'table_contents', :locals => { users: @users } %>
+  <div id="users-contents">
+    <%= render 'contents' %>
+  </div>
 </div>
-<!--<h3 class="ui bottom attached header">-->
+<h3 class="ui bottom attached header">
 
-<!--</h3>-->
-
-<%= render 'pagination' %>
+</h3>

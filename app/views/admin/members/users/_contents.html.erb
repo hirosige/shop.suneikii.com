@@ -1,0 +1,9 @@
+<div class="ui segment" id="table-contents">
+<% unless @users.blank? %>
+  <%= render :partial => 'table_contents' %>
+<% else %>
+  <%= render :partial => 'admin/shared/no_data_found' %>
+<% end %>
+</div>
+
+<%= paginate(@users) %>
