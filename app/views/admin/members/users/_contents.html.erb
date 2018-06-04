@@ -1,4 +1,4 @@
-<div class="ui segment" id="table-contents">
+<div class="ui segment" id="users-table-contents">
 <% unless @users.blank? %>
   <%= render :partial => 'table_contents' %>
 <% else %>
@@ -6,4 +6,6 @@
 <% end %>
 </div>
 
-<%= paginate(@users) %>
+<div id="users-pagination">
+  <%= paginate(@users) %>
+</div>

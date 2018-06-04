@@ -20,4 +20,3 @@
 //= require gmaps/google
 //= require flash.js
 //= require swiper
-//= require_tree ./pages

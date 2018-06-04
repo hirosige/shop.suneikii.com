@@ -11,6 +11,8 @@ class Admin::Members::UsersController < AdminController
         )
     )
 
+    gon.conditions = UserDecorator.search_conditions
+
     if request.xhr?
       render partial: 'contents'
     end

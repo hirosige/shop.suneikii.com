@@ -14,9 +14,11 @@ gem 'momentjs-rails'
 gem 'bootstrap-datetimepicker-rails'
 
 gem 'jquery-rails'
-gem 'turbolinks'
+# gem 'turbolinks'
+# gem 'jquery-turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'gon'
 
 gem 'execjs'
 gem 'devise'

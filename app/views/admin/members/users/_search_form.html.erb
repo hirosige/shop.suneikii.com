@@ -1,11 +1,11 @@
-<div class="ui fluid icon action input loading" id="search-form">
-  <input id="search-text" type="text" placeholder="Search...">
-  <select id="search-column" class="ui compact selection dropdown">
+<div class="ui fluid icon action input loading" id="users-search-form">
+  <input id="users-search-text" type="text" placeholder="Search...">
+  <select id="users-search-column" class="ui compact selection dropdown">
     <% UserDecorator.search_conditions.each do |condition| %>
       <option value="<%= condition[:column] %>" data-type="<%= condition[:type] %>">
         <%= condition[:name] %>
       </option>
     <% end %>
   </select>
-  <button id="search" class="ui purple button focus">Search</button>
+  <button id="users-search" class="ui purple button focus">Search</button>
 </div>

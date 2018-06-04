@@ -12,9 +12,11 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require cocoon
 //= require underscore-min
 //= require gmaps/google
 //= require semantic-ui
-//= require_tree ./admin
+//= require common.js
+//= require_tree ./view_objects
+//= require_tree ./actions
+//= require_tree ./events

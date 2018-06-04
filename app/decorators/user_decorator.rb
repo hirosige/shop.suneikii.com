@@ -23,9 +23,17 @@ class UserDecorator < Draper::Decorator
 
   def self.search_conditions
     conditions = []
-    conditions.push({ column: 'profile_first_name', type: 'input',  name: 'First Name' })
-    conditions.push({ column: 'profile_last_name',  type: 'input',  name: 'Last Name' })
-    conditions.push({ column: 'email',              type: 'input',  name: 'Email' })
-    conditions.push({ column: 'role',               type: 'select', name: 'Role' })
+
+    role_selection = [
+        { column: 'customer', name: 'Customer'},
+        { column: 'staff',    name: 'Staff'},
+        { column: 'provider', name: 'Provider'},
+        { column: 'admin',    name: 'Admin'}
+    ]
+
+    conditions.push({ column: 'profile_first_name', type: 'input',  name: 'First Name', select: '' })
+    conditions.push({ column: 'profile_last_name',  type: 'input',  name: 'Last Name',  select: '' })
+    conditions.push({ column: 'email',              type: 'input',  name: 'Email',      select: '' })
+    conditions.push({ column: 'role',               type: 'select', name: 'Role',       select: role_selection })
   end
 end

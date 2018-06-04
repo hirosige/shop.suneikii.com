@@ -1,5 +1,5 @@
 <% if page.current? %>
     <%= content_tag :a, page, :class => 'active teal item', remote: remote, rel: (page.next? ? 'next' : (page.prev? ? 'prev' : nil)) %>
 <% else %>
-    <%= link_to page, url, remote: remote, rel: (page.next? ? 'next' : (page.prev? ? 'prev' : nil)), :class => 'item' %>
+    <%= link_to page, '#', remote: remote, data: { page: page.to_s }, rel: (page.next? ? 'next' : (page.prev? ? 'prev' : nil)), :class => 'page item' %>
 <% end %>

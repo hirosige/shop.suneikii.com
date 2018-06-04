@@ -1,8 +1,11 @@
-<table class="ui very basic collapsing celled table">
+<table class="ui very basic collapsing fluid celled table">
   <thead>
-  <tr><th>User</th>
+  <tr>
+    <th>User</th>
     <th>Email Address</th>
-  </tr></thead>
+    <th>Detail</th>
+  </tr>
+  </thead>
   <tbody>
   <% @users.each_with_index do |user, i| %>
     <tr>
@@ -19,7 +22,40 @@
       <td>
         <%= user.email %>
       </td>
+      <td>
+        <button id="users-detail-<%= user.id %>" class="ui primary mini button">
+          Detail
+        </button>
+      </td>
     </tr>
   <% end %>
   </tbody>
 </table>
+
+<script>
+  $(function() {
+    $('#users-detail-102').on('click', function() {
+      alert('clicked');
+      $('.ui.modal').modal('show');
+    });
+  });
+</script>
+
+<div class="ui modal">
+  <i class="close icon"></i>
+  <div class="header">
+    Modal Title
+  </div>
+  <div class="image content">
+    <div class="image">
+      An image can appear on left or an icon
+    </div>
+    <div class="description">
+      A description can appear on the right
+    </div>
+  </div>
+  <div class="actions">
+    <div class="ui button">Cancel</div>
+    <div class="ui button">OK</div>
+  </div>
+</div>
