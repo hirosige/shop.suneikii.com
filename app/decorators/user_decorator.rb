@@ -17,6 +17,22 @@ class UserDecorator < Draper::Decorator
     model.profile.last_name unless model.profile.nil?
   end
 
+  def full_name
+    "#{self.first_name} #{self.last_name}"
+  end
+
+  def address1
+    model.profile.address1 unless model.profile.nil?
+  end
+
+  def address2
+    model.profile.address2 unless model.profile.nil?
+  end
+
+  def tel
+    model.profile.tel unless model.profile.nil?
+  end
+
   def blacklisted?
     'checked' if model.blacklist_flg
   end

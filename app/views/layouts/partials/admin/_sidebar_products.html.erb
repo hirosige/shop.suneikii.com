@@ -1,0 +1,13 @@
+<div class="<%= active_module?('products') %> title">
+  <i class="dropdown icon"></i>
+  Products
+</div>
+<div class="<%= active_module?('products') %> content">
+  <a href="<%= admin_goods_path %>" class="<%= active?('products/goods') %> item"><i class="edit icon"></i> Products</a>
+  <a class="<%= active?('products/sizes') %> item"><i class="globe icon"></i> Sizes</a>
+  <a class="<%= active?('products/colors') %> item"><i class="globe icon"></i> Colors</a>
+  <a class="<%= active?('products/ingredients') %> item"><i class="globe icon"></i> Contents</a>
+  <a class="<%= active?('products/goods_categories') %> item"><i class="globe icon"></i> Category</a>
+  <a class="<%= active?('products/reviews') %> item"><i class="globe icon"></i> Reviews</a>
+  <a class="<%= active?('products/collections') %> item"><i class="globe icon"></i> Collections</a>
+</div>

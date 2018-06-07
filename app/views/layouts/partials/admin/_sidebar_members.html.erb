@@ -1,0 +1,8 @@
+<div class="<%= active_module?('members') %> title">
+  <i class="dropdown icon"></i>
+  Members
+</div>
+<div class="<%= active_module?('members') %> content">
+  <a href="<%= admin_users_path %>" class="<%= active?('members/users') %> item"><i class="edit icon"></i> Users</a>
+  <a class="<%= active?('members/wishlists') %> item"><i class="globe icon"></i> Wishlists</a>
+</div>

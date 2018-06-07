@@ -1,1 +1,1 @@
-<%= link_to_unless current_page.first?, "<i class='angle left icon'></i>".html_safe, url, :rel => 'prev', :remote => remote, :class => 'item' %>
+<%= link_to_unless current_page.first?, "<i class='angle left icon'></i>".html_safe, '#', :rel => 'prev', :remote => remote, data: { page: (current_page - 1).to_s }, :class => 'page item' %>

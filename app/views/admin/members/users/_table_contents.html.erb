@@ -3,11 +3,12 @@
   <tr>
     <th>User</th>
     <th>Email Address</th>
+    <th>Current SignIn IP</th>
     <th>Detail</th>
   </tr>
   </thead>
   <tbody>
-  <% @users.each_with_index do |user, i| %>
+  <% @users.each do |user| %>
     <tr>
       <td>
         <h4 class="ui image header">
@@ -23,39 +24,19 @@
         <%= user.email %>
       </td>
       <td>
-        <button id="users-detail-<%= user.id %>" class="ui primary mini button">
-          Detail
-        </button>
+        <%= user.current_sign_in_ip %>
+      </td>
+      <td>
+        <div id="users-control">
+          <button class="ui primary mini button detail" data-id="<%= user.id %>">
+            Detail
+          </button>
+          <button class="ui red mini button delete" data-id="<%= user.id %>">
+            Delete
+          </button>
+        </div>
       </td>
     </tr>
   <% end %>
   </tbody>
 </table>
-
-<script>
-  $(function() {
-    $('#users-detail-102').on('click', function() {
-      alert('clicked');
-      $('.ui.modal').modal('show');
-    });
-  });
-</script>
-
-<div class="ui modal">
-  <i class="close icon"></i>
-  <div class="header">
-    Modal Title
-  </div>
-  <div class="image content">
-    <div class="image">
-      An image can appear on left or an icon
-    </div>
-    <div class="description">
-      A description can appear on the right
-    </div>
-  </div>
-  <div class="actions">
-    <div class="ui button">Cancel</div>
-    <div class="ui button">OK</div>
-  </div>
-</div>

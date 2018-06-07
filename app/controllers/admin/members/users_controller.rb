@@ -19,6 +19,9 @@ class Admin::Members::UsersController < AdminController
   end
 
   def show
+    if request.xhr?
+      render partial: 'show'
+    end
   end
 
   def toggle_ban
@@ -32,10 +35,15 @@ class Admin::Members::UsersController < AdminController
 
   def destroy
     @user.destroy
-    respond_to do |format|
-      format.html { redirect_to admin_users_url, notice: 'User was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+
+    @q = User.ransack(params[:q])
+
+    @users = UsersDecorator.decorate(
+        UserDecorator.decorate_collection(
+            @q.result.includes(:profile).accessible_by(current_ability).page(params[:page])
+        )
+    )
+    render partial: 'contents'
   end
 
   def condition
@@ -45,7 +53,7 @@ class Admin::Members::UsersController < AdminController
 
   private
     def set_user
-      @user = User.find(params[:id])
+      @user = UserDecorator.decorate(User.find(params[:id]))
     end
 
     def search_params
